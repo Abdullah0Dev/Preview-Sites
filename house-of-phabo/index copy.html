@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Phabo | Interior Design Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-color: #F7F6F3;
+            --bg-dark: #1C1C1A;
+            --bg-darker: #141413;
+            --text-main: #1A1A1A;
+            --text-light: #7A7A78;
+            --text-white: #FFFFFF;
+            --accent-color: #9A8A7A;
+            --border-color: rgba(26, 26, 26, 0.12);
+            --border-light: rgba(255, 255, 255, 0.15);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --font-script: 'Mrs Saint Delafield', cursive;
+            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text-light);
+            margin-bottom: 1.2rem;
+            display: block;
+            font-weight: 500;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- BUTTONS & LINKS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--text-main);
+            color: var(--text-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border-color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-main);
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-light-outline {
+            background-color: transparent;
+            color: var(--text-white);
+            border-color: var(--text-white);
+        }
+
+        .btn-light-outline:hover {
+            background-color: var(--text-white);
+            color: var(--text-main);
+            transform: translateY(-2px);
+        }
+
+        .link-arrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding-bottom: 4px;
+            border-bottom: 1px solid transparent;
+            position: relative;
+        }
+
+        .link-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: var(--transition);
+        }
+
+        .link-arrow:hover::after {
+            width: 100%;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            position: fixed;
+            background-color: rgba(28, 28, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            z-index: 1001;
+        }
+
+        .logo-script {
+            font-family: var(--font-script);
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: -5px;
+        }
+
+        .logo-sans {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-left: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: var(--text-white);
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            position: relative;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .header-cta {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: var(--text-white);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .header-cta:hover {
+            background-color: var(--text-white);
+            color: var(--text-main);
+            border-color: var(--text-white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0.1) 100%), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2500&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: var(--text-white);
+            padding-top: 5rem;
+        }
+
+        .hero-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            text-align: left;
+            margin-right: auto; /* Pushes content to the left */
+        }
+
+        .hero-content .section-label {
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 6.5vw, 5.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-white);
+            letter-spacing: -0.5px;
+            line-height: 1.05;
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            max-width: 480px;
+            margin-bottom: 3rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--text-white);
+            color: var(--text-main);
+            padding: 1.2rem 2.5rem;
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: var(--text-white);
+        }
+
+        .hero-buttons .link-arrow {
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+        }
+
+        .hero-buttons .link-arrow::after {
+            background-color: var(--text-white);
+        }
+
+        .hero-side-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            align-self: center;
+            margin-left: 2rem;
+        }
+
+        .hero-slider-dots {
+            position: absolute;
+            bottom: 3rem;
+            left: 5%;
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 1px;
+        }
+
+        .hero-slider-dots span {
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .hero-slider-dots span.active {
+            color: var(--text-white);
+            border-bottom: 1px solid var(--text-white);
+            padding-bottom: 2px;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            line-height: 1.1;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card .img-wrapper {
+            overflow: hidden;
+            margin-bottom: 2rem;
+            aspect-ratio: 4/5;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 0;
+            background-color: #EFECE6;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .about-img-wrapper {
+            height: 100%;
+            min-height: 800px;
+            background: url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .about-content-wrapper {
+            padding: 8rem 6rem 8rem 8rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-main-text h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .about-main-text p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 450px;
+            line-height: 1.8;
+        }
+
+        .about-decor {
+            border-left: 1px solid var(--border-color);
+            padding-left: 3rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            font-size: 3.5rem;
+            line-height: 1.1;
+            color: var(--text-light);
+            opacity: 0.9;
+            transform: rotate(-5deg);
+        }
+
+        /* --- PROCESS / FROM IDEA TO REALITY SECTION --- */
+        .process {
+            padding: 10rem 0;
+            background-color: var(--bg-color);
+        }
+
+        .process-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .process-content h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 2rem;
+        }
+
+        .process-content p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .process-img-wrapper {
+            padding: 1.5rem;
+            background-color: var(--text-white);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
+        }
+
+        .process-img-wrapper img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- FEATURED WORK / PROJECTS SECTION --- */
+        .projects {
+            padding: 8rem 0 10rem;
+            background-color: var(--bg-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card .img-wrapper {
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.4rem;
+            transition: var(--transition-fast);
+        }
+
+        .project-card:hover .project-info h4 {
+            color: var(--accent-color);
+        }
+
+        .project-info span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* --- TESTIMONIAL SECTION --- */
+        .testimonial {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .testimonial-text {
+            padding: 8rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--bg-darker);
+        }
+
+        .testimonial-text p {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            line-height: 1.4;
+            margin-bottom: 2.5rem;
+            color: var(--text-white);
+        }
+
+        .testimonial-text span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+        }
+
+        .testimonial-img {
+            background: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 400px;
+        }
+
+        .testimonial-cta {
+            padding: 8rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--bg-dark);
+        }
+
+        .testimonial-cta p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            max-width: 250px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-darker);
+            color: var(--text-white);
+            padding: 3rem 5%;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .footer-nav a {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 1px;
+        }
+
+        .footer-nav a:hover {
+            color: var(--text-white);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            color: rgba(255,255,255,0.6);
+            font-size: 1rem;
+            transition: var(--transition-fast);
+        }
+
+        .social-icons a:hover {
+            color: var(--text-white);
+            transform: translateY(-2px);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1200px) {
+            .services-grid, .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+            
+            .about-content-wrapper {
+                padding: 6rem 4rem;
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-decor {
+                border-left: none;
+                border-top: 1px solid var(--border-color);
+                padding-left: 0;
+                padding-top: 2rem;
+                justify-content: flex-start;
+            }
+            
+            .script-text {
+                transform: rotate(0deg);
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img-wrapper {
+                min-height: 600px;
+            }
+
+            .process-inner {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .testimonial {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-text, .testimonial-cta {
+                padding: 5rem 3rem;
+            }
+            
+            .testimonial-cta p {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul, .header-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 8rem;
+                min-height: auto;
+                padding-bottom: 6rem;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                align-items: flex-start; /* Keep left aligned */
+            }
+
+            .hero-content {
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+            }
+
+            .hero-side-text {
+                display: none;
+            }
+
+            .hero-slider-dots {
+                position: static;
+                margin-top: 4rem;
+                justify-content: flex-start;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .services-grid, .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .about-content-wrapper {
+                padding: 4rem 5%;
+            }
+
+            .process {
+                padding: 6rem 0;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 2.5rem;
+                text-align: center;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            /* Mobile Menu Overlay */
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-darker);
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                gap: 2.5rem;
+            }
+            
+            nav ul.active a {
+                font-size: 1.5rem;
+                font-family: var(--font-serif);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-script">House of Phabo</span>
+                <span class="logo-sans">Interiors</span>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="header-cta">Enquire &rarr;</a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content fade-in">
+                    <span class="section-label">Interior Design Studio</span>
+                    <h1>Spaces<br>that feel<br>like you</h1>
+                    <p>Residential & commercial interiors, crafted with purpose, detail and individuality.</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View Our Work &rarr;</a>
+                        <a href="#contact" class="link-arrow">Let's Talk</a>
+                    </div>
+                </div>
+                <div class="hero-side-text">
+                    "Where timeless design weaves unforgettable stories"
+                </div>
+            </div>
+            <div class="hero-slider-dots">
+                <span class="active">01</span>
+                <span>02</span>
+                <span>03</span>
+                <span>04</span>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services container">
+            <div class="section-header fade-in">
+                <div>
+                    <span class="section-label">Our Services</span>
+                    <h2>Design for<br>Every Space</h2>
+                </div>
+                <a href="#" class="link-arrow">Explore Services &rarr;</a>
+            </div>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop" alt="Residential Design">
+                    </div>
+                    <h3>Residential Design</h3>
+                    <p>Homes that reflect your lifestyle.</p>
+                    <a href="#" class="link-arrow">Learn More &rarr;</a>
+                </div>
+                <div class="service-card fade-in" style="transition-delay: 0.1s;">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Commercial Spaces">
+                    </div>
+                    <h3>Commercial Spaces</h3>
+                    <p>Workspaces that inspire performance.</p>
+                    <a href="#" class="link-arrow">Learn More &rarr;</a>
+                </div>
+                <div class="service-card fade-in" style="transition-delay: 0.2s;">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=800&auto=format&fit=crop" alt="Styling & Curation">
+                    </div>
+                    <h3>Styling & Curation</h3>
+                    <p>The finishing touches that elevate.</p>
+                    <a href="#" class="link-arrow">Learn More &rarr;</a>
+                </div>
+                <div class="service-card fade-in" style="transition-delay: 0.3s;">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=800&auto=format&fit=crop" alt="Bespoke Solutions">
+                    </div>
+                    <h3>Bespoke Solutions</h3>
+                    <p>Tailored design for unique needs.</p>
+                    <a href="#" class="link-arrow">Learn More &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="about-img-wrapper fade-in"></div>
+            <div class="about-content-wrapper">
+                <div class="about-main-text fade-in">
+                    <span class="section-label">About Me</span>
+                    <h2>Design with<br>purpose</h2>
+                    <p>I’m Pamela, founder of House of Phabo, a Manchester-based interior design studio specialising in residential interiors. I create timeless, characterful spaces shaped around how people live, bringing together cultural heritage, personal stories and considered design to create homes that feel sophisticated, functional and uniquely yours.</p>
+                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+                <div class="about-decor fade-in" style="transition-delay: 0.2s;">
+                    <div class="script-text">Timeless<br>Refined<br>Individual</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- From Idea to Reality Section -->
+        <section class="process container">
+            <div class="process-inner">
+                <div class="process-content fade-in">
+                    <span class="section-label">Our Process</span>
+                    <h2>From Idea<br>to Reality</h2>
+                    <p>We take your initial ideas and turn them into clear, detailed designs, making sure every part of the space is carefully thought through before the work begins.</p>
+                </div>
+                <div class="process-img-wrapper fade-in" style="transition-delay: 0.2s;">
+                    <!-- User will place their floorplan image at images/floorplan.png -->
+                    <img src="images/floorplan.png" alt="Detailed interior design floor plan and layout">
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Work / Projects Section -->
+        <section id="portfolio" class="projects">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <div>
+                        <span class="section-label">Featured Work</span>
+                        <h2>A glimpse<br>inside</h2>
+                    </div>
+                    <a href="#" class="btn btn-outline">View Full Portfolio &rarr;</a>
+                </div>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card fade-in">
+                        <div class="img-wrapper">
+                            <img src="images/projects/1.png" alt="Project Anaconda">
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Anaconda</h4>
+                            <span>Residential</span>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="img-wrapper">
+                            <img src="images/projects/2.png" alt="Project Mount Yard">
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Mount Yard</h4>
+                            <span>Residential</span>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="img-wrapper">
+                            <img src="images/projects/3.png" alt="Project Threadmill">
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Threadmill</h4>
+                            <span>Commercial</span>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card fade-in" style="transition-delay: 0.3s;">
+                        <div class="img-wrapper">
+                            <img src="images/projects/4.png" alt="Project Mount Yard">
+                        </div>
+                        <div class="project-info">
+                            <h4>Project Mount Yard</h4>
+                            <span>Residential</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
+        <section class="testimonial">
+            <div class="testimonial-text fade-in">
+                <p>"Pamela has an incredible eye for detail. She transformed our space into something truly special."</p>
+                <span>Client Testimonial</span>
+            </div>
+            <div class="testimonial-img fade-in" style="transition-delay: 0.2s;"></div>
+            <div class="testimonial-cta fade-in" style="transition-delay: 0.4s;">
+                <p>Let's create something beautiful together</p>
+                <a href="#contact" class="btn btn-light-outline">Get In Touch &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <a href="#" class="logo">
+                <span class="logo-script">House of Phabo</span>
+                <span class="logo-sans">Interiors</span>
+            </a>
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const navMenu = document.getElementById('nav-menu');
+            const mobileIcon = mobileBtn.querySelector('i');
+
+            mobileBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                if (navMenu.classList.contains('active')) {
+                    mobileIcon.classList.remove('fa-bars');
+                    mobileIcon.classList.add('fa-times');
+                } else {
+                    mobileIcon.classList.remove('fa-times');
+                    mobileIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu on link click
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileIcon.classList.remove('fa-times');
+                    mobileIcon.classList.add('fa-bars');
+                });
+            });
+
+            // 2. Header Scroll Effect
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 3. Intersection Observer for Fade-in Animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once it's visible
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

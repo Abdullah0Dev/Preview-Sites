@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandesh Painter &amp; Decorator | Professional Painting &amp; Decorating in London</title>
+<meta name="description" content="Professional painter and decorator in London. Interior and exterior painting, decorating, wallpapering, roof cleaning and driveway sealing. Reliable, experienced and affordable. Call 07869 634430 for a free quote.">
+<meta name="theme-color" content="#16385D">
+<meta property="og:title" content="Mandesh Painter &amp; Decorator | London">
+<meta property="og:description" content="Interior &amp; exterior painting, decorating across London and surrounding areas.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HousePainter",
+  "name": "Mandesh Painter & Decorator",
+  "telephone": "+447869634430",
+  "email": "merryhillpainter@gmail.com",
+  "areaServed": [{"@type":"City","name":"London"}],
+  "address": {"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},
+  "priceRange": "££",
+  "sameAs": ["https://www.tiktok.com/@mandeshpainter"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:#16385D;
+  --navy-deep:#0F2946;
+  --navy-soft:#1D4A75;
+  --gold:#F3A332;
+  --gold-soft:#FFC46B;
+  --gold-deep:#C97B0C;
+  --ink:#0F2438;
+  --muted:#647689;
+  --muted-2:#8798A9;
+  --paper:#FFFFFF;
+  --cream:#F7F8FA;
+  --line:#E6EAF0;
+  --line-2:#EFF2F6;
+  --wa:#25D366;
+
+  --r-sm:8px;
+  --r-md:12px;
+  --r-lg:16px;
+
+  --shadow-sm:0 1px 2px rgba(15,36,56,.04), 0 4px 12px -6px rgba(15,36,56,.08);
+  --shadow-md:0 2px 6px rgba(15,36,56,.05), 0 12px 32px -14px rgba(15,36,56,.16);
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --maxw:1280px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+ul{list-style:none;margin:0;padding:0}
+p{margin:0}
+::selection{background:var(--gold);color:#fff}
+
+h1,h2,h3,h4{
+  font-family:"Outfit","Inter",sans-serif;
+  font-weight:700;
+  letter-spacing:-.02em;
+  line-height:1.15;
+  margin:0;
+  color:var(--ink);
+}
+h1{font-size:clamp(2.1rem,1.3rem + 3vw,3.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.08}
+h2{font-size:clamp(1.6rem,1.1rem + 1.6vw,2.2rem)}
+h3{font-size:1.1rem}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:20px}
+@media (min-width:768px){.wrap{padding-inline:32px}}
+@media (min-width:1200px){.wrap{padding-inline:40px}}
+
+.section{padding:64px 0}
+@media (min-width:900px){.section{padding:88px 0}}
+
+.section-head{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:34px;
+}
+@media (min-width:720px){
+  .section-head{
+    flex-direction:row;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:24px;
+  }
+}
+.section-head .eyebrow{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.section-head h2{margin:0}
+.section-head .lead{
+  color:var(--muted);
+  font-size:.94rem;
+  max-width:44ch;
+  margin:0;
+}
+
+.link-arrow{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:.88rem;
+  font-weight:600;
+  color:var(--navy);
+  transition:gap .2s var(--ease),color .2s var(--ease);
+  white-space:nowrap;
+}
+.link-arrow svg{transition:transform .25s var(--ease)}
+.link-arrow:hover{color:var(--gold)}
+.link-arrow:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 22px;
+  border-radius:var(--r-sm);
+  border:1.5px solid transparent;
+  font-weight:600;
+  font-size:.9rem;
+  line-height:1;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:background-color .2s var(--ease),
+             border-color .2s var(--ease),
+             color .2s var(--ease),
+             transform .15s var(--ease);
+}
+.btn svg{flex:none}
+.btn:active{transform:scale(.98)}
+.btn-gold{background:var(--gold);color:var(--navy-deep);font-weight:700}
+.btn-gold:hover{background:var(--gold-soft)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-deep)}
+.btn-outline{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--navy)}
+.btn-ghost-white{background:transparent;border-color:rgba(255,255,255,.28);color:#fff}
+.btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn-block{width:100%}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.hdr{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+.hdr-in{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  height:72px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo-mark{width:38px;height:38px;flex:none}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt b{font-family:"Outfit",sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--navy)}
+.logo-txt span{font-size:.55rem;letter-spacing:.18em;font-weight:600;color:var(--muted);margin-top:3px}
+
+.nav{display:none;gap:32px;align-items:center}
+@media (min-width:960px){.nav{display:flex}}
+.nav a{font-size:.9rem;font-weight:500;color:var(--muted);transition:color .2s}
+.nav a:hover{color:var(--navy)}
+
+.hdr-right{display:flex;align-items:center;gap:20px}
+.hdr-cta{display:none;align-items:center;gap:18px}
+@media (min-width:960px){.hdr-cta{display:flex}}
+
+.hdr-phone{display:flex;align-items:center;gap:9px;color:var(--ink);transition:color .2s}
+.hdr-phone:hover{color:var(--navy)}
+.hdr-phone .ic{color:var(--navy);flex:none}
+.hdr-phone .txt{display:flex;flex-direction:column;line-height:1.15}
+.hdr-phone .txt b{font-family:"Outfit",sans-serif;font-weight:700;font-size:.94rem;color:var(--navy)}
+.hdr-phone .txt span{font-size:.7rem;color:var(--muted)}
+
+.burger{
+  display:grid;
+  place-items:center;
+  width:42px;height:42px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:var(--r-sm);
+  color:var(--navy);
+  padding:0;
+}
+@media (min-width:960px){.burger{display:none}}
+.burger-lines{
+  display:flex;flex-direction:column;justify-content:space-between;
+  width:20px;height:14px;
+}
+.burger-lines span{
+  display:block;width:100%;height:2px;
+  background:currentColor;border-radius:2px;
+  transform-origin:center;
+  transition:transform .3s var(--ease),opacity .2s var(--ease);
+}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* ---------- Mobile drawer ---------- */
+.drawer{
+  position:fixed;inset:0;z-index:70;
+  background:#fff;
+  padding:88px 24px 32px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .25s var(--ease),transform .3s var(--ease),visibility .25s;
+  overflow-y:auto;
+}
+.drawer.open{opacity:1;visibility:visible;transform:none}
+.drawer nav{display:flex;flex-direction:column}
+.drawer a.dlink{
+  font-family:"Outfit",sans-serif;
+  font-size:1.35rem;font-weight:600;color:var(--ink);
+  padding:18px 2px;
+  border-bottom:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:space-between;
+  transition:color .2s;
+}
+.drawer a.dlink:hover{color:var(--gold)}
+.drawer a.dlink svg{color:var(--gold);opacity:0;transition:opacity .2s}
+.drawer a.dlink:hover svg{opacity:1}
+.drawer-foot{margin-top:32px;display:grid;gap:10px}
+body.locked{overflow:hidden}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+
+/* Grid with top padding so the arch + gold accent clear the sticky header */
+.hero-in{
+  display:grid;
+  gap:0;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+@media (min-width:1000px){
+  .hero-in{
+    grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    align-items:stretch;
+    padding-top: 56px;
+    padding-bottom: 48px;
+  }
+}
+
+.hero-copy{
+  padding: 24px 0;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;z-index:2;
+}
+@media (min-width:1000px){
+  .hero-copy{padding: 32px 60px 32px 0}
+}
+.hero-copy .eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;
+}
+.hero-copy h1{margin-bottom:22px;color:#fff}
+.hero-copy h1 em{font-style:normal;color:var(--gold)}
+.hero-copy p.lead{
+  font-size:1.03rem;line-height:1.65;
+  color:rgba(255,255,255,.72);
+  max-width:52ch;margin-bottom:32px;
+}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px}
+.hero-btns .btn{min-height:50px;padding-inline:22px}
+.hero-btns .btn small{display:block;font-size:.72rem;font-weight:500;opacity:.72;margin-top:1px;text-align:left}
+.hero-btns .btn .stack{display:flex;flex-direction:column;line-height:1.2;text-align:left}
+
+.hero-loc{
+  display:flex;align-items:center;gap:8px;
+  font-size:.86rem;color:rgba(255,255,255,.62);
+}
+.hero-loc svg{color:var(--gold);flex:none}
+
+/* ============================================================
+   HERO MEDIA — arch shape with gold ghost accent
+   ============================================================ */
+.hero-art{
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ghost gold outline offset behind the arch */
+.hero-art::before{
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 196px 196px 40px 40px;
+  border: 1.5px solid rgba(243,163,50,.42);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Small gold dot at the peak of the arch */
+.hero-art::after{
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(243,163,50,.15);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-media{
+  position: relative;
+  min-height: 340px;
+  background: var(--navy-soft);
+  border-radius: 180px 180px 24px 24px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 60px -22px rgba(15,36,56,.42),
+    0 10px 24px -14px rgba(15,36,56,.28);
+  z-index: 1;
+}
+
+.hero-media img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 1000px){
+  .hero-media{
+    min-height: 560px;
+    border-radius: 280px 280px 28px 28px;
+  }
+  .hero-art::before{
+    inset: -22px;
+    border-radius: 302px 302px 50px 50px;
+  }
+  .hero-art::after{
+    top: -30px;
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 0 7px rgba(243,163,50,.15);
+  }
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.svc-grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:560px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.svc-grid{grid-template-columns:repeat(4,1fr)}}
+
+.svc{
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-lg);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.svc:hover{
+  border-color:rgba(22,56,93,.18);
+  box-shadow:var(--shadow-md);
+  transform:translateY(-3px);
+}
+.svc-media{aspect-ratio:16/10;overflow:hidden;background:var(--cream);position:relative}
+.svc-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.svc:hover .svc-media img{transform:scale(1.05)}
+.svc-body{padding:22px 22px 26px;position:relative}
+.svc-ic{
+  width:40px;height:40px;border-radius:50%;
+  background:#fff;color:var(--navy);
+  display:grid;place-items:center;
+  box-shadow:0 2px 8px rgba(15,36,56,.1);
+  margin-top:-38px;margin-bottom:14px;
+  position:relative;z-index:2;
+}
+.svc-body h3{margin-bottom:6px;font-size:1.08rem}
+.svc-body p{font-size:.9rem;color:var(--muted);line-height:1.55}
+
+/* ============================================================
+   BEFORE / AFTER — Transformations
+   ============================================================ */
+.transform{
+  background:var(--cream);
+}
+.ba-grid{
+  display:grid;
+  gap:22px;
+  grid-template-columns:1fr;
+}
+@media (min-width:720px){.ba-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.ba-grid{grid-template-columns:repeat(3,1fr)}}
+
+.ba-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-sm);
+  transition:border-color .25s var(--ease),box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.ba-card:hover{
+  border-color:rgba(22,56,93,.18);
+  box-shadow:var(--shadow-md);
+  transform:translateY(-3px);
+}
+
+.ba{
+  position:relative;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:var(--cream);
+  touch-action:pan-y;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.ba-layer{
+  position:absolute;inset:0;
+  pointer-events:none;
+}
+.ba-layer svg{width:100%;height:100%;display:block}
+.ba-layer.after{clip-path:inset(0 0 0 50%)}
+
+.ba-handle{
+  position:absolute;
+  top:0;bottom:0;left:50%;
+  width:2px;
+  background:#fff;
+  transform:translateX(-50%);
+  box-shadow:0 0 14px rgba(15,36,56,.4);
+  z-index:4;
+  pointer-events:none;
+}
+.ba-handle::after{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  width:42px;height:42px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 4px 14px rgba(15,36,56,.32);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%2316385D' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-5 6 5 6M15 6l5 6-5 6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:center;
+}
+
+.ba-range{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  margin:0;padding:0;border:0;
+  opacity:0;
+  cursor:ew-resize;
+  -webkit-appearance:none;
+  appearance:none;
+  background:transparent;
+  z-index:5;
+}
+.ba-range::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:48px;height:100%;
+  cursor:ew-resize;
+}
+.ba-range::-moz-range-thumb{
+  width:48px;height:100%;
+  border:0;background:transparent;
+  cursor:ew-resize;
+}
+.ba-range:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+
+.ba-tag{
+  position:absolute;
+  top:14px;
+  padding:5px 10px;
+  font-size:.6rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  border-radius:5px;
+  z-index:3;
+  pointer-events:none;
+  font-family:"Inter",sans-serif;
+}
+.ba-tag-b{left:14px;background:rgba(15,36,56,.88);color:#fff}
+.ba-tag-a{right:14px;background:var(--gold);color:var(--navy-deep)}
+
+.ba-cap{
+  padding:18px 20px 22px;
+  border-top:1px solid var(--line-2);
+}
+.ba-cap h3{font-size:1.02rem;margin-bottom:4px}
+.ba-cap p{font-size:.82rem;color:var(--muted)}
+
+.ba-hint{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:22px;
+  font-size:.82rem;
+  color:var(--muted);
+  text-align:center;
+}
+.ba-hint svg{color:var(--gold);flex:none}
+
+/* ============================================================
+   WORK / PROJECTS
+   ============================================================ */
+.work-grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:720px){.work-grid{grid-template-columns:repeat(3,1fr)}}
+
+.work{
+  border-radius:var(--r-lg);overflow:hidden;
+  border:1px solid var(--line);background:#fff;
+  transition:border-color .25s,box-shadow .25s,transform .25s var(--ease);
+}
+.work:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:rgba(22,56,93,.18)}
+.work-media{aspect-ratio:4/3;overflow:hidden;background:var(--cream)}
+.work-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.work:hover .work-media img{transform:scale(1.05)}
+.work-body{padding:18px 20px 22px}
+.work-body h3{font-size:1rem;margin-bottom:4px}
+.work-body p{font-size:.85rem;color:var(--muted)}
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.rev-grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media (min-width:720px){.rev-grid{grid-template-columns:repeat(3,1fr)}}
+
+.rev{
+  background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:26px;
+  display:flex;flex-direction:column;
+}
+.rev .stars{display:flex;gap:3px;color:var(--gold);margin-bottom:16px}
+.rev p{font-size:.94rem;color:var(--ink);line-height:1.65;flex:1}
+.rev .who{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-2)}
+.rev .who b{
+  display:block;
+  font-family:"Outfit",sans-serif;
+  font-weight:700;font-size:.94rem;color:var(--ink);
+}
+.rev .who span{font-size:.8rem;color:var(--muted)}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
+.cta-band::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(800px 400px at 88% 40%,rgba(243,163,50,.12),transparent 62%);
+}
+.cta-in{
+  position:relative;z-index:2;
+  display:grid;gap:24px;align-items:center;
+  padding:56px 0;
+}
+@media (min-width:900px){
+  .cta-in{grid-template-columns:1fr auto;gap:48px;padding:64px 0}
+}
+.cta-band .eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:12px;
+}
+.cta-band h2{color:#fff;margin-bottom:10px}
+.cta-band p{color:rgba(255,255,255,.68);font-size:.98rem;max-width:52ch}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px}
+.cta-btns .btn{min-height:52px;padding-inline:24px}
+
+/* ============================================================
+   CONTACT + FORM
+   ============================================================ */
+.form{
+  display:grid;
+  gap:16px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:28px 24px;
+  box-shadow:var(--shadow-sm);
+  max-width:720px;
+}
+@media (min-width:700px){.form{padding:36px 34px}}
+
+.form-row{display:grid;gap:16px}
+@media (min-width:560px){.form-row.two{grid-template-columns:1fr 1fr}}
+
+.field{display:block}
+.field label{
+  display:block;
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:7px;
+  letter-spacing:.01em;
+}
+.field label .req{color:var(--gold-deep)}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  background:var(--cream);
+  border:1.5px solid transparent;
+  border-radius:var(--r-sm);
+  padding:14px 16px;
+  font-family:inherit;
+  font-size:.94rem;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .2s, background-color .2s, box-shadow .2s;
+}
+.field textarea{resize:vertical;min-height:120px}
+.field select{
+  appearance:none;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23647689' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  padding-right:44px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  background:#fff;
+  border-color:var(--navy);
+  box-shadow:0 0 0 4px rgba(22,56,93,.08);
+}
+.field.err input,
+.field.err select,
+.field.err textarea{
+  border-color:#D14343;
+  background:#FDF3F3;
+}
+.field .msg{
+  display:none;
+  font-size:.75rem;
+  font-weight:600;
+  color:#C43434;
+  margin-top:6px;
+}
+.field.err .msg{display:block}
+
+.form-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:8px;
+}
+.form-actions .btn{min-height:52px;padding-inline:26px}
+.form-actions .btn-block-sm{flex:1 1 200px}
+
+.form-note{
+  font-size:.78rem;
+  color:var(--muted-2);
+  text-align:center;
+  margin-top:4px;
+}
+
+.success{
+  display:none;
+  text-align:center;
+  padding:34px 12px;
+}
+.success.show{display:block}
+.success .tick{
+  width:64px;height:64px;border-radius:50%;
+  background:rgba(37,211,102,.12);
+  color:var(--wa);
+  display:grid;place-items:center;
+  margin:0 auto 20px;
+}
+.success h3{font-size:1.4rem;margin-bottom:10px}
+.success p{color:var(--muted);max-width:42ch;margin:0 auto 22px;font-size:.92rem}
+.form.done .form-body{display:none}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.ftr{border-top:1px solid var(--line);background:#fff;padding:32px 0}
+.ftr-in{
+  display:flex;flex-direction:column;gap:24px;
+  align-items:flex-start;
+}
+@media (min-width:900px){
+  .ftr-in{
+    flex-direction:row;align-items:center;
+    justify-content:space-between;gap:32px;
+  }
+}
+.ftr-nav{display:flex;flex-wrap:wrap;gap:8px 28px}
+.ftr-nav a{font-size:.88rem;font-weight:500;color:var(--muted);transition:color .2s}
+.ftr-nav a:hover{color:var(--navy)}
+
+.ftr-contact{
+  display:flex;align-items:center;gap:10px;
+  color:var(--muted);font-size:.85rem;
+}
+.ftr-contact svg{color:var(--navy);flex:none}
+
+.ftr-btm{
+  border-top:1px solid var(--line-2);
+  margin-top:28px;padding-top:22px;
+  display:flex;flex-wrap:wrap;gap:8px 20px;
+  justify-content:space-between;
+  font-size:.8rem;color:var(--muted-2);
+}
+
+/* ============================================================
+   STICKY MOBILE DOCK
+   ============================================================ */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+@media (min-width:900px){.dock{display:none}}
+.dock a{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:15px 8px;font-weight:600;font-size:.88rem;
+}
+.dock .d-call{background:var(--navy);color:#fff}
+.dock .d-wa{background:var(--wa);color:#053a1c}
+
+@media (max-width:899px){
+  .ftr{padding-bottom:76px}
+}
+
+/* ============================================================
+   MISC
+   ============================================================ */
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--navy);color:#fff;padding:14px 22px;
+  border-radius:0 0 6px 0;
+}
+.skip:focus{left:0}
+section[id]{scroll-margin-top:88px}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ==================== HEADER ==================== -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="Mandesh Painter and Decorator, home">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="44" height="44" rx="10" fill="#16385D"/>
+        <path d="M24 12l11 8v14a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2V20l11-8z" fill="#fff"/>
+        <path d="M24 12l11 8v3.5L24 15.5l-11 8V20l11-8z" fill="#F3A332"/>
+        <rect x="20" y="26" width="8" height="10" rx="1.5" fill="#16385D"/>
+      </svg>
+      <span class="logo-txt"><b>MANDESH</b><span>PAINTER &amp; DECORATOR</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="#top">Home</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+
+    <div class="hdr-right">
+      <div class="hdr-cta">
+        <a class="hdr-phone" href="tel:+447869634430">
+          <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          <span class="txt"><b>07869 634430</b><span>Call or WhatsApp</span></span>
+        </a>
+        <a href="#contact" class="btn btn-gold">Get a Free Quote
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span class="burger-lines"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MOBILE DRAWER ==================== -->
+<div class="drawer" id="drawer">
+  <nav aria-label="Mobile">
+    <a class="dlink" href="#top">Home <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#services">Services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#transformations">Transformations <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#work">Our Work <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#reviews">Reviews <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#contact">Contact <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </nav>
+  <div class="drawer-foot">
+    <a href="tel:+447869634430" class="btn btn-navy btn-block" style="min-height:50px">Call 07869 634430</a>
+    <a href="https://wa.me/447869634430" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="min-height:50px">WhatsApp</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">Quality decorating for a brighter tomorrow</p>
+        <h1>Professional Painter &amp; Decorator <em>in London</em></h1>
+        <p class="lead">Transform your home or business with expert painting, decorating and finishing services. Reliable, high-quality work and a flawless finish, every time.</p>
+
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-gold">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+            <span class="stack">Get a Free Quote<small>07869 634430</small></span>
+          </a>
+          <a href="https://wa.me/447869634430?text=Hi%20Mandesh%2C%20I%27d%20like%20a%20quote%20for%20some%20painting%20and%20decorating." target="_blank" rel="noopener" class="btn btn-ghost-white">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6a11 11 0 0 1-4.2-3.9c-.3-.5-.7-1.2-.7-2s.4-1.3.6-1.5c.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .3 0 .4l-.3.4-.3.3c-.1.1-.2.2 0 .5a7.6 7.6 0 0 0 3.4 2.9c.3.1.4.1.6-.1l.7-.8c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.3v.9z"/></svg>
+            <span class="stack">Chat on WhatsApp<small>Quick response</small></span>
+          </a>
+        </div>
+
+        <p class="hero-loc">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          London &amp; Surrounding Areas
+        </p>
+      </div>
+
+   <div class="hero-art">
+  <div class="hero-media">
+    <img
+      src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80"
+      alt="Freshly decorated living room with a deep navy feature wall"
+      loading="eager"
+      fetchpriority="high"
+    >
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <p class="eyebrow">Our Services</p>
+        <h2>Expert Decorating Services in London</h2>
+      </div>
+      <a href="#contact" class="link-arrow">View all services
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <div class="svc-media"><img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=800&q=80" alt="Paint roller applying fresh paint to a wall" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="7" rx="2"/><path d="M17 6h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-7"/><rect x="9" y="13" width="6" height="8" rx="2"/></svg>
+          </span>
+          <h3>Painting</h3>
+          <p>High quality finishes for homes &amp; businesses.</p>
+        </div>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-media"><img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Beautifully decorated bedroom interior" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9l9-6z"/><path d="M9 21v-7h6v7"/></svg>
+          </span>
+          <h3>Decorating</h3>
+          <p>Complete decorating services, inside and out.</p>
+        </div>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-media"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=80" alt="Modern bright interior living space" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 20v-6"/></svg>
+          </span>
+          <h3>Interior</h3>
+          <p>Walls, ceilings, woodwork and more.</p>
+        </div>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-media"><img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" alt="Exterior of a freshly painted house" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l10-8 10 8"/><path d="M4 12l8-6 8 6-8 9-8-9z"/></svg>
+          </span>
+          <h3>Exterior</h3>
+          <p>Weatherproof and long-lasting protection.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TRANSFORMATIONS (Before / After) ==================== -->
+<section class="section transform" id="transformations">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <p class="eyebrow">Before &amp; After</p>
+        <h2>See the difference for yourself</h2>
+      </div>
+      <p class="lead">Drag the slider on each project to reveal the finished result. Real transformations, real attention to detail.</p>
+    </div>
+
+    <div class="ba-grid">
+
+      <!-- 1. Roof cleaning -->
+      <article class="ba-card rv">
+        <div class="ba" data-ba>
+          <div class="ba-layer before" aria-hidden="true">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="300" fill="#A9B4BC"/>
+              <path d="M0 300V120L200 30l200 90v180z" fill="#7A5C50"/>
+              <g fill="#694B41">
+                <rect x="0" y="140" width="400" height="6"/>
+                <rect x="0" y="182" width="400" height="6"/>
+                <rect x="0" y="224" width="400" height="6"/>
+                <rect x="0" y="266" width="400" height="6"/>
+              </g>
+              <g fill="#5F7A50" opacity=".9">
+                <path d="M40 160c24-6 40 6 36 22-4 18-38 20-46 6s-6-24 10-28z"/>
+                <path d="M210 200c30-4 44 12 38 28-8 18-48 16-54 0s2-26 16-28z"/>
+                <path d="M120 250c22-4 34 8 30 20-6 14-34 14-40 2s-2-20 10-22z"/>
+                <path d="M300 148c20-4 32 6 28 18s-30 14-36 4-2-20 8-22z"/>
+                <path d="M330 240c24-6 38 8 32 22s-40 14-44 0 0-18 12-22z"/>
+                <path d="M60 210c18-4 28 6 24 16s-26 12-32 4-2-16 8-20z"/>
+              </g>
+              <path d="M0 120L200 30l200 90" fill="none" stroke="#4E3B33" stroke-width="10"/>
+              <path d="M130 90l20 30M270 90l-20 30" stroke="#5A4437" stroke-width="3" opacity=".7"/>
+            </svg>
+          </div>
+          <div class="ba-layer after" data-after>
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="300" fill="#CFE0EC"/>
+              <path d="M0 300V120L200 30l200 90v180z" fill="#C0603C"/>
+              <g fill="#A94E2E">
+                <rect x="0" y="140" width="400" height="6"/>
+                <rect x="0" y="182" width="400" height="6"/>
+                <rect x="0" y="224" width="400" height="6"/>
+                <rect x="0" y="266" width="400" height="6"/>
+              </g>
+              <g fill="#D4744C" opacity=".75">
+                <rect x="24" y="146" width="44" height="36"/>
+                <rect x="128" y="188" width="44" height="36"/>
+                <rect x="240" y="146" width="44" height="36"/>
+                <rect x="300" y="230" width="44" height="36"/>
+                <rect x="70" y="230" width="44" height="36"/>
+                <rect x="176" y="146" width="44" height="36"/>
+              </g>
+              <path d="M0 120L200 30l200 90" fill="none" stroke="#F3EEE4" stroke-width="10"/>
+              <circle cx="336" cy="66" r="22" fill="#F6C066" opacity=".85"/>
+              <circle cx="70" cy="80" r="14" fill="#FFFFFF" opacity=".7"/>
+            </svg>
+          </div>
+          <span class="ba-handle" data-handle aria-hidden="true"></span>
+          <span class="ba-tag ba-tag-b">Before</span>
+          <span class="ba-tag ba-tag-a">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal the after image of the roof cleaning project">
+        </div>
+        <div class="ba-cap">
+          <h3>Roof Cleaning</h3>
+          <p>Moss and algae removed · Tiles treated &amp; sealed</p>
+        </div>
+      </article>
+
+      <!-- 2. Interior wall painting -->
+      <article class="ba-card rv">
+        <div class="ba" data-ba>
+          <div class="ba-layer before" aria-hidden="true">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="300" fill="#D5CEBF"/>
+              <rect y="228" width="400" height="72" fill="#A89070"/>
+              <rect y="220" width="400" height="10" fill="#C5BCAA"/>
+              <path d="M58 60c26-10 44 8 40 28-4 22-34 24-44 8s-12-30 4-36z" fill="#BEB29E" opacity=".9"/>
+              <path d="M250 40c30 4 40 30 28 46-14 18-46 8-48-12-2-18 6-36 20-34z" fill="#BEB29E" opacity=".75"/>
+              <path d="M300 150c18 0 26 14 20 26-8 14-32 10-34-4-2-12 4-22 14-22z" fill="#B8AB97" opacity=".8"/>
+              <path d="M120 120l16 60M140 108l10 74" stroke="#A89A82" stroke-width="4" stroke-linecap="round"/>
+              <rect x="186" y="14" width="10" height="40" fill="#9E8E76"/>
+              <circle cx="191" cy="70" r="17" fill="#E7DFCE"/>
+              <path d="M80 190c4-8 0-14-4-18 8 0 14 6 14 18z" fill="#A2977F" opacity=".6"/>
+            </svg>
+          </div>
+          <div class="ba-layer after" data-after>
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="300" fill="#16385D"/>
+              <rect width="400" height="300" fill="#1D4A75" opacity=".35"/>
+              <rect y="226" width="400" height="12" fill="#FFFFFF"/>
+              <rect y="238" width="400" height="62" fill="#D8B78A"/>
+              <path d="M0 262h400M0 284h400" stroke="#A87F52" stroke-width="2" opacity=".35"/>
+              <rect x="108" y="150" width="184" height="78" rx="6" fill="#F3EEE4"/>
+              <rect x="118" y="126" width="164" height="34" rx="10" fill="#E8DFCF"/>
+              <rect x="132" y="132" width="58" height="24" rx="8" fill="#FFFFFF"/>
+              <rect x="200" y="132" width="58" height="24" rx="8" fill="#F3A332"/>
+              <rect x="96" y="104" width="208" height="16" rx="5" fill="#0E2540"/>
+              <circle cx="330" cy="70" r="26" fill="none" stroke="#F3A332" stroke-width="5"/>
+              <rect x="52" y="52" width="46" height="58" rx="3" fill="#F3EEE4"/>
+              <path d="M296 214V170" stroke="#3E6B4E" stroke-width="5" stroke-linecap="round"/>
+              <path d="M296 180c-14-4-22-16-19-28 12-2 22 6 24 20z" fill="#4C8560"/>
+            </svg>
+          </div>
+          <span class="ba-handle" data-handle aria-hidden="true"></span>
+          <span class="ba-tag ba-tag-b">Before</span>
+          <span class="ba-tag ba-tag-a">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal the after image of the interior wall painting project">
+        </div>
+        <div class="ba-cap">
+          <h3>Feature Wall Painting</h3>
+          <p>Filled, sanded, primed &amp; finished in navy</p>
+        </div>
+      </article>
+
+      <!-- 3. Driveway sealing -->
+      <article class="ba-card rv">
+        <div class="ba" data-ba>
+          <div class="ba-layer before" aria-hidden="true">
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="300" fill="#C9CEC6"/>
+              <rect y="0" width="400" height="60" fill="#8FA07E"/>
+              <g fill="#AEB2A8" stroke="#9A9E93" stroke-width="2">
+                <rect x="-10" y="70" width="70" height="34"/><rect x="66" y="70" width="70" height="34"/><rect x="142" y="70" width="70" height="34"/><rect x="218" y="70" width="70" height="34"/><rect x="294" y="70" width="70" height="34"/><rect x="370" y="70" width="70" height="34"/>
+                <rect x="28" y="110" width="70" height="34"/><rect x="104" y="110" width="70" height="34"/><rect x="180" y="110" width="70" height="34"/><rect x="256" y="110" width="70" height="34"/><rect x="332" y="110" width="70" height="34"/>
+                <rect x="-10" y="150" width="70" height="34"/><rect x="66" y="150" width="70" height="34"/><rect x="142" y="150" width="70" height="34"/><rect x="218" y="150" width="70" height="34"/><rect x="294" y="150" width="70" height="34"/><rect x="370" y="150" width="70" height="34"/>
+                <rect x="28" y="190" width="70" height="34"/><rect x="104" y="190" width="70" height="34"/><rect x="180" y="190" width="70" height="34"/><rect x="256" y="190" width="70" height="34"/><rect x="332" y="190" width="70" height="34"/>
+                <rect x="-10" y="230" width="70" height="34"/><rect x="66" y="230" width="70" height="34"/><rect x="142" y="230" width="70" height="34"/><rect x="218" y="230" width="70" height="34"/><rect x="294" y="230" width="70" height="34"/><rect x="370" y="230" width="70" height="34"/>
+              </g>
+              <g fill="#7E9A5F">
+                <path d="M100 108c4-14 0-22-6-28 12 0 20 10 20 28zM250 148c4-12 0-20-6-26 12 0 20 8 20 26zM60 230c4-12 0-20-6-26 12 0 20 8 20 26z"/>
+              </g>
+              <path d="M140 104l20 46M300 190l-24 40" stroke="#9AA093" stroke-width="4"/>
+            </svg>
+          </div>
+          <div class="ba-layer after" data-after>
+            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+              <rect width="400" height="300" fill="#E7E2D8"/>
+              <rect y="0" width="400" height="60" fill="#4C8560"/>
+              <g fill="#8C4B36" stroke="#6F3A29" stroke-width="2">
+                <rect x="-10" y="70" width="70" height="34"/><rect x="66" y="70" width="70" height="34"/><rect x="142" y="70" width="70" height="34"/><rect x="218" y="70" width="70" height="34"/><rect x="294" y="70" width="70" height="34"/><rect x="370" y="70" width="70" height="34"/>
+                <rect x="28" y="110" width="70" height="34"/><rect x="104" y="110" width="70" height="34"/><rect x="180" y="110" width="70" height="34"/><rect x="256" y="110" width="70" height="34"/><rect x="332" y="110" width="70" height="34"/>
+                <rect x="-10" y="150" width="70" height="34"/><rect x="66" y="150" width="70" height="34"/><rect x="142" y="150" width="70" height="34"/><rect x="218" y="150" width="70" height="34"/><rect x="294" y="150" width="70" height="34"/><rect x="370" y="150" width="70" height="34"/>
+                <rect x="28" y="190" width="70" height="34"/><rect x="104" y="190" width="70" height="34"/><rect x="180" y="190" width="70" height="34"/><rect x="256" y="190" width="70" height="34"/><rect x="332" y="190" width="70" height="34"/>
+                <rect x="-10" y="230" width="70" height="34"/><rect x="66" y="230" width="70" height="34"/><rect x="142" y="230" width="70" height="34"/><rect x="218" y="230" width="70" height="34"/><rect x="294" y="230" width="70" height="34"/><rect x="370" y="230" width="70" height="34"/>
+              </g>
+              <g fill="#A85B41" opacity=".65">
+                <rect x="66" y="70" width="70" height="34"/>
+                <rect x="180" y="110" width="70" height="34"/>
+                <rect x="294" y="150" width="70" height="34"/>
+                <rect x="104" y="190" width="70" height="34"/>
+              </g>
+              <path d="M0 96c60 26 140 42 400 52" stroke="#FFFFFF" stroke-width="7" opacity=".18" fill="none"/>
+            </svg>
+          </div>
+          <span class="ba-handle" data-handle aria-hidden="true"></span>
+          <span class="ba-tag ba-tag-b">Before</span>
+          <span class="ba-tag ba-tag-a">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Reveal the after image of the driveway sealing project">
+        </div>
+        <div class="ba-cap">
+          <h3>Driveway Sealing</h3>
+          <p>Deep cleaned, re-sanded &amp; sealed</p>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="ba-hint rv">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-5 6 5 6M15 6l5 6-5 6"/></svg>
+      Drag the slider — or focus it and use your arrow keys
+    </p>
+  </div>
+</section>
+
+<!-- ==================== RECENT WORK ==================== -->
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <p class="eyebrow">Recent Work</p>
+        <h2>A Few Of Our Recent Projects</h2>
+      </div>
+      <a href="#contact" class="link-arrow">View more work
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="work-grid">
+      <figure class="work rv" style="margin:0">
+        <div class="work-media"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Living room transformation with feature wall" loading="lazy"></div>
+        <figcaption class="work-body">
+          <h3>Living Room Transformation</h3>
+          <p>Interior Painting &amp; Decorating</p>
+        </figcaption>
+      </figure>
+
+      <figure class="work rv" style="margin:0">
+        <div class="work-media"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="Refreshed bedroom interior" loading="lazy"></div>
+        <figcaption class="work-body">
+          <h3>Bedroom Refresh</h3>
+          <p>Painting &amp; Feature Wall</p>
+        </figcaption>
+      </figure>
+
+      <figure class="work rv" style="margin:0">
+        <div class="work-media"><img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80" alt="House exterior with fresh paint" loading="lazy"></div>
+        <figcaption class="work-body">
+          <h3>Exterior Painting</h3>
+          <p>Full Exterior Decoration</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== REVIEWS ==================== -->
+<section class="section" id="reviews" style="background:var(--cream)">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <p class="eyebrow">What Our Customers Say</p>
+        <h2>Trusted Across London</h2>
+      </div>
+      <a href="#contact" class="link-arrow">View more reviews
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="rev-grid">
+      <article class="rev rv">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+        </div>
+        <p>"Excellent work from start to finish. Professional, reliable and a great finish. Highly recommend!"</p>
+        <div class="who"><b>Sarah T.</b><span>London</span></div>
+      </article>
+
+      <article class="rev rv">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+        </div>
+        <p>"Transformed our living room. Clean, tidy and a brilliant result. Will definitely use again!"</p>
+        <div class="who"><b>James L.</b><span>Bromley</span></div>
+      </article>
+
+      <article class="rev rv">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+        </div>
+        <p>"Punctual, polite and great attention to detail. Very happy with the result."</p>
+        <div class="who"><b>Priya K.</b><span>Croydon</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BAND ==================== -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-in">
+      <div class="rv">
+        <p class="eyebrow">Ready to transform your space?</p>
+        <h2>Get Your Free Quote Today</h2>
+        <p>Call us or send a message — we'd love to hear about your project.</p>
+      </div>
+      <div class="cta-btns rv">
+        <a href="tel:+447869634430" class="btn btn-gold">Call 07869 634430</a>
+        <a href="https://wa.me/447869634430" target="_blank" rel="noopener" class="btn btn-ghost-white">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Request a Free Quote</h2>
+      </div>
+      <p class="lead">Tell us about your project — we'll get back to you quickly with a clear, no-obligation price.</p>
+    </div>
+
+    <form class="form rv" id="quoteForm" novalidate>
+      <div class="form-body">
+        <div class="form-row two">
+          <div class="field" id="f-name">
+            <label for="name">Full name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Smith">
+            <span class="msg">Please enter your name</span>
+          </div>
+          <div class="field" id="f-phone">
+            <label for="phone">Phone number <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="07000 000000">
+            <span class="msg">Please enter a valid phone number</span>
+          </div>
+        </div>
+
+        <div class="field" id="f-email">
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          <span class="msg">That email doesn't look right</span>
+        </div>
+
+        <div class="field" id="f-service">
+          <label for="service">What do you need?</label>
+          <select id="service" name="service">
+            <option>Interior painting</option>
+            <option>Exterior painting</option>
+            <option>Decorating</option>
+            <option>Wallpapering</option>
+            <option>Roof cleaning</option>
+            <option>Driveway sealing</option>
+            <option>Something else</option>
+          </select>
+        </div>
+
+        <div class="field" id="f-message">
+          <label for="message">Your message <span class="req">*</span></label>
+          <textarea id="message" name="message" rows="5" placeholder="Two bedrooms and a hallway, walls and ceilings. Looking to start next month."></textarea>
+          <span class="msg">Please tell us a little about the job</span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-gold btn-block-sm" id="submitBtn">Send enquiry</button>
+          <a href="https://wa.me/447869634430" target="_blank" rel="noopener" class="btn btn-outline btn-block-sm" id="waBtn">Send on WhatsApp</a>
+        </div>
+        <p class="form-note">Typical reply — same day, Mon–Sat</p>
+      </div>
+
+      <div class="success" id="success" role="status" aria-live="polite">
+        <span class="tick" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span>
+        <h3>Enquiry sent</h3>
+        <p>Your email app should have opened with the details ready to send. If it didn't, call or WhatsApp <b>07869 634430</b> and we'll pick it up right away.</p>
+        <a href="tel:+447869634430" class="btn btn-navy">Call Now</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <a href="#top" class="logo" aria-label="Mandesh Painter and Decorator">
+        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="44" height="44" rx="10" fill="#16385D"/>
+          <path d="M24 12l11 8v14a2 2 0 0 1-2 2H15a2 2 0 0 1-2-2V20l11-8z" fill="#fff"/>
+          <path d="M24 12l11 8v3.5L24 15.5l-11 8V20l11-8z" fill="#F3A332"/>
+          <rect x="20" y="26" width="8" height="10" rx="1.5" fill="#16385D"/>
+        </svg>
+        <span class="logo-txt"><b>MANDESH</b><span>PAINTER &amp; DECORATOR</span></span>
+      </a>
+
+      <nav class="ftr-nav" aria-label="Footer">
+        <a href="#top">Home</a>
+        <a href="#services">Services</a>
+        <a href="#transformations">Transformations</a>
+        <a href="#work">Our Work</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="ftr-contact">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>London &amp; Surrounding Areas</span>
+      </div>
+    </div>
+
+    <div class="ftr-btm">
+      <span>&copy; <span id="yr">2026</span> Mandesh Painter &amp; Decorator. All rights reserved.</span>
+      <span>Trusted Decorating Services in London</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile actions -->
+<div class="dock">
+  <a class="d-call" href="tel:+447869634430">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    Call
+  </a>
+  <a class="d-wa" href="https://wa.me/447869634430" target="_blank" rel="noopener">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 15L2 22l5.2-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6a11 11 0 0 1-4.2-3.9c-.3-.5-.7-1.2-.7-2s.4-1.3.6-1.5c.2-.2.4-.3.6-.3h.4c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .3 0 .4l-.3.4-.3.3c-.1.1-.2.2 0 .5a7.6 7.6 0 0 0 3.4 2.9c.3.1.4.1.6-.1l.7-.8c.2-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.3v.9z"/></svg>
+    WhatsApp
+  </a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* year */
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* mobile drawer */
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  function setMenu(open){
+    drawer.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('locked', open);
+  }
+  burger.addEventListener('click', function(){
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  drawer.addEventListener('click', function(e){
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('open')) { setMenu(false); burger.focus(); }
+  });
+
+  /* reveal on scroll */
+  var rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.style.transitionDelay = Math.min(sibs, 4) * 70 + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    Array.prototype.forEach.call(rvs, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(rvs, function(el){ el.classList.add('in'); });
+  }
+
+  /* before / after sliders */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-ba]'), function(ba){
+    var range  = ba.querySelector('.ba-range');
+    var after  = ba.querySelector('[data-after]');
+    var handle = ba.querySelector('[data-handle]');
+    function paint(){
+      var v = Number(range.value);
+      after.style.clipPath = 'inset(0 0 0 ' + v + '%)';
+      after.style.webkitClipPath = 'inset(0 0 0 ' + v + '%)';
+      handle.style.left = v + '%';
+    }
+    range.addEventListener('input', paint);
+    paint();
+  });
+
+  /* quote form */
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+  var name = document.getElementById('name');
+  var phone = document.getElementById('phone');
+  var email = document.getElementById('email');
+  var service = document.getElementById('service');
+  var message = document.getElementById('message');
+  var waBtn = document.getElementById('waBtn');
+
+  function setErr(id, bad){
+    var f = document.getElementById(id);
+    if (f) f.classList.toggle('err', !!bad);
+    return !bad;
+  }
+  function validPhone(v){
+    var d = v.replace(/[^\d]/g,'');
+    return d.length >= 9 && d.length <= 15;
+  }
+  function validEmail(v){
+    return v === '' || /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+  function validate(){
+    var ok = true;
+    ok = setErr('f-name',    name.value.trim() === '') && ok;
+    ok = setErr('f-phone',   !validPhone(phone.value)) && ok;
+    ok = setErr('f-email',   !validEmail(email.value.trim())) && ok;
+    ok = setErr('f-message', message.value.trim() === '') && ok;
+    return ok;
+  }
+  [name, phone, email, message].forEach(function(el){
+    el.addEventListener('input', function(){
+      var f = el.closest('.field');
+      if (f && f.classList.contains('err')) validate();
+      updateWa();
+    });
+  });
+  service.addEventListener('change', updateWa);
+
+  function summary(){
+    var lines = ['Hi Mandesh, I\u2019d like a quote.',''];
+    if (name.value.trim())    lines.push('Name: ' + name.value.trim());
+    if (phone.value.trim())   lines.push('Phone: ' + phone.value.trim());
+    if (email.value.trim())   lines.push('Email: ' + email.value.trim());
+    lines.push('Service: ' + service.value);
+    if (message.value.trim()){ lines.push(''); lines.push(message.value.trim()); }
+    return lines.join('\n');
+  }
+  function updateWa(){
+    waBtn.href = 'https://wa.me/447869634430?text=' + encodeURIComponent(summary());
+  }
+  updateWa();
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!validate()){
+      var first = form.querySelector('.field.err input, .field.err textarea');
+      if (first) first.focus();
+      return;
+    }
+    var subject = 'Quote request: ' + service.value + ' \u2014 ' + name.value.trim();
+    window.location.href = 'mailto:merryhillpainter@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(summary());
+    form.classList.add('done');
+    document.getElementById('success').classList.add('show');
+  });
+})();
+</script>
+
+</body>
+</html>

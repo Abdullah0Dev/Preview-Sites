@@ -1,0 +1,1348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Albion Bujupi | Mortgage & Protection Advisor</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Caveat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      /* ==========================================================================
+           CSS Variables & Reset
+           ========================================================================== */
+      :root {
+        --dark-bg: #1a231f;
+        --dark-bg-light: #232e29;
+        --gold: #d1b898;
+        --gold-hover: #c2a885;
+        --light-bg: #f8f7f5;
+        --white: #ffffff;
+        --text-dark: #333333;
+        --text-muted: #666666;
+        --border-light: #e5e5e5;
+        --font-serif: "Playfair Display", serif;
+        --font-sans: "Montserrat", sans-serif;
+        --font-hand: "Caveat", cursive;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        color: var(--text-dark);
+        background-color: var(--light-bg);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      /* ==========================================================================
+           Typography & Buttons
+           ========================================================================== */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-serif);
+        color: var(--dark-bg);
+        line-height: 1.2;
+        font-weight: 500;
+      }
+
+      .section-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 1rem;
+      }
+
+      .section-label.dark {
+        color: var(--text-muted);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 2rem;
+        border-radius: 4px;
+        font-family: var(--font-sans);
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: var(--transition);
+      }
+
+      .btn-gold {
+        background-color: var(--gold);
+        color: var(--dark-bg);
+      }
+
+      .btn-gold:hover {
+        background-color: var(--gold-hover);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--white);
+        color: var(--dark-bg);
+        border-color: var(--white);
+      }
+
+      .btn-link {
+        color: var(--dark-bg);
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0;
+        font-size: 0.9rem;
+      }
+
+      .btn-link i {
+        transition: var(--transition);
+      }
+
+      .btn-link:hover i {
+        transform: translateX(5px);
+      }
+
+      /* ==========================================================================
+   Header Base Styles
+   ========================================================================== */
+      header {
+        background-color: #1a231f; /* Your dark premium color */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1.5rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #ffffff;
+        text-decoration: none;
+        z-index: 1001; /* Keeps logo above mobile menu */
+      }
+
+      .logo-icon {
+        font-family: "Playfair Display", serif;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -2px;
+        border-bottom: 1px solid #d1b898; /* Gold accent */
+        padding-bottom: 5px;
+      }
+
+      .logo-text span {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        display: block;
+      }
+
+      .logo-text small {
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: rgba(255, 255, 255, 0.7);
+        font-weight: 400;
+        display: block;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        letter-spacing: 0.5px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #d1b898;
+      }
+
+      /* Hide mobile-specific elements on desktop */
+      .mobile-cta {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #ffffff;
+        z-index: 1001;
+      }
+
+      /* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+      /* Tablet & Mobile (Below 992px) */
+      @media (max-width: 992px) {
+        .desktop-cta {
+          display: none; /* Hide desktop CTA */
+        }
+
+        .menu-toggle {
+          display: block; /* Show hamburger menu */
+        }
+
+        .mobile-cta {
+          display: inline-flex; /* Show CTA inside mobile menu */
+          margin-top: 1rem;
+          width: 100%;
+          justify-content: center;
+        }
+
+        /* Mobile Dropdown Menu */
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background-color: #1a231f;
+          flex-direction: column;
+          align-items: center;
+          padding: 0;
+          max-height: 0;
+          overflow: hidden;
+          gap: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+          transition: all 0.4s ease-in-out;
+        }
+
+        /* Active state for mobile dropdown */
+        .nav-links.active {
+          max-height: 500px; /* Adjust based on content height */
+          padding: 2rem 0;
+          gap: 1.5rem;
+        }
+      }
+
+      /* Small Mobile (Below 768px) */
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem 0;
+        }
+
+        .logo-icon {
+          font-size: 1.6rem;
+        }
+
+        .logo-text span {
+          font-size: 0.85rem;
+        }
+
+        .logo-text small {
+          font-size: 0.45rem;
+        }
+
+        /* Adjust container padding for better edge-to-edge feel */
+        .header-inner {
+          padding: 0 5%;
+        }
+      }
+      /* ==========================================================================
+           Hero Section
+           ========================================================================== */
+      .hero {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+        background-color: var(--dark-bg);
+      }
+
+      .hero-left {
+        flex: 1;
+        padding: 180px 5% 80px 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-left h1 {
+        font-size: 4.5rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+      }
+
+      .hero-left p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.1rem;
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .hero-badges {
+        display: flex;
+        gap: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+      }
+
+      .hero-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.8rem;
+      }
+
+      .hero-badge i {
+        color: var(--gold);
+        font-size: 1.2rem;
+      }
+
+      .hero-right {
+        flex: 1;
+        position: relative;
+        background-image: url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-right::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(26, 35, 31, 1) 0%,
+          rgba(26, 35, 31, 0) 30%
+        );
+      }
+
+      .hero-quote {
+        position: absolute;
+        top: 15%;
+        right: 10%;
+        text-align: right;
+        z-index: 2;
+        color: var(--white);
+      }
+
+      .hero-quote p {
+        font-family: var(--font-hand);
+        font-size: 2.5rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-quote span {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .hero-watermark {
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+        z-index: 2;
+        color: var(--white);
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        line-height: 1.2;
+        text-align: right;
+        opacity: 0.8;
+      }
+
+      .hero-watermark span {
+        display: block;
+        width: 40px;
+        height: 1px;
+        background: var(--gold);
+        margin-left: auto;
+        margin-top: 10px;
+      }
+
+      /* ==========================================================================
+           About Section
+           ========================================================================== */
+      .about {
+        padding: 100px 0;
+        background-color: var(--light-bg);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-image {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 600px;
+      }
+
+      .about-image img {
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .about-image-text {
+        position: absolute;
+        bottom: 40px;
+        left: 40px;
+        color: var(--white);
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+
+      .about-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-content p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        max-width: 90%;
+      }
+
+      .signature {
+        font-family: var(--font-hand);
+        font-size: 2.5rem;
+        color: var(--dark-bg);
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .signature-title {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+      }
+
+      .about-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        border-top: 1px solid var(--border-light);
+        padding-top: 2rem;
+      }
+
+      .about-feature {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .about-feature i {
+        font-size: 1.2rem;
+        color: var(--dark-bg);
+        width: 24px;
+        text-align: center;
+      }
+
+      .about-feature span {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      /* ==========================================================================
+           Services Section
+           ========================================================================== */
+      .services {
+        padding: 100px 0;
+        background-color: var(--white);
+      }
+
+      .services-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 3rem;
+      }
+
+      .services-header h2 {
+        font-size: 2.5rem;
+        max-width: 500px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+
+      .service-card {
+        background: var(--light-bg);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: var(--transition);
+        border: 1px solid var(--border-light);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .service-image {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .service-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .service-card:hover .service-image img {
+        transform: scale(1.05);
+      }
+
+      .service-content {
+        padding: 1.5rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .service-content p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+
+      /* ==========================================================================
+           Stats Section
+           ========================================================================== */
+      .stats {
+        background-color: var(--dark-bg);
+        padding: 80px 0;
+        color: var(--white);
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr) auto;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .stat-item h3 {
+        font-family: var(--font-serif);
+        font-size: 2.5rem;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-item p {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.6);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .stats-handwritten {
+        font-family: var(--font-hand);
+        font-size: 2.5rem;
+        color: var(--gold);
+        text-align: right;
+        line-height: 1.1;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        padding-left: 2rem;
+      }
+
+      /* ==========================================================================
+           Testimonials Section
+           ========================================================================== */
+      .testimonials {
+        padding: 100px 0;
+        background-color: var(--light-bg);
+      }
+
+      .testimonials-header {
+        margin-bottom: 3rem;
+      }
+
+      .testimonials-header h2 {
+        font-size: 2.5rem;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: 2.5rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-light);
+      }
+
+      .testimonial-card p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        font-style: italic;
+        margin-bottom: 2rem;
+      }
+
+      .client-info h4 {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+      }
+
+      .client-info span {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stars {
+        color: var(--gold);
+        font-size: 0.8rem;
+      }
+
+      /* ==========================================================================
+           CTA / Footer Section
+           ========================================================================== */
+      .cta {
+        position: relative;
+        padding: 120px 0;
+        background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      .cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26, 35, 31, 0.85);
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+      }
+
+      .cta-content h2 {
+        font-size: 3.5rem;
+        color: var(--white);
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-content p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .cta-actions {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .cta-link {
+        color: var(--white);
+        font-size: 0.9rem;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .cta-link:hover {
+        color: var(--gold);
+      }
+
+      .footer-bottom {
+        background: #111714;
+        padding: 2rem 0;
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 0.8rem;
+      }
+
+      .footer-bottom-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-nav {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .footer-nav a:hover {
+        color: var(--gold);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .footer-social a {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .footer-social a:hover {
+        color: var(--gold);
+      }
+
+      /* ==========================================================================
+           Responsive Design
+           ========================================================================== */
+      @media (max-width: 1200px) {
+        .hero-left h1 {
+          font-size: 3.5rem;
+        }
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stats-handwritten {
+          grid-column: span 2;
+          text-align: left;
+          border-left: none;
+          padding-left: 0;
+          margin-top: 2rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .nav-links {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero {
+          flex-direction: column;
+        }
+        .hero-left {
+          padding: 150px 5% 60px;
+        }
+        .hero-right {
+          min-height: 500px;
+        }
+        .hero-right::after {
+          background: linear-gradient(
+            to bottom,
+            rgba(26, 35, 31, 1) 0%,
+            rgba(26, 35, 31, 0) 30%
+          );
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-image {
+          height: 400px;
+        }
+        .about-features {
+          border-top: none;
+          padding-top: 0;
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-content h2 {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-left h1 {
+          font-size: 2.8rem;
+        }
+        .hero-badges {
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .hero-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .services-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-handwritten {
+          grid-column: span 1;
+        }
+
+        .cta-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .footer-bottom-inner {
+          flex-direction: column;
+          gap: 1rem;
+          text-align: center;
+        }
+        .footer-nav {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-inner">
+        <a href="#" class="logo">
+          <div class="logo-icon">AB</div>
+          <div class="logo-text">
+            <span>ALBION BUJUPI</span>
+            <small>Mortgage & Protection Advisor</small>
+          </div>
+        </a>
+
+        <!-- Navigation Links (Now includes the CTA button for mobile) -->
+        <nav class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact" class="btn btn-gold mobile-cta"
+            >Book a Consultation
+            <i class="fas fa-arrow-right" style="margin-left: 8px"></i
+          ></a>
+        </nav>
+
+        <!-- Desktop CTA Button -->
+        <a href="#contact" class="btn btn-gold desktop-cta"
+          >Book a Consultation
+          <i class="fas fa-arrow-right" style="margin-left: 8px"></i
+        ></a>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <span class="hero-label"
+          >Mortgages • Protection • Financial Peace of Mind</span
+        >
+        <h1>Your home.<br />Our expertise.</h1>
+        <p>
+          Clear, honest and personalised mortgage advice to help you move
+          forward with confidence.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold"
+            >Book a Free Consultation
+            <i class="fas fa-arrow-right" style="margin-left: 8px"></i
+          ></a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge">
+            <i class="fas fa-home"></i>
+            <div>Access to 1000+<br />mortgage products</div>
+          </div>
+          <div class="hero-badge">
+            <i class="fas fa-shield-alt"></i>
+            <div>Expert protection<br />advice</div>
+          </div>
+          <div class="hero-badge">
+            <i class="fas fa-user-check"></i>
+            <div>Support at<br />every step</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-quote">
+          <p>"Big goals<br />start with<br />the right advice."</p>
+          <span>— ALBION BUJUPI</span>
+        </div>
+        <div class="hero-watermark">
+          A BRIGHTER<br />FINANCIAL<br />TOMORROW
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1663099962105-afb97b6f62c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            alt="Family looking out window"
+          />
+          <div class="about-image-text">
+            More than<br />mortgages.<br />A more secure<br />tomorrow.
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-label dark">About Albion</span>
+          <h2>Expert advice.<br />A personal approach.</h2>
+          <p>
+            I'm Albion Bujupi, a mortgage and protection advisor based in
+            London. I help first-time buyers, home movers and landlords find the
+            right mortgage, while also supporting individuals and families to
+            protect their income and loved ones.
+          </p>
+          <p>
+            I make the process straightforward, with clear advice and support
+            from start to finish.
+          </p>
+          <div class="signature">Albion Bujupi</div>
+          <div class="signature-title">Mortgage & Protection Advisor</div>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <i class="fas fa-gem"></i>
+              <span>Honest, independent advice</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-users"></i>
+              <span>Clients come first</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-chart-bar"></i>
+              <span>Access to a wide range of lenders</span>
+            </div>
+            <div class="about-feature">
+              <i class="fas fa-check-circle"></i>
+              <span>Ongoing support even after completion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-header">
+          <div>
+            <span class="section-label dark">How I Can Help</span>
+            <h2>Tailored solutions for every stage of your journey.</h2>
+          </div>
+          <a href="#" class="btn-link"
+            >View all services <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Keys"
+              />
+            </div>
+            <div class="service-content">
+              <h3>First-Time Buyer Mortgages</h3>
+              <p>Get on the property ladder with expert guidance.</p>
+              <a href="#" class="btn-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Houses"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Home Mover Mortgages</h3>
+              <p>Find your next home with confidence.</p>
+              <a href="#" class="btn-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Modern house"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Buy-to-Let Mortgages</h3>
+              <p>Solutions for property investors and landlords.</p>
+              <a href="#" class="btn-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://images.unsplash.com/photo-1637763723578-79a4ca9225f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Family"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Protection & Insurance</h3>
+              <p>Help protect your income, family and future.</p>
+              <a href="#" class="btn-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <h3>1000+</h3>
+          <p>Mortgage products available</p>
+        </div>
+        <div class="stat-item">
+          <h3>5★</h3>
+          <p>Client satisfaction</p>
+        </div>
+        <div class="stat-item">
+          <h3>London</h3>
+          <p>Based in Greater London</p>
+        </div>
+        <div class="stat-item">
+          <h3>Ongoing</h3>
+          <p>Support beyond completion</p>
+        </div>
+        <div class="stats-handwritten">
+          People.<br />Property.<br />Peace of mind.
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="testimonials-header">
+          <span class="section-label dark">What Clients Say</span>
+          <h2>Real people.<br />Real progress.</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>
+              "Albion made the whole process so simple. Always available to
+              answer my questions and found me a great deal. Highly
+              recommended!"
+            </p>
+            <div class="client-info">
+              <h4>— Sarah K.</h4>
+              <span>First-Time Buyer</span>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>
+              "Professional, honest and very supportive. Helped me remortgage
+              and also set up life cover for my family. Couldn't be happier."
+            </p>
+            <div class="client-info">
+              <h4>— James T.</h4>
+              <span>Home Owner</span>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>
+              "Great advice from start to finish. Everything was explained
+              clearly and I felt in safe hands throughout."
+            </p>
+            <div class="client-info">
+              <h4>— Amina R.</h4>
+              <span>Home Mover</span>
+              <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i><i class="fas fa-star"></i
+                ><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+      <div class="container cta-content">
+        <h2>Let's plan your<br />next chapter.</h2>
+        <p>
+          Book a free, no-obligation consultation today and take the next step
+          with confidence.
+        </p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-gold"
+            >Book a Free Consultation
+            <i class="fas fa-arrow-right" style="margin-left: 8px"></i
+          ></a>
+          <a href="mailto:hello@albionbujupi.co.uk" class="cta-link"
+            >Or get in touch</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Bottom -->
+    <footer class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div>&copy; 2024 Albion Bujupi. All rights reserved.</div>
+        <div class="footer-nav">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a
+            href="https://uk.linkedin.com/in/albionbujupi"
+            target="_blank"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="#" aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+        const icon = menuToggle.querySelector("i");
+
+        // Toggle Menu
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+
+          // Toggle Icon between Bars and X
+          if (navLinks.classList.contains("active")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-times");
+          } else {
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+        });
+
+        // Close Menu when a link is clicked
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          });
+        });
+
+        // Reset menu on window resize (to prevent broken desktop view)
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 992) {
+            navLinks.classList.remove("active");
+            icon.classList.remove("fa-times");
+            icon.classList.add("fa-bars");
+          }
+        });
+      });
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      menuToggle.addEventListener("click", () => {
+        // Simple toggle for mobile menu visibility
+        if (navLinks.style.display === "flex") {
+          navLinks.style.display = "none";
+        } else {
+          navLinks.style.display = "flex";
+          navLinks.style.flexDirection = "column";
+          navLinks.style.position = "absolute";
+          navLinks.style.top = "80px";
+          navLinks.style.left = "0";
+          navLinks.style.width = "100%";
+          navLinks.style.backgroundColor = "var(--dark-bg)";
+          navLinks.style.padding = "2rem";
+          navLinks.style.zIndex = "999";
+          navLinks.style.gap = "1.5rem";
+        }
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 992) {
+            navLinks.style.display = "none";
+          }
+        });
+      });
+
+      // Smooth Scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

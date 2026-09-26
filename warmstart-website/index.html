@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WarmStart | Premium Heating & Plumbing London</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ws: {
+                            navy: '#0b132b',
+                            slate: '#1c2541',
+                            accent: '#ea580c', // Sophisticated Warm Amber/Orange
+                            white: '#ffffff',
+                            concrete: '#f8fafc',
+                            steel: '#64748b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@100;400&display=swap" rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@11.11.8/dist/framer-motion.js"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0b132b; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        ::selection { background: #ea580c; color: #ffffff; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #ea580c; }
+        ::-webkit-scrollbar-thumb:hover { background: #0b132b; }
+        .text-balance { text-wrap: balance; }
+        .bg-grid {
+            background-size: 60px 60px;
+            background-image: linear-gradient(to right, rgba(11, 19, 43, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(11, 19, 43, 0.04) 1px, transparent 1px);
+        }
+        .hero-mask {
+            mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, #000 50%, transparent 100%);
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        const { motion, useScroll, useTransform, AnimatePresence } = window.Motion;
+
+        const Nav = () => {
+            const [scrolled, setScrolled] = React.useState(false);
+            
+            React.useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
+            return (
+                <motion.nav 
+                    initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
+                    className={`fixed top-0 w-full z-50 transition-all duration-700 ${scrolled ? 'bg-white/95 backdrop-blur-xl border-b border-ws-navy/5 py-4' : 'bg-transparent py-8'}`}
+                >
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16 flex justify-between items-center">
+                        <div className="flex items-center space-x-2">
+                            {/* Simple flame logo */}
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 12 2 12 2C12 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="url(#paint0_linear)"/>
+                                <path d="M12 18C14.7614 18 17 15.7614 17 13C17 10.2386 12 7 12 7C12 7 7 10.2386 7 13C7 15.7614 9.2386 18 12 18Z" fill="#FFF"/>
+                                <defs>
+                                    <linearGradient id="paint0_linear" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
+                                        <stop stopColor="#ea580c"/>
+                                        <stop offset="1" stopColor="#9a3412"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <span className="font-display font-bold text-2xl tracking-tight text-ws-navy">
+                                WarmStart.
+                            </span>
+                        </div>
+                        
+                        <div className="hidden lg:flex space-x-12 items-center">
+                            {['Services', 'Process', 'Gallery', 'Reviews'].map((item) => (
+                                <a key={item} href={`#${item.toLowerCase()}`} className="text-[11px] font-bold tracking-[0.2em] uppercase text-ws-navy hover:text-ws-accent transition-colors">
+                                    {item}
+                                </a>
+                            ))}
+                        </div>
+
+                        <div className="hidden lg:flex items-center">
+                            <a href="#contact" className="px-6 py-3 text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 border border-ws-navy text-ws-navy hover:bg-ws-accent hover:border-ws-accent hover:text-white shadow-sm hover:shadow">
+                                Get a Quote
+                            </a>
+                        </div>
+                    </div>
+                </motion.nav>
+            );
+        };
+
+        const FlyingVan = () => {
+            return (
+                <div className="w-full h-16 bg-ws-navy border-y border-white/10 relative overflow-hidden flex items-center">
+                    <motion.div
+                        initial={{ x: "-10%" }}
+                        animate={{ x: "110vw" }}
+                        transition={{ 
+                            repeat: Infinity, 
+                            duration: 12, 
+                            ease: "linear",
+                            repeatDelay: 0
+                        }}
+                        className="absolute flex items-center space-x-4"
+                    >
+                        <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            {/* Van Body */}
+                            <path d="M10 18 L10 32 C10 34 12 36 14 36 L30 36 A 6 6 0 0 0 42 36 L100 36 A 6 6 0 0 0 112 36 L126 36 C128 36 130 34 130 32 L130 20 C130 15 125 10 115 10 L85 10 L75 2 C72 1 69 0 65 0 L15 0 C12 0 10 3 10 8 Z" fill="#ea580c" />
+                            {/* Window */}
+                            <path d="M78 4 L85 12 L115 12 C118 12 120 14 120 16 L120 18 L78 18 Z" fill="#f8fafc" />
+                            {/* Wheels */}
+                            <circle cx="36" cy="36" r="6" fill="#1c2541" />
+                            <circle cx="36" cy="36" r="3" fill="#64748b" />
+                            <circle cx="106" cy="36" r="6" fill="#1c2541" />
+                            <circle cx="106" cy="36" r="3" fill="#64748b" />
+                            {/* Branding */}
+                            <text x="18" y="22" fill="#ffffff" fontSize="12" fontFamily="monospace" fontWeight="bold">WARMSTART</text>
+                            {/* Motion Lines */}
+                            <path d="M-10 15 L0 15" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                            <path d="M-20 25 L5 25" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                            <path d="M-5 35 L5 35" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
+                        </svg>
+                    </motion.div>
+                </div>
+            );
+        };
+
+        const Hero = () => {
+            return (
+                <section className="relative min-h-screen w-full bg-white pt-32 pb-0 lg:pt-0 flex flex-col justify-end overflow-hidden">
+                    <div className="absolute inset-0 bg-grid -z-20"></div>
+                    
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full min-h-[75vh] flex-grow">
+                        
+                        {/* Text Content */}
+                        <motion.div 
+                            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="lg:col-span-6 flex flex-col z-20 relative pt-12 lg:pt-0"
+                        >
+                            <div className="font-mono text-[10px] text-ws-accent tracking-[0.3em] uppercase mb-8 flex items-center">
+                                <span className="w-8 h-[1px] bg-ws-accent mr-4"></span>
+                                Over 30 Years Experience
+                            </div>
+                            <h1 className="font-display font-medium text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.95] tracking-tighter text-ws-navy mb-8 text-balance">
+                                Engineering<br/>Warmth &amp;<br/>Reliability.
+                            </h1>
+                            <p className="font-sans text-lg md:text-xl text-ws-steel max-w-lg mb-12 font-light leading-relaxed">
+                                Expert plumbing, heating, and gas services across London. We provide an honest, respectful, and quality service—never over-promising, always delivering.
+                            </p>
+                            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                                <a href="#contact" className="bg-ws-accent text-white px-8 py-5 font-mono text-xs uppercase tracking-widest font-bold hover:bg-ws-navy hover:text-white transition-colors duration-300 text-center shadow-lg">
+                                    Make a Warm Start
+                                </a>
+                                <a href="#services" className="bg-transparent border border-ws-navy/20 text-ws-navy px-8 py-5 font-mono text-xs uppercase tracking-widest font-bold hover:border-ws-navy transition-colors duration-300 text-center shadow-sm hover:shadow-md bg-white/50 backdrop-blur">
+                                    Our Services
+                                </a>
+                            </div>
+                        </motion.div>
+
+                        {/* Imagery */}
+                        <motion.div 
+                            initial={{ opacity: 0, filter: 'blur(10px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration: 1.5, delay: 0.2 }}
+                            className="lg:col-span-6 relative h-[50vh] lg:h-[80vh] w-full mt-8 lg:mt-0"
+                        >
+                            <div className="absolute inset-0 bg-ws-concrete overflow-hidden shadow-2xl rounded-tl-[80px]">
+                                {/* High-end abstract/architectural heating image */}
+                                <img 
+                                    src="https://images.unsplash.com/photo-1581094722055-618820c7ad6e?auto=format&fit=crop&w=1200&q=80" 
+                                    alt="Premium Copper Pipes and Heating" 
+                                    className="w-full h-full object-cover origin-center scale-105 hover:scale-100 transition-transform duration-[2s] ease-out mix-blend-multiply opacity-90" 
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-ws-navy/30 to-transparent"></div>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    <FlyingVan />
+                </section>
+            );
+        };
+
+        const TrustBar = () => {
+            const stats = [
+                "30+ Years Experience",
+                "Domestic & Commercial",
+                "Fully Licensed & Insured",
+                "5-Star Client Rating"
+            ];
+            
+            return (
+                <section className="bg-ws-navy py-12">
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+                            {stats.map((stat, i) => (
+                                <motion.div 
+                                    key={i} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                                    className="font-mono text-[10px] md:text-xs text-white/70 uppercase tracking-widest"
+                                >
+                                    {stat}
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Services = () => {
+            const services = [
+                {
+                    title: "Plumbing & Drainage",
+                    desc: "Taps, showers, sanitaryware, unvented cylinders and complete drainage solutions.",
+                    icon: "M3 14l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v11a1 1 0 01-1 1h-3m-6 0h6"
+                },
+                {
+                    title: "Heating & Boilers",
+                    desc: "Design, installation, servicing and repairs for all types of boilers and central heating systems.",
+                    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" // Using abstract path representing network
+                },
+                {
+                    title: "Gas Services",
+                    desc: "Landlord safety checks, leak detection, appliance installations, repairs and routine servicing.",
+                    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+                },
+                {
+                    title: "Electrical & Advanced",
+                    desc: "Electric boilers, underfloor heating, heat pumps, heat recovery units, and system wiring.",
+                    icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
+                }
+            ];
+
+            return (
+                <section id="services" className="py-24 lg:py-32 bg-ws-concrete border-y border-ws-navy/5 text-ws-navy">
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16">
+                        <div className="mb-16 lg:mb-24 max-w-3xl">
+                            <div className="font-mono text-[10px] text-ws-accent tracking-[0.3em] uppercase mb-4">What We Do</div>
+                            <h2 className="font-display font-medium text-4xl md:text-6xl tracking-tighter text-balance">Comprehensive Systems.</h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {services.map((srv, i) => (
+                                <motion.div 
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.1 }}
+                                    className="group flex flex-col bg-white p-10 shadow-sm hover:shadow-xl transition-shadow duration-500 border border-ws-navy/5"
+                                >
+                                    <div className="w-14 h-14 bg-ws-navy/5 rounded-full flex items-center justify-center mb-8 text-ws-accent group-hover:bg-ws-accent group-hover:text-white transition-colors duration-500">
+                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="1.5" d={srv.icon} /></svg>
+                                    </div>
+                                    <h3 className="font-display text-2xl font-medium tracking-tight mb-4">{srv.title}</h3>
+                                    <p className="font-sans text-ws-steel leading-relaxed mb-8">{srv.desc}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const ArchitectureDiagram = () => {
+            return (
+                <section id="process" className="py-24 lg:py-32 bg-ws-navy text-white overflow-hidden">
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16">
+                        <div className="mb-16 lg:mb-24 text-center">
+                            <div className="font-mono text-[10px] text-ws-accent tracking-[0.3em] uppercase mb-4">Engineering Methodology</div>
+                            <h2 className="font-display font-medium text-4xl md:text-5xl tracking-tighter">System Architecture & Process</h2>
+                        </div>
+
+                        {/* Interactive SVG Diagram */}
+                        <div className="relative w-full max-w-5xl mx-auto h-[400px] md:h-[500px]">
+                            <svg viewBox="0 0 1000 500" className="w-full h-full overflow-visible" preserveAspectRatio="xMidYMid meet">
+                                {/* Base grid lines */}
+                                <g stroke="rgba(255,255,255,0.05)" strokeWidth="1">
+                                    <line x1="0" y1="100" x2="1000" y2="100" />
+                                    <line x1="0" y1="250" x2="1000" y2="250" />
+                                    <line x1="0" y1="400" x2="1000" y2="400" />
+                                    <line x1="250" y1="0" x2="250" y2="500" />
+                                    <line x1="500" y1="0" x2="500" y2="500" />
+                                    <line x1="750" y1="0" x2="750" y2="500" />
+                                </g>
+
+                                {/* Connecting Flow Lines - Animated */}
+                                <motion.path 
+                                    initial={{ pathLength: 0 }}
+                                    whileInView={{ pathLength: 1 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 2, ease: "easeInOut" }}
+                                    d="M 125 250 L 375 250 M 375 250 L 625 250 M 625 250 L 875 250" 
+                                    stroke="#ea580c" strokeWidth="2" strokeDasharray="5,5" fill="none" 
+                                />
+
+                                {/* Nodes */}
+                                <g transform="translate(125, 250)">
+                                    <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} r="40" fill="#1c2541" stroke="#ea580c" strokeWidth="3" />
+                                    <text x="0" y="-60" fill="#ffffff" fontSize="16" fontFamily="Space Grotesk" fontWeight="600" textAnchor="middle">01. Assess</text>
+                                    <text x="0" y="60" fill="#64748b" fontSize="12" fontFamily="Inter" textAnchor="middle">Diagnose &amp; Consult</text>
+                                    <circle cx="0" cy="0" r="15" fill="#ea580c" opacity="0.2" />
+                                </g>
+
+                                <g transform="translate(375, 250)">
+                                    <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 1.0 }} r="40" fill="#1c2541" stroke="#ea580c" strokeWidth="3" />
+                                    <text x="0" y="-60" fill="#ffffff" fontSize="16" fontFamily="Space Grotesk" fontWeight="600" textAnchor="middle">02. Design</text>
+                                    <text x="0" y="60" fill="#64748b" fontSize="12" fontFamily="Inter" textAnchor="middle">System Architecture</text>
+                                    <circle cx="0" cy="0" r="15" fill="#ea580c" opacity="0.2" />
+                                </g>
+
+                                <g transform="translate(625, 250)">
+                                    <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 1.5 }} r="40" fill="#1c2541" stroke="#ea580c" strokeWidth="3" />
+                                    <text x="0" y="-60" fill="#ffffff" fontSize="16" fontFamily="Space Grotesk" fontWeight="600" textAnchor="middle">03. Execute</text>
+                                    <text x="0" y="60" fill="#64748b" fontSize="12" fontFamily="Inter" textAnchor="middle">Precision Installation</text>
+                                    <circle cx="0" cy="0" r="15" fill="#ea580c" opacity="0.2" />
+                                </g>
+
+                                <g transform="translate(875, 250)">
+                                    <motion.circle initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 2.0 }} r="40" fill="#1c2541" stroke="#ea580c" strokeWidth="3" />
+                                    <text x="0" y="-60" fill="#ffffff" fontSize="16" fontFamily="Space Grotesk" fontWeight="600" textAnchor="middle">04. Maintain</text>
+                                    <text x="0" y="60" fill="#64748b" fontSize="12" fontFamily="Inter" textAnchor="middle">Servicing &amp; Support</text>
+                                    <circle cx="0" cy="0" r="15" fill="#ea580c" opacity="0.2" />
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Gallery = () => {
+            const projects = [
+                { title: "Commercial Heat Pump", img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80", aspect: "aspect-[4/5]" },
+                { title: "Bespoke Sanitaryware", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80", aspect: "aspect-[3/4]" },
+                { title: "Unvented Cylinder", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80", aspect: "aspect-[4/5]" },
+                { title: "Luxury Installation", img: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=800&q=80", aspect: "aspect-[16/9] md:col-span-2" }
+            ];
+
+            return (
+                <section id="gallery" className="py-24 lg:py-32 bg-white text-ws-navy">
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16">
+                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 border-b border-ws-navy/10 pb-12">
+                            <div>
+                                <div className="font-mono text-[10px] text-ws-accent tracking-[0.3em] uppercase mb-4">Just some of our work</div>
+                                <h2 className="font-display font-medium text-4xl md:text-6xl tracking-tighter">Featured Installs.</h2>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {projects.map((p, i) => (
+                                <motion.div 
+                                    key={i}
+                                    initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} 
+                                    className={`group cursor-pointer flex flex-col ${p.aspect}`}
+                                >
+                                    <div className="w-full h-full bg-ws-concrete overflow-hidden relative">
+                                        <div className="absolute inset-0 bg-ws-navy/20 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+                                        <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105" loading="lazy" />
+                                        <div className="absolute bottom-6 left-6 z-20">
+                                            <h3 className="font-display text-2xl font-medium tracking-tight text-white drop-shadow-md">{p.title}</h3>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Reviews = () => {
+            const testimonials = [
+                { quote: "Very pleased with service. Very knowledgeable and quickly diagnosed issue and solved very quickly. I have been using warmstart for over 5 years now.", source: "London, Apr 2019", type: "Water leak" },
+                { quote: "I was very impressed with the Warmstart team, their professionalism and quality of work was to a very high standard. All works completed on time.", source: "Private Client", type: "New bathroom" },
+                { quote: "Upgraded our 100l vented system to a 200l unvented hot water storage. No job is too big or too much effort. I will only recommend them.", source: "Private Client", type: "System Upgrade" }
+            ];
+
+            return (
+                <section id="reviews" className="py-24 lg:py-32 bg-ws-concrete border-y border-ws-navy/5">
+                    <div className="max-w-[1800px] mx-auto px-8 lg:px-16 text-center">
+                        <div className="font-mono text-[10px] text-ws-accent tracking-[0.3em] uppercase mb-16 lg:mb-24">Testimonials</div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 text-left">
+                            {testimonials.map((t, i) => (
+                                <motion.div 
+                                    key={i}
+                                    initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: i * 0.15 }}
+                                    className="flex flex-col bg-white p-10 shadow-sm"
+                                >
+                                    <div className="text-ws-accent font-display text-6xl leading-none mb-2">"</div>
+                                    <p className="font-sans text-lg text-ws-navy leading-relaxed tracking-tight mb-8">
+                                        {t.quote}
+                                    </p>
+                                    <div className="mt-auto">
+                                        <div className="font-mono text-[10px] tracking-widest uppercase text-ws-steel font-bold mb-1">
+                                            {t.source}
+                                        </div>
+                                        <div className="font-display text-sm text-ws-accent font-medium">
+                                            Project: {t.type}
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Contact = () => {
+            return (
+                <section id="contact" className="bg-ws-navy text-white relative">
+                    <div className="absolute inset-0 bg-grid opacity-10"></div>
+                    <div className="max-w-[1800px] mx-auto relative z-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-2">
+                            <div className="py-24 lg:py-32 px-8 lg:px-16 flex flex-col justify-center border-r border-white/10">
+                                <div className="font-mono text-[10px] text-ws-accent tracking-[0.3em] uppercase mb-4">Contact Us</div>
+                                <h2 className="font-display font-medium text-5xl md:text-6xl tracking-tighter mb-8 text-balance">
+                                    Let's get the job done.
+                                </h2>
+                                <p className="font-sans text-lg text-white/70 mb-12 max-w-md font-light leading-relaxed">
+                                    Whether you are looking for a complete boiler installation, unvented cylinder setup, or emergency repairs, WarmStart has you covered. 
+                                </p>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono text-xs tracking-widest uppercase text-white/50 pt-8 border-t border-white/10">
+                                    <div>
+                                        <strong className="text-white block mb-2 font-medium">Phone Support</strong>
+                                        <a href="tel:02033023720" className="hover:text-ws-accent transition-colors text-white text-lg">0203 302 3720</a>
+                                    </div>
+                                    <div>
+                                        <strong className="text-white block mb-2 font-medium">Email Channel</strong>
+                                        <a href="mailto:info@warmstart.co.uk" className="hover:text-ws-accent transition-colors block mb-1">info@warmstart.co.uk</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="py-24 lg:py-32 px-8 lg:px-16 flex flex-col justify-center bg-ws-slate/50 backdrop-blur">
+                                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+                                    <div className="border-b border-white/20 pb-2 focus-within:border-ws-accent transition-colors duration-300">
+                                        <label className="font-mono text-[10px] uppercase tracking-widest text-white/50 block mb-2">Name</label>
+                                        <input required type="text" className="w-full bg-transparent focus:outline-none text-xl text-white placeholder-white/20 font-light" placeholder="e.g. John Doe" />
+                                    </div>
+                                    <div className="border-b border-white/20 pb-2 focus-within:border-ws-accent transition-colors duration-300">
+                                        <label className="font-mono text-[10px] uppercase tracking-widest text-white/50 block mb-2">Phone or Email</label>
+                                        <input required type="text" className="w-full bg-transparent focus:outline-none text-xl text-white placeholder-white/20 font-light" placeholder="How should we reach you?" />
+                                    </div>
+                                    <div className="border-b border-white/20 pb-2 focus-within:border-ws-accent transition-colors duration-300">
+                                        <label className="font-mono text-[10px] uppercase tracking-widest text-white/50 block mb-2">Project Details</label>
+                                        <textarea required rows="2" className="w-full bg-transparent focus:outline-none text-xl text-white placeholder-white/20 resize-none font-light" placeholder="Describe your heating or plumbing needs..."></textarea>
+                                    </div>
+                                    <button type="submit" className="w-full lg:w-auto bg-ws-accent text-white px-10 py-5 font-mono text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-ws-navy transition-colors duration-300">
+                                        Send Request →
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
+        const Footer = () => (
+            <footer className="bg-[#050a17] text-white py-8 px-8 lg:px-16">
+                <div className="max-w-[1800px] mx-auto flex flex-col md:flex-row justify-between items-center font-mono text-[10px] tracking-widest uppercase text-white/50">
+                    <div>&copy; {new Date().getFullYear()} Warm Start Ltd. All Rights Reserved.</div>
+                    <div className="mt-6 md:mt-0 flex space-x-12">
+                        <span>Accredited Installers</span>
+                        <span>London, UK</span>
+                    </div>
+                </div>
+            </footer>
+        );
+
+        const App = () => {
+            return (
+                <main>
+                    <Nav />
+                    <Hero />
+                    <TrustBar />
+                    <Services />
+                    <ArchitectureDiagram />
+                    <Gallery />
+                    <Reviews />
+                    <Contact />
+                    <Footer />
+                </main>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+
+    </script>
+</body>
+</html>

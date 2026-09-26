@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.C. Locksmiths | Emergency Locksmith in London</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --gold: #c9a55a;
+            --gold-hover: #b08d44;
+            --dark-bg: #111111;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--darker-bg);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-light);
+            border-color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--darker-bg);
+        }
+
+        .section-tag {
+            color: var(--gold);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Header & Navbar */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .logo-text h2 {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: -2px;
+        }
+
+        .logo-text p {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text .tagline {
+            color: var(--gold);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-right {
+            text-align: right;
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 40px;
+        }
+
+        .hero-right h3 {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background-color: var(--darker-bg);
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .trust-item i {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .trust-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .trust-item p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-top: 10px;
+        }
+
+        .section-header a {
+            color: var(--gold);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .section-header a:hover {
+            gap: 10px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img {
+            filter: brightness(0.9);
+        }
+
+        .service-content {
+            padding: 25px;
+            position: relative;
+        }
+
+        .service-icon {
+            position: absolute;
+            top: -20px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gold);
+            color: var(--darker-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 1.2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .service-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--darker-bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 500px;
+        }
+
+        .about-content {
+            padding: 80px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background-color: var(--card-bg);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+        }
+
+        .testimonials-layout {
+            display: grid;
+            grid-template-columns: 1fr 2.5fr;
+            gap: 50px;
+        }
+
+        .testimonials-header h2 {
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stars {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 0.8rem;
+        }
+
+        .testimonial-card p {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .client-info h4 {
+            color: #111;
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .client-info span {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* CTA Section */
+        .cta {
+            position: relative;
+            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .cta-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .cta-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-text p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cta-features {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .cta-feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-feature-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .cta-feature-item h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .cta-feature-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-nav a:hover {
+            color: var(--gold);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-socials a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+        }
+
+        .footer-socials a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .hero-right {
+                text-align: center;
+                border-left: none;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
+                padding-left: 0;
+                padding-top: 30px;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about {
+                grid-template-columns: 1fr;
+            }
+            .about-img {
+                min-height: 300px;
+            }
+            .testimonials-layout {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .cta-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker-bg);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .header-inner .btn {
+                display: none;
+            }
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 20px;
+            }
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="logo-text">
+                    <h2>B.C. LOCKSMITHS</h2>
+                    <p>Secure today. Protected tomorrow.</p>
+                </div>
+            </div>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#areas">Areas Covered</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a href="tel:+442012345678" class="btn btn-gold"><i class="fa-solid fa-phone"></i> Call Now</a>
+            
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="tagline">24/7 EMERGENCY LOCKSMITH</span>
+                    <h1>Locked Out?<br><span>We've Got You.</span></h1>
+                    <p>Independent, reliable and professional locksmith services in SE25 and across Greater London. Emergency entry, repairs, upgrades and more — with honest, fixed pricing.</p>
+                    <div class="hero-btns">
+                        <a href="tel:+442012345678" class="btn btn-gold"><i class="fa-solid fa-phone"></i> Call Now</a>
+                        <a href="#contact" class="btn btn-outline">Request a Callback</a>
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <h3>"FAST. RELIABLE.<br>TRUSTED.<br>LOCAL."</h3>
+                    <p style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px;">SECURITY<br>YOU CAN TRUST.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section class="trust-bar">
+            <div class="container trust-grid">
+                <div class="trust-item">
+                    <i class="fa-regular fa-clock"></i>
+                    <div>
+                        <h4>24/7</h4>
+                        <p>Emergency Call-Outs</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-check"></i>
+                    <div>
+                        <h4>Fixed & Transparent</h4>
+                        <p>Pricing from £75</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Based in SE25</h4>
+                        <p>Covering Greater London</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <div>
+                        <h4>Trusted Local</h4>
+                        <p>Single-Operator Service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="section-tag">OUR SERVICES</span>
+                        <h2>Professional Locksmith Services</h2>
+                    </div>
+                    <a href="#services">View All Services <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=600&auto=format&fit=crop" alt="Emergency Entry" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fa-solid fa-house"></i></div>
+                            <h3>Emergency Entry</h3>
+                            <p>Non-destructive & destructive entry when you need it most.</p>
+                            <a href="#" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <img src="images/services/2.png" alt="Lock Repairs" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fa-solid fa-gear"></i></div>
+                            <h3>Lock Repairs & Replacements</h3>
+                            <p>uPVC, wooden doors, window repairs and hardware upgrades.</p>
+                            <a href="#" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <img src="images/services/3.png" alt="Key Cutting" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fa-solid fa-car"></i></div>
+                            <h3>Key Cutting & Swaps</h3>
+                            <p>New keys, spare keys and lock upgrades.</p>
+                            <a href="#" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <img src="images/services/4.png" alt="Commercial Services" class="service-img">
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+                            <h3>Commercial Services</h3>
+                            <p>Tailored security solutions for businesses, landlords and property managers.</p>
+                            <a href="#" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1000&auto=format&fit=crop" alt="B.C. Locksmiths Van" class="about-img">
+            <div class="about-content">
+                <span class="section-tag">ABOUT B.C. LOCKSMITHS</span>
+                <h2>Local. Independent. Reliable.</h2>
+                <p>B.C. Locksmiths is an independent, single-operator locksmith business based in SE25, offering personalized residential and commercial services. I personally handle every job—from non-destructive and destructive entry to uPVC and window repairs, door realignments, and hardware upgrades. I provide transparent, honest pricing with fixed fees starting from £75 for standard cylinder replacements. Call or message directly for rapid emergency call-outs and scheduled bookings.</p>
+                <div>
+                    <a href="#contact" class="btn btn-gold"><i class="fa-solid fa-phone"></i> Get in Touch</a>
+                </div>
+                <div class="signature">B.C.</div>
+                <p style="font-size: 0.7rem; letter-spacing: 2px; margin-top: 5px; color: var(--text-muted);">YOUR LOCAL LOCKSMITH</p>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Independent</p>
+                </div>
+                <div class="stat-item">
+                    <h3>£75</h3>
+                    <p>From (standard cylinder swap)</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Emergency call-outs</p>
+                </div>
+                <div class="stat-item">
+                    <h3>SE25</h3>
+                    <p>Based in South East London</p>
+                </div>
+                <div class="stat-item">
+                    <h3>All of London</h3>
+                    <p>Areas covered</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="reviews">
+            <div class="container testimonials-layout">
+                <div class="testimonials-header">
+                    <span class="section-tag">WHAT CLIENTS SAY</span>
+                    <h2>Trusted by Homeowners, Landlords & Businesses</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>"Brilliant service, came out quickly and sorted my lock the same day. Highly recommend."</p>
+                        <div class="client-info">
+                            <h4>Sarah T.</h4>
+                            <span>Homeowner, SE25</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>"Professional, honest and great communication. Fair pricing and excellent work."</p>
+                        <div class="client-info">
+                            <h4>James L.</h4>
+                            <span>Landlord, South London</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p>"Reliable and knowledgeable. Helped us with our office security and gave great advice."</p>
+                        <div class="client-info">
+                            <h4>Mark R.</h4>
+                            <span>Business Owner, London</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta" id="contact">
+            <div class="container cta-layout">
+                <div class="cta-text">
+                    <span class="section-tag">SECURE YOUR PROPERTY TODAY</span>
+                    <h2>Need a Locksmith in London?</h2>
+                    <p>Call now for fast, reliable and professional service.</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+442012345678" class="btn btn-gold"><i class="fa-solid fa-phone"></i> Call Now</a>
+                        <a href="#" class="btn btn-outline">Request a Callback</a>
+                    </div>
+                    <p style="margin-top: 20px; font-size: 0.8rem;">Available 24/7 for emergency call-outs.</p>
+                </div>
+                <div class="cta-features">
+                    <div class="cta-feature-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <h4>Enhanced Security</h4>
+                            <p>Protect what matters most</p>
+                        </div>
+                    </div>
+                    <div class="cta-feature-item">
+                        <i class="fa-solid fa-user-group"></i>
+                        <div>
+                            <h4>Peace of Mind</h4>
+                            <p>Reliable and professional service</p>
+                        </div>
+                    </div>
+                    <div class="cta-feature-item">
+                        <i class="fa-solid fa-house-chimney"></i>
+                        <div>
+                            <h4>Homes & Businesses</h4>
+                            <p>Solutions for every property</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="logo-text">
+                    <h2>B.C. LOCKSMITHS</h2>
+                    <p>Secure today. Protected tomorrow.</p>
+                </div>
+            </div>
+            
+            <nav class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#areas">Areas Covered</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="footer-socials">
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <a href="tel:+442012345678" class="btn btn-gold"><i class="fa-solid fa-phone"></i> Call Now</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                // Change icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngoma Knight | Senior HR Professional</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-main: #F9F8F6;
+            --bg-white: #FFFFFF;
+            --bg-dark: #1C2B23;
+            --accent: #C96C4D;
+            --accent-hover: #B05A3D;
+            --text-main: #1A1A1A;
+            --text-muted: #5A5A5A;
+            --border-color: #E5E5E5;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            line-height: 1.2;
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        .link-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .link-arrow:hover {
+            gap: 10px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 24px 0;
+            z-index: 100;
+            background: transparent;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--text-main);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            padding-top: 120px;
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .hero-tags span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-tags span:not(:last-child)::after {
+            content: '|';
+            color: var(--border-color);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .hero-quote {
+            position: absolute;
+            bottom: 40px;
+            right: -40px;
+            background: var(--bg-main);
+            padding: 24px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 250px;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-style: italic;
+            border-left: 3px solid var(--accent);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .services-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .services-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #F0EBE6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .about-text .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .about-feature i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 4px;
+        }
+
+        .about-feature h4 {
+            font-size: 1rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        /* --- OUTCOMES SECTION --- */
+        .outcomes {
+            background-color: var(--bg-dark);
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .outcomes-title .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .outcomes-title h2 {
+            color: #fff;
+            font-size: 2.2rem;
+        }
+
+        .outcomes-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .outcome-item {
+            text-align: left;
+        }
+
+        .outcome-icon {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .outcome-item h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .outcome-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .testimonials-header .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .testimonials-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card .quote-icon {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 32px;
+            color: var(--text-main);
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #E5E5E5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .author-info h4 {
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+
+        .author-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* --- CTA & FOOTER SECTION --- */
+        .cta-section {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            color: #fff;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(28, 43, 35, 0.9), rgba(28, 43, 35, 0.6));
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .cta-text .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .cta-text h2 {
+            color: #fff;
+            font-size: 2.5rem;
+        }
+
+        .cta-box {
+            background: var(--bg-main);
+            padding: 40px;
+            border-radius: 4px;
+            color: var(--text-main);
+        }
+
+        .cta-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .footer {
+            background-color: var(--bg-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 30px 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) {
+            .hero-content, .about-grid, .outcomes-grid, .cta-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-image img {
+                height: 400px;
+            }
+
+            .hero-quote {
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .outcomes-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-main);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-cta {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .services-grid, .testimonials-grid, .outcomes-list {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-tags {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-tags span::after {
+                display: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                NGOMA KNIGHT
+                <span>PEOPLE • CULTURE • LASTING IMPACT</span>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="#contact" class="btn btn-primary">Book a Discovery Call <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="subtitle">Senior HR Professional</div>
+                <h1>Develop Better Leaders. Build Stronger Teams. Shape Better Cultures.</h1>
+                <p>Ngoma Knight is a senior HR professional supporting organisations to develop people, strengthen teams and create healthier, high-performing workplace cultures.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book a Discovery Call <i class="fas fa-arrow-right"></i></a>
+                    <a href="#services" class="btn btn-outline">Explore Services</a>
+                </div>
+
+                <div class="hero-tags">
+                    <span>Leadership</span>
+                    <span>Culture Change</span>
+                    <span>Coaching</span>
+                    <span>Team Development</span>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <!-- Using a high-quality placeholder image similar to the design -->
+                <img src="https://images.unsplash.com/photo-1716840646010-e5622fd6683d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ngoma Knight - Senior HR Professional">
+                <div class="hero-quote">
+                    "People development creates stronger businesses."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="services-header">
+                <div class="subtitle">Services</div>
+                <h2>Practical People Solutions for Lasting Change</h2>
+                <p>Tailored support for leaders, teams and organisations to thrive.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Leadership Development</h3>
+                    <p>Equipping leaders with the mindset, skills and behaviours to drive positive change.</p>
+                    <a href="#" class="link-arrow">Find Out More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Culture Change</h3>
+                    <p>Partnering with organisations to design and embed healthier, more inclusive and high-performing cultures.</p>
+                    <a href="#" class="link-arrow">Find Out More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>1:1 Coaching</h3>
+                    <p>Personalised support for leaders and professionals to grow, navigate change and achieve their goals.</p>
+                    <a href="#" class="link-arrow">Find Out More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users-cog"></i></div>
+                    <h3>Team Development Programmes</h3>
+                    <p>Build stronger, more cohesive teams through tailored development programmes.</p>
+                    <a href="#" class="link-arrow">Find Out More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section-padding about" id="about">
+        <div class="container about-grid">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ngoma Knight Coaching">
+            </div>
+            <div class="about-text">
+                <div class="subtitle">About Ngoma Knight</div>
+                <h2>Experience. Insight. Real-World Impact.</h2>
+                <!-- Included the specific text provided by the prompt -->
+                <p>A Senior HR professional with experience in leading on leadership development and business culture change management projects. Available for 1:1 and team development programs.</p>
+                
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <h4>Proven HR Leadership Experience</h4>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>
+                            <h4>Specialist in Leadership Development & Culture Change</h4>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-heart"></i>
+                        <div>
+                            <h4>Passionate About People, Potential and Lasting Impact</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#" class="btn btn-outline">More About Me <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUTCOMES SECTION -->
+    <section class="outcomes" id="approach">
+        <div class="container outcomes-grid">
+            <div class="outcomes-title">
+                <div class="subtitle">The Outcomes</div>
+                <h2>People Progress Drives Business Success.</h2>
+            </div>
+            
+            <div class="outcomes-list">
+                <div class="outcome-item">
+                    <div class="outcome-icon"><i class="fas fa-user-check"></i></div>
+                    <h4>Stronger Leaders</h4>
+                    <p>Confident, capable and values-led leaders.</p>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Better Team Performance</h4>
+                    <p>More engaged, collaborative and high-performing teams.</p>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h4>Healthier Cultures</h4>
+                    <p>Inclusive, positive and purpose-driven workplaces.</p>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon"><i class="fas fa-bullseye"></i></div>
+                    <h4>Clearer People Strategies</h4>
+                    <p>Practical people strategies that support long-term growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section-padding" id="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <div class="subtitle">What Clients Say</div>
+                <h2>Trusted by Organisations and Leaders.</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"Ngoma brings deep expertise and a calm, practical approach. Her support has had a lasting positive impact on our leadership team."</p>
+                    <div class="author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>Jane Doe</h4>
+                            <span>HR Director, Global Organisation</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"Insightful, professional and a pleasure to work with. Ngoma helped us navigate significant culture change with clarity and care."</p>
+                    <div class="author">
+                        <div class="author-avatar">MS</div>
+                        <div class="author-info">
+                            <h4>Michael Smith</h4>
+                            <span>CEO, Growth Business</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <p>"The team development programme was transformational. We are a stronger, more cohesive team as a result."</p>
+                    <div class="author">
+                        <div class="author-avatar">LT</div>
+                        <div class="author-info">
+                            <h4>Laura Taylor</h4>
+                            <span>Head of People, International Firm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA & FOOTER SECTION -->
+    <section class="cta-section" id="contact">
+        <div class="container cta-content">
+            <div class="cta-text">
+                <div class="subtitle">Let's Create Impact</div>
+                <h2>Ready to Build Stronger People, Teams and Cultures?</h2>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Book a Discovery Call</h3>
+                <p>Book a discovery call to explore how Ngoma Knight can support your leadership and people development goals.</p>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Book a Discovery Call <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>&copy; 2024 Ngoma Knight. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE NAVIGATION -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                // Toggle icon between bars and times
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

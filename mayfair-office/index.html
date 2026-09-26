@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mayfair Office — By Referral, By Trust</title>
+<meta name="description" content="A discreet, high-touch private office for clients referred by trusted introductions. Lifestyle, travel, property and personal support — and specialist vehicle sourcing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   0. TOKENS
+   ============================================================ */
+:root{
+  --cream:#F5F0E6;
+  --cream-2:#EDE6D8;
+  --cream-3:#FBF8F2;
+  --cream-4:#E4DBC8;
+
+  --ink:#1C1B16;
+  --ink-2:#2A281F;
+  --ink-3:#3A3728;
+
+  --gold:#B8955E;
+  --gold-lt:#D4B47E;
+  --gold-dk:#8A7846;
+  --olive:#7A6A3C;
+  --olive-dark:#5F5129;
+  --olive-hover:#6B5C33;
+
+  --muted:#6B6759;
+  --muted-2:#908A7A;
+
+  --line:rgba(28,27,22,.13);
+  --line-2:rgba(28,27,22,.075);
+  --line-gold:rgba(184,149,94,.34);
+  --line-cream:rgba(251,248,242,.14);
+
+  --serif:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans:'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ease:cubic-bezier(.22,.68,.28,1);
+  --pad:clamp(1.35rem,5vw,4.5rem);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:88px;
+  -webkit-text-size-adjust:100%;
+}
+
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+::selection{background:var(--olive);color:#fff}
+
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--cream-2)}
+::-webkit-scrollbar-thumb{background:#C8BEA8;border-radius:10px;border:2px solid var(--cream-2)}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* ============================================================
+   1. BASE
+   ============================================================ */
+.wrap{
+  width:100%;
+  max-width:1440px;
+  margin-inline:auto;
+  padding-inline:var(--pad);
+}
+
+.section{padding-block:clamp(4.5rem,8vw,8rem);position:relative}
+
+.eyebrow{
+  display:inline-block;
+  font-size:.68rem;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--gold-dk);
+  margin:0 0 1.5rem;
+  line-height:1.4;
+}
+.eyebrow--diamond{
+  display:inline-flex;
+  align-items:center;
+  gap:.75rem;
+}
+.eyebrow--diamond::before{
+  content:"";
+  width:6px;height:6px;
+  background:var(--gold);
+  transform:rotate(45deg);
+  flex:none;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--serif);
+  font-weight:400;
+  line-height:1.06;
+  letter-spacing:-.01em;
+  margin:0;
+  color:var(--ink);
+}
+
+h1{font-size:clamp(2.5rem,5.6vw,4.8rem);line-height:1.02}
+h2{font-size:clamp(1.95rem,3.8vw,3.1rem);line-height:1.08}
+h3{font-size:clamp(1.45rem,2.2vw,1.9rem);line-height:1.15}
+h4{font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.25}
+
+p{margin:0 0 1rem}
+p:last-child{margin-bottom:0}
+
+.body-text{color:var(--muted);font-size:1rem;line-height:1.78}
+.lead-text{
+  font-family:var(--serif);
+  font-size:clamp(1.15rem,1.8vw,1.5rem);
+  line-height:1.4;
+  color:var(--ink-2);
+  font-weight:400;
+}
+
+/* Olive CTA — the signature button */
+.btn-olive{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.7rem;
+  padding:1.1rem 2.1rem;
+  background:var(--olive);
+  color:#fff;
+  font-family:var(--sans);
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid var(--olive);
+  cursor:pointer;
+  transition:all .4s var(--ease);
+  white-space:nowrap;
+  line-height:1;
+  border-radius:0;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.btn-olive::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);
+  transform:translateX(-120%);
+  transition:transform .9s var(--ease);
+  z-index:1;
+}
+.btn-olive:hover::before{transform:translateX(120%)}
+.btn-olive:hover{
+  background:var(--olive-dark);
+  border-color:var(--olive-dark);
+  transform:translateY(-2px);
+  box-shadow:0 16px 34px -16px rgba(95,81,41,.8);
+}
+.btn-olive svg{width:14px;height:14px;flex:none;transition:transform .4s var(--ease);z-index:2;position:relative}
+.btn-olive span{position:relative;z-index:2}
+.btn-olive:hover svg{transform:translateX(3px)}
+
+.btn-outline{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  padding:1.1rem 2rem;
+  background:transparent;
+  color:#fff;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  text-decoration:none;
+  border:1px solid rgba(251,248,242,.28);
+  cursor:pointer;
+  transition:all .4s var(--ease);
+  white-space:nowrap;
+  line-height:1;
+}
+.btn-outline:hover{border-color:var(--gold-lt);color:var(--gold-lt);transform:translateY(-2px)}
+.btn-outline svg{width:14px;height:14px}
+
+.link-arrow{
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+  font-size:.7rem;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--gold-dk);
+  text-decoration:none;
+  padding-bottom:.35rem;
+  border-bottom:1px solid var(--gold-dk);
+  transition:gap .35s var(--ease),color .35s var(--ease);
+}
+.link-arrow:hover{gap:.9rem;color:var(--olive-dark)}
+
+/* Reveal */
+.js .reveal{
+  opacity:0;
+  transform:translateY(22px);
+  transition:opacity .95s var(--ease),transform .95s var(--ease);
+  transition-delay:var(--d,0s);
+}
+.js .reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   2. TOPBAR
+   ============================================================ */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:var(--cream);
+  border-bottom:1px solid var(--line-2);
+  transition:box-shadow .4s var(--ease),background .4s var(--ease);
+}
+.topbar.scrolled{
+  background:rgba(245,240,230,.94);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  box-shadow:0 8px 30px -22px rgba(28,27,22,.4);
+}
+.topbar-inner{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:2rem;
+  padding-block:1.1rem;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:clamp(.88rem,1.15vw,1.05rem);
+  line-height:1.05;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--ink);
+  white-space:nowrap;
+  padding-left:.95rem;
+  position:relative;
+}
+.brand::before{
+  content:"";
+  position:absolute;
+  left:0;top:.1em;bottom:.1em;
+  width:2px;
+  background:var(--gold);
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2.1rem;
+  list-style:none;
+  margin:0;padding:0;
+}
+.nav-links a{
+  font-size:.71rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--ink);
+  padding-block:.35rem;
+  position:relative;
+  font-weight:400;
+  transition:color .35s var(--ease);
+}
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:1px;
+  background:var(--gold-dk);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .4s var(--ease);
+}
+.nav-links a:hover{color:var(--gold-dk)}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+.topbar .btn-olive{padding:.9rem 1.7rem;font-size:.66rem;letter-spacing:.2em}
+
+.burger{
+  display:none;
+  width:44px;height:44px;
+  border:1px solid var(--line);
+  background:transparent;
+  cursor:pointer;
+  position:relative;
+  padding:0;
+  transition:border-color .4s var(--ease);
+}
+.burger:hover{border-color:var(--gold)}
+.burger span{
+  position:absolute;
+  left:50%;top:50%;
+  width:18px;height:1px;
+  background:var(--ink);
+  transform:translate(-50%,-50%);
+  transition:transform .4s var(--ease);
+}
+.burger span:nth-child(1){margin-top:-4px}
+.burger span:nth-child(2){margin-top:4px}
+.burger.active span:nth-child(1){transform:translate(-50%,-50%) rotate(45deg);margin-top:0}
+.burger.active span:nth-child(2){transform:translate(-50%,-50%) rotate(-45deg);margin-top:0}
+
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  z-index:999;
+  background:var(--cream);
+  padding:6rem var(--pad) 3rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .45s var(--ease),visibility .45s var(--ease);
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu ul{list-style:none;margin:0 0 2.5rem;padding:0}
+.mobile-menu li{
+  border-bottom:1px solid var(--line);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+.mobile-menu.open li{opacity:1;transform:none}
+.mobile-menu.open li:nth-child(1){transition-delay:.06s}
+.mobile-menu.open li:nth-child(2){transition-delay:.11s}
+.mobile-menu.open li:nth-child(3){transition-delay:.16s}
+.mobile-menu.open li:nth-child(4){transition-delay:.21s}
+.mobile-menu.open li:nth-child(5){transition-delay:.26s}
+.mobile-menu.open li:nth-child(6){transition-delay:.31s}
+.mobile-menu a{
+  display:block;
+  padding:1.05rem 0;
+  font-family:var(--serif);
+  font-size:1.75rem;
+  text-decoration:none;
+  color:var(--ink);
+  transition:color .3s var(--ease),padding-left .3s var(--ease);
+}
+.mobile-menu a:hover{color:var(--gold-dk);padding-left:.5rem}
+
+/* ============================================================
+   3. HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  background:var(--cream);
+  padding-block:clamp(2.5rem,5vw,4.5rem) 0;
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);
+  gap:clamp(2rem,4.5vw,4.5rem);
+  align-items:stretch;
+}
+.hero-content{
+  padding-block:clamp(1.5rem,3vw,3.5rem);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero h1{
+  margin:0 0 1.35rem;
+  font-size:clamp(2.4rem,5.6vw,4.8rem);
+  line-height:1.02;
+}
+.hero h1 em{font-style:italic;color:var(--gold-dk)}
+.hero-lead{
+  font-family:var(--serif);
+  font-size:clamp(1.15rem,1.8vw,1.5rem);
+  line-height:1.38;
+  color:var(--ink-2);
+  margin:0 0 1.5rem;
+  max-width:32ch;
+  font-weight:400;
+}
+.hero-sub{
+  max-width:46ch;
+  margin:0 0 2.4rem;
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1.75;
+}
+.hero-cta{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-bottom:1.75rem;
+}
+.hero-caption{
+  font-size:.66rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+  margin:0;
+  padding-top:1.4rem;
+  border-top:1px solid var(--line);
+  max-width:34ch;
+  line-height:1.6;
+}
+
+.hero-visual{
+  position:relative;
+  min-height:clamp(420px,62vh,680px);
+  background:var(--cream-2);
+  overflow:hidden;
+  border-radius:2px;
+}
+.hero-visual img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center;
+  transition:transform 1.6s var(--ease);
+}
+.hero-visual:hover img{transform:scale(1.03)}
+.hero-visual::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(200deg, rgba(20,18,12,.4) 0%, rgba(20,18,12,0) 42%, rgba(20,18,12,.18) 100%);
+  pointer-events:none;
+}
+.hero-tagline{
+  position:absolute;
+  top:clamp(1.6rem,3vw,2.6rem);
+  right:clamp(1.6rem,3vw,2.6rem);
+  text-align:right;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.1rem,1.8vw,1.55rem);
+  line-height:1.3;
+  color:#fff;
+  text-shadow:0 2px 20px rgba(0,0,0,.45);
+  z-index:2;
+}
+.hero-tagline span{display:block}
+
+/* ============================================================
+   4. REFERRAL STATEMENT BAR (dark)
+   ============================================================ */
+.statement{
+  background:var(--ink);
+  color:var(--cream-3);
+  padding-block:clamp(3rem,5.5vw,4.5rem);
+  position:relative;
+  overflow:hidden;
+}
+.statement::before,
+.statement::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(88%,1100px);
+  height:1px;
+}
+.statement::before{top:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.55}
+.statement::after{bottom:0;background:linear-gradient(90deg,transparent,rgba(184,149,94,.3),transparent)}
+.statement-inner{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:clamp(1.5rem,4vw,3.5rem);
+}
+.statement-mark{
+  font-family:var(--serif);
+  font-size:clamp(2.4rem,4vw,3.4rem);
+  line-height:1;
+  color:var(--gold);
+  opacity:.75;
+}
+.statement-text{
+  text-align:center;
+}
+.statement-text p{
+  font-family:var(--serif);
+  font-size:clamp(1.15rem,2vw,1.65rem);
+  line-height:1.35;
+  color:var(--cream-3);
+  margin:0;
+  font-style:italic;
+  font-weight:400;
+}
+.statement-text p em{color:var(--gold-lt);font-style:italic}
+.statement-sub{
+  margin-top:.85rem !important;
+  font-family:var(--sans) !important;
+  font-style:normal !important;
+  font-size:.66rem !important;
+  letter-spacing:.32em !important;
+  text-transform:uppercase !important;
+  color:var(--gold-lt) !important;
+  font-weight:500 !important;
+}
+.statement-mark--right{transform:rotate(180deg)}
+
+/* ============================================================
+   5. WHO WE ARE / FOUNDER
+   ============================================================ */
+.who{
+  background:var(--cream-3);
+  border-top:1px solid var(--line-2);
+  border-bottom:1px solid var(--line-2);
+}
+.who-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.95fr) minmax(0,1fr) minmax(0,.85fr);
+  gap:clamp(2rem,4.5vw,4.5rem);
+  align-items:center;
+}
+.who-content h2{margin-bottom:1.6rem;max-width:14ch}
+.who-content .body-text{max-width:44ch;margin-bottom:1.35rem}
+.who-content .body-text strong{color:var(--ink);font-weight:500}
+
+.signature{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.7rem;
+  line-height:1;
+  color:var(--ink);
+  padding-top:1.6rem;
+  border-top:1px solid var(--line);
+  display:inline-block;
+  padding-right:2rem;
+  margin-top:1rem;
+}
+.signature small{
+  display:block;
+  font-family:var(--sans);
+  font-style:normal;
+  font-size:.6rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+  margin-top:.6rem;
+  font-weight:500;
+}
+
+.who-image{
+  position:relative;
+  aspect-ratio:4/4.7;
+  background:var(--cream-2);
+  overflow:hidden;
+  border-radius:2px;
+  box-shadow:0 44px 80px -50px rgba(28,27,22,.45);
+}
+.who-image img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.who-image::after{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(251,248,242,.22);
+  pointer-events:none;
+}
+
+.who-quote blockquote{
+  margin:0 0 1.4rem;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(1.2rem,1.7vw,1.55rem);
+  line-height:1.35;
+  color:var(--ink);
+  padding-left:1.5rem;
+  border-left:2px solid var(--gold);
+}
+.quote-attr{
+  font-size:.64rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+  margin-bottom:2.5rem;
+  padding-left:1.5rem;
+  line-height:1.6;
+  font-weight:500;
+}
+.quote-badges{
+  display:flex;
+  flex-direction:column;
+  gap:.55rem;
+  padding-top:1.5rem;
+  border-top:1px solid var(--line);
+}
+.quote-badges span{
+  font-size:.66rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-dk);
+  font-weight:500;
+}
+
+/* ============================================================
+   6. SERVICES + FORM
+   ============================================================ */
+.services{background:var(--cream)}
+.services-grid{
+  display:grid;
+  grid-template-columns:minmax(0,2.05fr) minmax(0,.95fr);
+  gap:clamp(2rem,4vw,3.5rem);
+  align-items:start;
+}
+
+.services-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(1.5rem,3vw,3rem);
+  align-items:end;
+  margin-bottom:clamp(2rem,3.5vw,3rem);
+  padding-bottom:1.6rem;
+  border-bottom:1px solid var(--line);
+}
+.services-head h2{max-width:14ch}
+.services-head p{color:var(--muted);font-size:.95rem;margin-bottom:1rem;line-height:1.7}
+.services-head .link-arrow{font-size:.66rem}
+
+.services-cards{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:1rem;
+}
+.service-card{
+  background:var(--cream-3);
+  border:1px solid var(--line-2);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .5s var(--ease);
+  border-radius:2px;
+}
+.service-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 30px 50px -32px rgba(28,27,22,.35);
+  border-color:var(--line-gold);
+}
+.service-img{
+  position:relative;
+  aspect-ratio:1/1.05;
+  overflow:hidden;
+  background:var(--cream-2);
+}
+.service-img img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s var(--ease);
+}
+.service-card:hover .service-img img{transform:scale(1.06)}
+
+.service-body{
+  padding:1.4rem 1.2rem 1.6rem;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.service-icon{
+  width:36px;height:36px;
+  display:grid;place-items:center;
+  color:var(--gold-dk);
+  margin-bottom:.9rem;
+}
+.service-icon svg{width:26px;height:26px}
+.service-card h4{
+  font-family:var(--serif);
+  font-size:1.05rem;
+  font-weight:500;
+  margin-bottom:.5rem;
+  line-height:1.2;
+  color:var(--ink);
+}
+.service-card p{
+  font-size:.8rem;
+  line-height:1.6;
+  color:var(--muted);
+  margin:0;
+  flex:1;
+}
+
+/* Form */
+.form-panel{
+  background:var(--cream-3);
+  border:1px solid var(--line);
+  padding:clamp(1.75rem,2.5vw,2.5rem);
+  position:relative;
+  border-radius:2px;
+  box-shadow:0 30px 60px -50px rgba(28,27,22,.35);
+}
+.form-panel::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--olive-dark));
+}
+.form-panel h3{
+  font-size:clamp(1.55rem,2.1vw,1.9rem);
+  margin:0 0 1rem;
+  line-height:1.15;
+}
+.form-panel .form-intro{
+  font-size:.88rem;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:1.75rem;
+}
+.form-panel .form-intro em{color:var(--gold-dk);font-style:italic;font-family:var(--serif);font-size:1.05em}
+
+.field{margin-bottom:1.15rem}
+.field label{
+  display:block;
+  font-size:.62rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ink-2);
+  margin-bottom:.5rem;
+  font-weight:500;
+}
+.field label .req{color:var(--gold-dk);margin-left:.2rem}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  background:#fff;
+  border:1px solid var(--line);
+  padding:.85rem 1rem;
+  font-family:var(--sans);
+  font-size:.9rem;
+  color:var(--ink);
+  outline:none;
+  border-radius:0;
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease);
+  -webkit-appearance:none;
+  appearance:none;
+  font-weight:400;
+}
+.field input::placeholder,
+.field textarea::placeholder{color:var(--muted-2)}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--olive);
+  box-shadow:0 0 0 3px rgba(122,106,60,.13);
+}
+.field textarea{resize:vertical;min-height:88px;line-height:1.55}
+.field select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' fill='none' stroke='%238A7846' stroke-width='1.3'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 1rem center;
+  padding-right:2.5rem;
+}
+.field-hint{
+  display:block;
+  margin-top:.45rem;
+  font-size:.7rem;
+  color:var(--muted-2);
+  letter-spacing:.04em;
+  line-height:1.5;
+}
+
+.form-panel .btn-olive{width:100%;margin-top:.4rem}
+.form-foot{
+  margin-top:1rem;
+  font-size:.7rem;
+  color:var(--muted-2);
+  text-align:center;
+  line-height:1.6;
+}
+.form-note{
+  margin-top:.9rem;
+  font-size:.75rem;
+  color:var(--gold-dk);
+  text-align:center;
+  opacity:0;
+  transform:translateY(5px);
+  transition:opacity .4s var(--ease),transform .4s var(--ease);
+  line-height:1.5;
+}
+.form-note.show{opacity:1;transform:none}
+
+/* ============================================================
+   7. HOW REFERRALS WORK
+   ============================================================ */
+.how{
+  background:var(--cream-3);
+  border-top:1px solid var(--line-2);
+  border-bottom:1px solid var(--line-2);
+}
+.how-grid{
+  display:grid;
+  grid-template-columns:minmax(0,.85fr) minmax(0,2.15fr);
+  gap:clamp(2rem,4.5vw,4.5rem);
+  align-items:center;
+}
+.how-head h2{margin-bottom:1.2rem;max-width:13ch}
+.how-head p{color:var(--muted);font-size:.95rem;max-width:32ch;line-height:1.7}
+
+.how-steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(1.25rem,2.5vw,2.5rem);
+  position:relative;
+}
+.how-steps::before{
+  content:"";
+  position:absolute;
+  top:26px;
+  left:8%;
+  right:8%;
+  height:1px;
+  background:repeating-linear-gradient(90deg,var(--line-gold) 0,var(--line-gold) 4px,transparent 4px,transparent 10px);
+  z-index:0;
+}
+.step{
+  display:flex;
+  gap:1.15rem;
+  align-items:flex-start;
+  position:relative;
+  z-index:1;
+}
+.step-num{
+  flex:none;
+  width:52px;height:52px;
+  border-radius:50%;
+  background:var(--cream-3);
+  border:1px solid var(--gold-dk);
+  color:var(--gold-dk);
+  display:grid;
+  place-items:center;
+  font-family:var(--serif);
+  font-size:1.35rem;
+  font-weight:500;
+  line-height:1;
+  transition:all .4s var(--ease);
+}
+.step:hover .step-num{
+  background:var(--gold-dk);
+  color:#fff;
+  border-color:var(--gold-dk);
+  transform:translateY(-3px);
+  box-shadow:0 12px 24px -12px rgba(138,120,70,.75);
+}
+.step-body{padding-top:.35rem}
+.step h4{
+  font-size:1.08rem;
+  margin-bottom:.45rem;
+  font-weight:500;
+  line-height:1.25;
+}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.65;margin:0}
+
+.how-note{
+  margin-top:clamp(2rem,3.5vw,3rem);
+  padding-top:1.75rem;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.how-note p{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:1.1rem;
+  color:var(--ink-2);
+  margin:0;
+  max-width:52ch;
+  line-height:1.45;
+}
+.how-note p em{color:var(--gold-dk);font-style:italic}
+
+/* ============================================================
+   8. TESTIMONIALS
+   ============================================================ */
+.testimonials{background:var(--cream)}
+.tst-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(1.5rem,4vw,3rem);
+  align-items:end;
+  margin-bottom:clamp(2.5rem,4vw,3.5rem);
+}
+.tst-head h2{max-width:14ch;margin-bottom:1.2rem}
+.tst-head p{color:var(--muted);font-size:.95rem;max-width:46ch;margin:0;line-height:1.75}
+
+.tst-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(1.25rem,2.2vw,1.75rem);
+}
+.tst{
+  position:relative;
+  background:var(--cream-3);
+  border:1px solid var(--line-2);
+  padding:clamp(1.9rem,2.8vw,2.5rem);
+  display:flex;
+  flex-direction:column;
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .55s var(--ease);
+  border-radius:2px;
+  overflow:hidden;
+}
+.tst::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:3px;height:0;
+  background:linear-gradient(180deg,var(--gold),var(--gold-lt));
+  transition:height .6s var(--ease);
+}
+.tst:hover{
+  transform:translateY(-6px);
+  border-color:var(--line-gold);
+  box-shadow:0 40px 70px -45px rgba(28,27,22,.4);
+}
+.tst:hover::before{height:100%}
+.tst-mark{
+  font-family:var(--serif);
+  font-size:3.4rem;
+  line-height:.5;
+  color:var(--gold);
+  margin-bottom:1.5rem;
+  opacity:.6;
+  height:24px;
+}
+.tst blockquote{
+  margin:0 0 2rem;
+  font-family:var(--serif);
+  font-size:clamp(1.1rem,1.5vw,1.25rem);
+  line-height:1.55;
+  color:var(--ink);
+  flex:1;
+  font-weight:400;
+}
+.tst cite{
+  font-style:normal;
+  font-size:.63rem;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+  padding-top:1.4rem;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:.7rem;
+  font-weight:500;
+}
+.tst cite::before{
+  content:"";
+  width:18px;height:1px;background:var(--gold);
+}
+
+.tst-foot{
+  margin-top:clamp(2rem,3.5vw,3rem);
+  padding-top:1.75rem;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.5rem;
+  flex-wrap:wrap;
+}
+.tst-foot p{
+  font-size:.85rem;
+  color:var(--muted);
+  margin:0;
+  max-width:56ch;
+  line-height:1.7;
+}
+.tst-foot p strong{color:var(--ink);font-weight:500}
+
+/* ============================================================
+   9. REFERRAL PAGE / DIRECT INTRODUCTION
+   ============================================================ */
+.referral-page{
+  background:var(--ink);
+  color:var(--cream-3);
+  position:relative;
+  overflow:hidden;
+}
+.referral-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(60% 50% at 15% 10%, rgba(184,149,94,.14), transparent 60%),
+    radial-gradient(50% 50% at 90% 100%, rgba(184,149,94,.08), transparent 65%);
+  pointer-events:none;
+}
+.referral-page .wrap{position:relative;z-index:1}
+
+.rp-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(2.5rem,5vw,5rem);
+  align-items:center;
+}
+.rp-content .eyebrow{color:var(--gold-lt)}
+.rp-content h2{
+  color:var(--cream-3);
+  margin-bottom:1.5rem;
+  max-width:16ch;
+}
+.rp-content h2 em{color:var(--gold-lt);font-style:italic}
+.rp-content .rp-lead{
+  font-family:var(--serif);
+  font-size:clamp(1.1rem,1.6vw,1.35rem);
+  line-height:1.5;
+  color:rgba(251,248,242,.82);
+  margin-bottom:1.75rem;
+  max-width:44ch;
+  font-style:italic;
+}
+.rp-content .rp-body{
+  color:rgba(251,248,242,.6);
+  font-size:.95rem;
+  line-height:1.78;
+  margin-bottom:2.25rem;
+  max-width:48ch;
+}
+.rp-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+.rp-card{
+  background:rgba(251,248,242,.05);
+  border:1px solid rgba(251,248,242,.14);
+  padding:clamp(1.75rem,3vw,2.5rem);
+  position:relative;
+  border-radius:2px;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+.rp-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:56px;height:2px;
+  background:var(--gold);
+}
+.rp-card-label{
+  font-size:.62rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold-lt);
+  margin-bottom:1.25rem;
+  font-weight:500;
+}
+.rp-card h4{
+  font-family:var(--serif);
+  font-size:clamp(1.25rem,1.8vw,1.55rem);
+  color:var(--cream-3);
+  margin:0 0 1.35rem;
+  line-height:1.2;
+  font-weight:400;
+}
+.rp-list{
+  list-style:none;
+  margin:0;padding:0;
+  display:grid;
+  gap:1rem;
+}
+.rp-list li{
+  position:relative;
+  padding-left:1.6rem;
+  font-size:.88rem;
+  color:rgba(251,248,242,.68);
+  line-height:1.65;
+}
+.rp-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:.55em;
+  width:7px;height:7px;
+  background:var(--gold);
+  transform:rotate(45deg);
+}
+.rp-list li strong{
+  color:var(--cream-3);
+  font-weight:500;
+  display:block;
+  margin-bottom:.15rem;
+  font-family:var(--serif);
+  font-size:1rem;
+}
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+.footer{
+  background:var(--ink-2);
+  color:var(--cream-3);
+  padding-top:clamp(2.75rem,4.5vw,3.75rem);
+  padding-bottom:1.75rem;
+  border-top:1px solid rgba(251,248,242,.07);
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  flex-wrap:wrap;
+  padding-bottom:1.75rem;
+  border-bottom:1px solid rgba(251,248,242,.1);
+}
+.footer-brand{
+  display:flex;
+  flex-direction:column;
+  font-family:var(--serif);
+  font-size:1rem;
+  line-height:1.1;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--cream-3);
+  padding-left:.95rem;
+  position:relative;
+  font-weight:500;
+}
+.footer-brand::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:2px;
+  background:var(--gold);
+}
+.footer-brand small{
+  font-family:var(--sans);
+  font-size:.5rem;
+  letter-spacing:.34em;
+  color:var(--gold-lt);
+  margin-top:.5rem;
+  font-weight:400;
+}
+
+.footer-nav{
+  display:flex;
+  gap:1.75rem;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.footer-nav a{
+  font-size:.67rem;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(251,248,242,.65);
+  text-decoration:none;
+  transition:color .3s var(--ease);
+}
+.footer-nav a:hover{color:var(--gold-lt)}
+
+.footer-tagline{
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:.92rem;
+  color:var(--gold-lt);
+  letter-spacing:.02em;
+}
+
+.footer-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+  padding-top:1.5rem;
+  font-size:.63rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(251,248,242,.4);
+}
+.footer-bottom a{color:inherit;text-decoration:none;transition:color .3s var(--ease)}
+.footer-bottom a:hover{color:var(--gold-lt)}
+
+/* ============================================================
+   11. RESPONSIVE
+   ============================================================ */
+@media (max-width:1200px){
+  .nav-links{gap:1.5rem}
+  .nav-links a{font-size:.65rem;letter-spacing:.12em}
+  .services-cards{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (max-width:1024px){
+.topbar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding-block:.95rem;
+  }
+
+  /* Hide the empty nav wrapper entirely — not just the <ul> */
+  .topbar-inner > nav{display:none}
+  .nav-links{display:none}
+  .topbar .btn-olive{display:none}
+
+  /* Burger pinned right */
+  .burger{display:block;margin-left:auto;flex:none}
+
+  /* Logo stays left, slightly tighter on mobile */
+  .brand{
+    font-size:.92rem;
+    letter-spacing:.2em;
+    padding-left:.8rem;
+  }
+  .brand::before{width:2px}
+  .hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .hero-visual{min-height:400px;aspect-ratio:16/11}
+
+  .statement-inner{grid-template-columns:1fr;gap:1rem;text-align:center}
+  .statement-mark{display:none}
+
+  .who-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .who-image{grid-column:1 / 2;grid-row:2;aspect-ratio:1/1.2}
+  .who-content{grid-column:2 / 3}
+  .who-quote{grid-column:1 / -1;border-top:1px solid var(--line);padding-top:2rem}
+  .who-quote blockquote{padding-left:0;border-left:0;padding-top:1.5rem;border-top:2px solid var(--gold)}
+  .quote-attr{padding-left:0}
+
+  .services-grid{grid-template-columns:1fr;gap:2.75rem}
+  .services-head{grid-template-columns:1fr;gap:1.25rem;align-items:start}
+
+  .how-grid{grid-template-columns:1fr;gap:2rem}
+  .how-steps{grid-template-columns:1fr;gap:1.5rem}
+  .how-steps::before{display:none}
+  .how-note{flex-direction:column;align-items:flex-start}
+
+  .tst-head{grid-template-columns:1fr;gap:1.25rem;align-items:start}
+  .tst-grid{grid-template-columns:1fr;max-width:620px}
+  .tst-foot{flex-direction:column;align-items:flex-start}
+
+  .rp-grid{grid-template-columns:1fr;gap:2.5rem}
+}
+
+@media (max-width:720px){
+  .services-cards{grid-template-columns:repeat(2,1fr)}
+
+  .who-grid{grid-template-columns:1fr;gap:2rem}
+  .who-image{grid-column:1;grid-row:auto;max-width:440px;margin-inline:auto;aspect-ratio:4/4.6}
+  .who-content{grid-column:1}
+
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn-olive,
+  .hero-cta .btn-outline{width:100%}
+  .hero-cta .btn-outline{color:var(--ink);border-color:var(--line)}
+  .hero-cta .btn-outline:hover{color:var(--olive-dark);border-color:var(--olive-dark)}
+
+  .rp-actions{flex-direction:column;align-items:stretch}
+  .rp-actions .btn-olive,
+  .rp-actions .btn-outline{width:100%}
+
+  .footer-inner{flex-direction:column;text-align:center;gap:1.5rem}
+  .footer-brand{padding-left:0;padding-top:.75rem;align-items:center}
+  .footer-brand::before{left:50%;top:0;bottom:auto;transform:translateX(-50%);width:26px;height:2px}
+  .footer-nav{justify-content:center}
+  .footer-bottom{flex-direction:column;text-align:center;gap:.75rem}
+}
+
+@media (max-width:520px){
+  .services-cards{grid-template-columns:1fr}
+
+  .hero{padding-block:1.5rem 0}
+  .hero h1{font-size:clamp(2rem,8.5vw,2.9rem)}
+  .hero-tagline{font-size:.98rem;top:1rem;right:1rem}
+
+  .step{flex-direction:row;align-items:flex-start}
+  .step-num{width:44px;height:44px;font-size:1.15rem}
+
+  .signature{font-size:1.5rem}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===================== TOPBAR ===================== -->
+<header class="topbar" id="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#top" class="brand" aria-label="The Mayfair Office">
+      <span>THE</span>
+      <span>MAYFAIR</span>
+      <span>OFFICE</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#referrals">Referrals</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="#contact" class="btn-olive">
+      <span>Arrange a Consultation</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== MOBILE MENU ===================== -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#referrals">Referrals</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-olive" style="align-self:flex-start">
+    <span>Arrange a Consultation</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</div>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow eyebrow--diamond reveal">By Referral, By Trust</p>
+        <h1 class="reveal" style="--d:.06s">Referred to<br>The Mayfair Office?</h1>
+        <p class="hero-lead reveal" style="--d:.12s">A more personal, more private way to achieve your goals.</p>
+        <p class="hero-sub reveal" style="--d:.18s">
+          I'm Geanina Tivadar — founder of The Mayfair Office. I provide discreet, tailored support
+          for private clients across lifestyle, travel, property and automotive — all through trusted introductions.
+        </p>
+        <div class="hero-cta reveal" style="--d:.24s">
+          <a href="#contact" class="btn-olive">
+            <span>Arrange a Private Consultation</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#referrals" class="btn-outline">
+            Been referred?
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <p class="hero-caption reveal" style="--d:.3s">Your introduction opens a more personal path.</p>
+      </div>
+
+      <div class="hero-visual reveal" style="--d:.15s">
+        <img
+          src="https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&w=1400&q=80"
+          alt="Classic Mayfair facade with brass nameplate"
+          loading="eager">
+        <div class="hero-tagline">
+          <span>Discretion.</span>
+          <span>Connections.</span>
+          <span>Results.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REFERRAL STATEMENT ===================== -->
+  <section class="statement" aria-label="Referral statement">
+    <div class="wrap statement-inner">
+      <span class="statement-mark" aria-hidden="true">"</span>
+      <div class="statement-text">
+        <p>Most of our clients come through <em>referrals and trusted introductions.</em></p>
+        <p class="statement-sub">A network built on trust — never advertising</p>
+      </div>
+      <span class="statement-mark statement-mark--right" aria-hidden="true">"</span>
+    </div>
+  </section>
+
+  <!-- ===================== WHO WE ARE / FOUNDER ===================== -->
+  <section class="section who" id="about">
+    <div class="wrap who-grid">
+
+      <div class="who-content reveal">
+        <p class="eyebrow eyebrow--diamond">Who I Am</p>
+        <h2>A More Personal Approach</h2>
+        <p class="body-text">
+          I'm <strong>Geanina Tivadar</strong> — founder of The Mayfair Office. For over a decade
+          I've been the person clients call when something needs to be arranged, sourced or solved —
+          quietly, properly, and without fuss.
+        </p>
+        <p class="body-text">
+          My background spans eleven years in automotive, alongside years of lifestyle management
+          for private clients. Today, I bring both together: one trusted point of contact for
+          travel, property, events, personal requests and vehicle sourcing.
+        </p>
+        <div class="signature">
+          Geanina Tivadar
+          <small>Founder</small>
+        </div>
+      </div>
+
+      <div class="who-image reveal" style="--d:.1s">
+        <img
+          src="https://images.unsplash.com/photo-1545873509-33e944ca7655?auto=format&fit=crop&w=900&q=80"
+          alt="Portrait of Geanina Tivadar, Founder of The Mayfair Office"
+          loading="lazy">
+      </div>
+
+      <div class="who-quote reveal" style="--d:.2s">
+        <blockquote>"It's about understanding what matters, and opening the right doors."</blockquote>
+        <div class="quote-attr">— Geanina Tivadar<br>Founder</div>
+        <div class="quote-badges">
+          <span>People.</span>
+          <span>Introductions.</span>
+          <span>Possibilities.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES + FORM ===================== -->
+  <section class="section services" id="services">
+    <div class="wrap services-grid">
+
+      <div class="services-content">
+        <div class="services-head reveal">
+          <div>
+            <p class="eyebrow eyebrow--diamond">What I Do</p>
+            <h2>Tailored Support for a Well-Lived Life</h2>
+          </div>
+          <div>
+            <p>Discreet, flexible assistance across lifestyle, personal and professional needs — from a single request to ongoing support.</p>
+            <a href="#contact" class="link-arrow">
+              Start a conversation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="services-cards">
+
+          <article class="service-card reveal">
+            <div class="service-img">
+              <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80" alt="Private introductions" loading="lazy">
+            </div>
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 19.5c.8-3.2 3-5 5.5-5s4.7 1.8 5.5 5"/><path d="M15.2 14.6c2.2.1 3.8 1.7 4.3 4.3"/></svg>
+              </span>
+              <h4>Private Introductions</h4>
+              <p>Meaningful connections through a trusted network.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.05s">
+            <div class="service-img">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Lifestyle and relocation" loading="lazy">
+            </div>
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg>
+              </span>
+              <h4>Lifestyle &amp; Relocation</h4>
+              <p>Seamless assistance for life's next chapter.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.1s">
+            <div class="service-img">
+              <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Travel and hospitality" loading="lazy">
+            </div>
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M21.5 3.5 2.8 11.1l6.1 2.3 2.3 6.1L21.5 3.5z"/><path d="M8.9 13.4 21.5 3.5"/></svg>
+              </span>
+              <h4>Travel &amp; Hospitality</h4>
+              <p>Curated travel, exclusive access, seamless experiences.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.15s">
+            <div class="service-img">
+              <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Property and personal assistance" loading="lazy">
+            </div>
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 10 12 4l8 6v9.5H4z"/><rect x="10" y="13" width="4" height="6.5"/></svg>
+              </span>
+              <h4>Property &amp; Personal</h4>
+              <p>Trusted support for property, home and daily needs.</p>
+            </div>
+          </article>
+
+          <article class="service-card reveal" style="--d:.2s">
+            <div class="service-img">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Business and lifestyle coordination" loading="lazy">
+            </div>
+            <div class="service-body">
+              <span class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M9 7.5V5.5h6v2"/><path d="M3 12.5h18"/></svg>
+              </span>
+              <h4>Business &amp; Lifestyle</h4>
+              <p>Structure, solutions and time back in your day.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="how-note reveal" style="--d:.1s">
+          <p>And when it comes to cars — eleven years of automotive expertise, <em>sourcing, specifying and funding</em> the right vehicle for you.</p>
+          <a href="#contact" class="link-arrow">
+            Vehicle sourcing
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <aside class="form-panel reveal" id="contact" style="--d:.08s">
+        <p class="eyebrow eyebrow--diamond" style="margin-bottom:.9rem">Referred to Us?</p>
+        <h3>Arrange a Private Consultation</h3>
+        <p class="form-intro">
+          Tell me a little about yourself and who referred you. I read every enquiry personally,
+          and you'll hear back <em>directly from me</em> — usually the same day.
+        </p>
+
+        <form id="enquiryForm" novalidate>
+
+          <div class="field">
+            <label for="referrer">Who referred you? <span class="req">*</span></label>
+            <input type="text" id="referrer" name="referrer" placeholder="A name, or how you heard of us" required autocomplete="off">
+            <span class="field-hint">If you were sent a direct link by a client, simply add their name.</span>
+          </div>
+
+          <div class="field">
+            <label for="name">Your name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="email">Your email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="support">What support are you looking for? <span class="req">*</span></label>
+            <select id="support" name="support" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Private Introductions</option>
+              <option>Lifestyle &amp; Relocation</option>
+              <option>Travel &amp; Hospitality</option>
+              <option>Property &amp; Personal Assistance</option>
+              <option>Business &amp; Lifestyle Coordination</option>
+              <option>Vehicle Sourcing &amp; Finance</option>
+              <option>Bespoke / Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Anything else you'd like to share? <span style="opacity:.5">(Optional)</span></label>
+            <textarea id="message" name="message" placeholder="A short note — dates, goals, or simply what you have in mind."></textarea>
+          </div>
+
+          <button type="submit" class="btn-olive">
+            <span>Send Referral Enquiry</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          <p class="form-foot">Your information is treated with complete confidentiality.</p>
+        </form>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- ===================== HOW REFERRALS WORK ===================== -->
+  <section class="section how" id="how">
+    <div class="wrap how-grid">
+
+      <div class="how-head reveal">
+        <p class="eyebrow eyebrow--diamond">The Referral Experience</p>
+        <h2>How Referrals Work</h2>
+        <p>A simple, discreet process — designed around you, not the other way around.</p>
+      </div>
+
+      <div class="how-steps">
+
+        <div class="step reveal" style="--d:.05s">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Personal Introduction</h4>
+            <p>You're introduced by someone we both trust — a client, a friend, a colleague.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" style="--d:.15s">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Private Consultation</h4>
+            <p>We take time to understand your goals, in complete confidence and at your pace.</p>
+          </div>
+        </div>
+
+        <div class="step reveal" style="--d:.25s">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Tailored Support</h4>
+            <p>I provide bespoke advice, connections and arrangements — for what matters most.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section testimonials" id="testimonials">
+    <div class="wrap">
+
+      <div class="tst-head reveal">
+        <div>
+          <p class="eyebrow eyebrow--diamond">In Their Words</p>
+          <h2>Quietly relied upon.</h2>
+        </div>
+        <p>
+          The measure of a private office isn't the noise it makes — it's how little you have to
+          think about once you're in safe hands.
+        </p>
+      </div>
+
+      <div class="tst-grid">
+
+        <figure class="tst reveal">
+          <div class="tst-mark" aria-hidden="true">"</div>
+          <blockquote>
+            I was recommended to The Mayfair Office by a close friend. The experience has been
+            exceptional — professional, discreet and incredibly well connected.
+          </blockquote>
+          <figcaption><cite>Private Client — Referred by a friend</cite></figcaption>
+        </figure>
+
+        <figure class="tst reveal" style="--d:.08s">
+          <div class="tst-mark" aria-hidden="true">"</div>
+          <blockquote>
+            Everything was arranged before I'd finished the thought. One message and it was simply
+            done — flights, car, villa. I've never worked with anyone so quietly capable.
+          </blockquote>
+          <figcaption><cite>Private Client — Referred by family</cite></figcaption>
+        </figure>
+
+        <figure class="tst reveal" style="--d:.16s">
+          <div class="tst-mark" aria-hidden="true">"</div>
+          <blockquote>
+            Sourced exactly the car I wanted, sorted the finance and delivered it to my door.
+            Genuinely effortless from start to finish. I've since referred two friends.
+          </blockquote>
+          <figcaption><cite>Private Client — Referred by a colleague</cite></figcaption>
+        </figure>
+
+      </div>
+
+      <div class="tst-foot reveal" style="--d:.1s">
+        <p>
+          <strong>Every client I work with has come through a personal introduction.</strong>
+          I don't advertise, and I never cold-call. Referrals are the only way in — and the reason
+          the standard stays where it is.
+        </p>
+        <a href="#referrals" class="link-arrow">
+          How referrals work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== REFERRAL PAGE (DIRECT INTRODUCTIONS) ===================== -->
+  <section class="section referral-page" id="referrals">
+    <div class="wrap rp-grid">
+
+      <div class="rp-content reveal">
+        <p class="eyebrow eyebrow--diamond">Sent Here by a Client?</p>
+        <h2>You've been <em>personally introduced.</em></h2>
+        <p class="rp-lead">
+          If you're reading this because someone you trust gave you the link directly — welcome.
+          That introduction is the whole point.
+        </p>
+        <p class="rp-body">
+          Every client I take on arrives this way: through a recommendation, a quiet word, a
+          trusted handover. It means I already have context, and you already have reassurance.
+          From here, it's simply a conversation — no pressure, no pitch, no obligation.
+        </p>
+        <div class="rp-actions">
+          <a href="#contact" class="btn-olive">
+            <span>Arrange a Private Consultation</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <aside class="rp-card reveal" style="--d:.1s">
+        <div class="rp-card-label">What happens next</div>
+        <h4>From introduction to arrangement.</h4>
+        <ul class="rp-list">
+          <li>
+            <strong>Mention your referrer</strong>
+            A name in the enquiry form is all I need — I'll know exactly where you've come from.
+          </li>
+          <li>
+            <strong>A personal reply</strong>
+            You'll hear back from me directly, usually the same day, to arrange a private consultation.
+          </li>
+          <li>
+            <strong>A quiet conversation</strong>
+            We'll talk through what you're looking for — at your pace, in complete confidence.
+          </li>
+          <li>
+            <strong>Arranged, end to end</strong>
+            From there, I source, negotiate, book and manage the details on your behalf.
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span>THE</span>
+        <span>MAYFAIR</span>
+        <span>OFFICE</span>
+        <small>London</small>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#referrals">Referrals</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="footer-tagline">Discretion. Connections. Results.</div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> The Mayfair Office. All rights reserved.</span>
+      <span>
+        <a href="#">Privacy</a> &nbsp;·&nbsp;
+        <a href="#">Terms</a> &nbsp;·&nbsp;
+        <a href="#">Cookies</a>
+      </span>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Sticky nav */
+  var topbar = document.getElementById('topbar');
+  var onScroll = function () {
+    topbar.classList.toggle('scrolled', window.scrollY > 20);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Mobile menu */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+
+  function setMenu(open) {
+    menu.classList.toggle('open', open);
+    burger.classList.toggle('active', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  burger.addEventListener('click', function () {
+    setMenu(!menu.classList.contains('open'));
+  });
+
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false);
+  });
+
+  /* Reveal */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* Form */
+  var form = document.getElementById('enquiryForm');
+  var note = document.getElementById('formNote');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var required = form.querySelectorAll('[required]');
+    var valid = true;
+
+    required.forEach(function (field) {
+      var value = field.value.trim();
+      var ok = value !== '';
+      if (field.type === 'email') {
+        ok = ok && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }
+      field.style.borderColor = ok ? '' : '#C46B5E';
+      if (!ok) valid = false;
+    });
+
+    if (!valid) {
+      note.textContent = 'Please complete the highlighted fields.';
+      note.style.color = '#C46B5E';
+      note.classList.add('show');
+      return;
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.style.opacity = '.6';
+
+    setTimeout(function () {
+      form.reset();
+      btn.disabled = false;
+      btn.style.opacity = '';
+      note.style.color = '';
+      note.textContent = 'Thank you — your referral enquiry has been received. You will hear back personally, usually the same day.';
+      note.classList.add('show');
+      setTimeout(function () { note.classList.remove('show'); }, 9000);
+    }, 650);
+  });
+
+  form.querySelectorAll('input, select, textarea').forEach(function (f) {
+    f.addEventListener('input', function () {
+      f.style.borderColor = '';
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

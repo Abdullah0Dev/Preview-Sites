@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc &amp; Estates | Architectural Design &amp; Planning Consultancy</title>
+<meta name="description" content="Arc & Estates is a UK-based architectural design and planning consultancy specialising in investment-led residential property projects. HMOs, BRRR, change of use, extensions and refurbishments.">
+<meta name="theme-color" content="#F5F3EF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --navy:#1B2D3D;
+  --navy-deep:#0F1E2A;
+  --navy-soft:#2E4557;
+  --gold:#B8936F;
+  --gold-soft:#C9A87F;
+  --ink:#1A1A1A;
+  --ink-soft:#333333;
+  --muted:#6E6E6E;
+  --muted-2:#8E8E8E;
+  --paper:#FFFFFF;
+  --cream:#F5F3EF;
+  --cream-2:#EFEDE6;
+  --line:#E5E2DA;
+  --line-2:#EFEDE8;
+
+  --ff-serif:"Fraunces","Georgia",serif;
+  --ff-sans:"Inter",system-ui,-apple-system,sans-serif;
+  --ff-script:"Dancing Script",cursive;
+
+  --maxw:1440px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--ff-sans);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+ul{list-style:none;margin:0;padding:0}
+p{margin:0}
+::selection{background:var(--gold);color:#fff}
+
+h1,h2,h3,h4{
+  font-family:var(--ff-serif);
+  font-weight:400;
+  letter-spacing:-.015em;
+  line-height:1.05;
+  margin:0;
+  color:var(--ink);
+}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:32px}
+@media (min-width:1500px){.wrap{padding-inline:56px}}
+
+.eyebrow{
+  font-family:var(--ff-sans);
+  font-size:.66rem;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:13px 24px;
+  border-radius:1px;
+  border:1px solid transparent;
+  font-family:var(--ff-sans);
+  font-weight:500;
+  font-size:.82rem;
+  letter-spacing:.02em;
+  line-height:1;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:all .25s var(--ease);
+}
+.btn svg{flex:none;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-deep)}
+.btn-outline{background:transparent;border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--gold-deep,#96754F)}
+.btn-block{width:100%}
+
+.link-arrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--ff-sans);
+  font-size:.8rem;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:.01em;
+  transition:color .2s var(--ease),gap .25s var(--ease);
+}
+.link-arrow svg{transition:transform .25s var(--ease)}
+.link-arrow:hover{color:var(--gold)}
+.link-arrow:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.hdr{
+  position:sticky;top:0;z-index:80;
+  background:#fff;
+  border-bottom:1px solid var(--line);
+}
+/* Mobile: flex with space-between → logo left, burger right, full width */
+.hdr-in{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  height:70px;
+  width:100%;
+}
+
+/* Desktop: 3-column grid so the nav sits perfectly centered */
+@media (min-width:960px){
+  .hdr-in{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:24px;
+    height:74px;
+  }
+}
+.logo{display:flex;align-items:center;gap:12px;flex:none;justify-self:start}
+.logo-mark{width:34px;height:34px;flex:none}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt b{
+  font-family:var(--ff-serif);
+  font-weight:500;font-size:1rem;letter-spacing:.03em;color:var(--navy);
+}
+.logo-txt span{
+  font-size:.5rem;letter-spacing:.24em;font-weight:600;
+  color:var(--muted);margin-top:4px;text-transform:uppercase;
+}
+
+.nav{display:none;gap:34px;align-items:center;justify-self:center}
+@media (min-width:960px){.nav{display:flex}}
+.nav a{
+  font-family:var(--ff-sans);
+  font-size:.82rem;font-weight:500;color:var(--ink);
+  position:relative;
+  transition:color .2s;
+}
+.nav a:hover{color:var(--gold)}
+
+.hdr-right{
+  display:flex;align-items:center;gap:14px;
+  justify-self:end;
+}
+.hdr-cta{display:none}
+@media (min-width:960px){.hdr-cta{display:inline-flex}}
+
+.burger{
+  display:grid;place-items:center;
+  width:38px;height:38px;
+  border:1px solid var(--line);
+  background:#fff;border-radius:1px;
+  color:var(--navy);padding:0;
+}
+@media (min-width:960px){.burger{display:none}}
+.burger-lines{
+  display:flex;flex-direction:column;justify-content:space-between;
+  width:18px;height:12px;
+}
+.burger-lines span{
+  display:block;width:100%;height:1.4px;background:currentColor;
+  transform-origin:center;
+  transition:transform .3s var(--ease),opacity .2s;
+}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+.drawer{
+  position:fixed;inset:0;z-index:70;
+  background:#fff;
+  padding:90px 28px 32px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .25s var(--ease),transform .3s var(--ease),visibility .25s;
+  overflow-y:auto;
+}
+.drawer.open{opacity:1;visibility:visible;transform:none}
+.drawer nav{display:flex;flex-direction:column}
+.drawer a.dlink{
+  font-family:var(--ff-serif);font-size:1.35rem;font-weight:400;
+  color:var(--ink);padding:18px 0;
+  border-bottom:1px solid var(--line-2);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.drawer a.dlink svg{color:var(--gold)}
+.drawer-foot{margin-top:26px;display:grid;gap:10px}
+body.locked{overflow:hidden}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  background:var(--cream);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr;
+}
+@media (min-width:1000px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.18fr)}
+}
+
+/* Base (mobile): full width, natural padding */
+.hero-copy{
+  padding:56px 32px 48px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-width:0;
+}
+
+/* Tablet / mid: two-column layout kicks in */
+@media (min-width:1000px){
+  .hero-copy{
+    padding:64px 32px 64px max(32px, calc((100vw - var(--maxw)) / 2 + 32px));
+  }
+  /* Cap the copy itself so it stays readable on any screen size */
+  .hero-copy > *{
+    max-width:560px;
+    width:100%;
+  }
+}
+
+/* Large screens: a touch more breathing room */
+@media (min-width:1200px){
+  .hero-copy{
+    padding:80px 48px 80px max(48px, calc((100vw - var(--maxw)) / 2 + 48px));
+  }
+  .hero-copy > *{
+    max-width:580px;
+  }
+}
+
+/* Ultra-wide: full editorial spacing, content stays locked at 600px */
+@media (min-width:1500px){
+  .hero-copy{
+    padding:96px 56px 96px max(56px, calc((100vw - var(--maxw)) / 2 + 56px));
+  }
+  .hero-copy > *{
+    max-width:600px;
+  }
+}
+
+.hero-copy .eyebrow{display:block;margin-bottom:26px}
+.hero-copy h1{
+  font-size:clamp(2.5rem,1.6rem + 3.4vw,4.2rem);
+  font-weight:400;
+  letter-spacing:-.022em;
+  line-height:1.02;
+  color:var(--navy-deep);
+  margin-bottom:22px;
+}
+.hero-copy h1 em{font-style:normal;display:block}
+
+.hero-lead{
+  font-size:.96rem;
+  line-height:1.65;
+  color:var(--ink-soft);
+  margin-bottom:30px;
+  max-width:46ch;
+}
+
+.hero-actions{
+  display:flex;flex-wrap:wrap;gap:10px;
+  margin-bottom:44px;
+}
+
+.hero-trust{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  max-width:520px;
+}
+@media (max-width:599px){
+  .hero-trust{grid-template-columns:1fr;gap:14px}
+}
+.hero-trust li{
+  display:flex;align-items:flex-start;gap:9px;
+  font-size:.72rem;
+  line-height:1.45;
+  color:var(--ink-soft);
+  font-weight:500;
+}
+.hero-trust li svg{
+  color:var(--navy);flex:none;margin-top:3px;
+}
+
+/* Visual */
+.hero-visual{
+  position:relative;
+  min-height:380px;
+  overflow:hidden;
+}
+@media (min-width:1000px){
+  .hero-visual{min-height:auto}
+}
+.hero-visual img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  position:absolute;inset:0;
+}
+
+.hero-tag{
+  position:absolute;z-index:2;
+  font-family:var(--ff-sans);
+  font-size:.58rem;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#fff;
+  line-height:1.9;
+  text-shadow:0 1px 12px rgba(0,0,0,.4), 0 0 24px rgba(0,0,0,.15);
+}
+.hero-tag.tl{
+  top:26px;right:26px;
+  text-align:right;
+}
+.hero-tag.br{
+  bottom:30px;right:26px;
+  text-align:right;
+}
+
+.hero-script{
+  position:absolute;z-index:2;
+  right:30px;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--ff-script);
+  font-size:clamp(2.2rem,1.4rem + 2.4vw,3.4rem);
+  font-weight:600;
+  color:#fff;
+  line-height:1.1;
+  text-align:right;
+  letter-spacing:.005em;
+  text-shadow:0 2px 24px rgba(0,0,0,.45), 0 1px 4px rgba(0,0,0,.35);
+  display:none;
+  pointer-events:none;
+}
+@media (min-width:1000px){.hero-script{display:block}}
+.hero-script em{font-style:normal;display:block}
+
+/* ============================================================
+   WHY
+   ============================================================ */
+.why{padding:72px 0 68px}
+@media (min-width:1000px){.why{padding:88px 0 84px}}
+
+.why-grid{
+  display:grid;
+  gap:40px;
+  grid-template-columns:1fr;
+}
+@media (min-width:1000px){
+  .why-grid{
+    grid-template-columns:minmax(0,25%) minmax(0,1fr) 172px;
+    gap:56px;
+    align-items:start;
+  }
+}
+
+.why-intro .eyebrow{display:block;margin-bottom:18px}
+.why-intro h2{
+  font-size:clamp(1.65rem,1.1rem + 1.4vw,2.3rem);
+  font-weight:400;
+  letter-spacing:-.015em;
+  line-height:1.08;
+  color:var(--navy-deep);
+  margin-bottom:20px;
+}
+.why-intro p{
+  font-size:.9rem;
+  line-height:1.7;
+  color:var(--muted);
+  margin-bottom:22px;
+}
+
+.why-features{
+  display:grid;
+  gap:36px 32px;
+  grid-template-columns:1fr;
+}
+@media (min-width:600px){.why-features{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.why-features{grid-template-columns:repeat(4,1fr)}}
+
+.wf .wf-ic{
+  color:var(--navy);
+  margin-bottom:18px;
+  height:30px;
+}
+.wf h3{
+  font-family:var(--ff-sans);
+  font-size:.9rem;
+  font-weight:700;
+  letter-spacing:-.005em;
+  line-height:1.35;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.wf p{
+  font-size:.78rem;
+  line-height:1.55;
+  color:var(--muted);
+}
+
+.why-img{
+  display:none;
+  position:relative;
+  aspect-ratio:2/5;
+  overflow:hidden;
+  background:var(--cream-2);
+}
+@media (min-width:1000px){.why-img{display:block}}
+.why-img img{width:100%;height:100%;object-fit:cover}
+.why-img span{
+  position:absolute;
+  bottom:16px;left:0;
+  width:100%;
+  text-align:center;
+  font-family:var(--ff-sans);
+  font-size:.55rem;
+  font-weight:600;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:#fff;
+  text-shadow:0 1px 8px rgba(0,0,0,.5);
+}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+.services{
+  background:linear-gradient(180deg, #FBFAF7 0%, #FFFFFF 100%);
+  padding:72px 0 76px;
+  border-top:1px solid var(--line-2);
+}
+@media (min-width:1000px){.services{padding:88px 0 92px}}
+
+.services-head{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-bottom:44px;
+}
+@media (min-width:720px){
+  .services-head{
+    flex-direction:row;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:32px;
+  }
+}
+.services-head .eyebrow{display:block;margin-bottom:14px}
+.services-head h2{
+  font-size:clamp(1.65rem,1.1rem + 1.4vw,2.3rem);
+  font-weight:400;
+  letter-spacing:-.015em;
+  line-height:1.08;
+  color:var(--navy-deep);
+  max-width:22ch;
+}
+
+.svc-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+@media (min-width:600px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:900px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.svc-grid{grid-template-columns:repeat(6,1fr)}}
+
+.svc{
+  padding:28px 22px 24px;
+  display:flex;flex-direction:column;
+  min-height:248px;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  transition:background .25s var(--ease);
+  position:relative;
+}
+@media (min-width:600px){
+  .svc:nth-child(2n){border-right:0}
+}
+@media (min-width:900px){
+  .svc:nth-child(2n){border-right:1px solid var(--line)}
+  .svc:nth-child(3n){border-right:0}
+}
+@media (min-width:1100px){
+  .svc{border-bottom:0;border-right:1px solid var(--line)}
+  .svc:nth-child(2n){border-right:1px solid var(--line)}
+  .svc:nth-child(3n){border-right:1px solid var(--line)}
+  .svc:last-child{border-right:0}
+}
+.svc:hover{background:#FBFAF7}
+.svc:hover .svc-arrow{transform:translateX(4px);color:var(--gold)}
+
+.svc-ic{
+  color:var(--navy);
+  margin-bottom:24px;
+  height:26px;
+}
+.svc h3{
+  font-family:var(--ff-sans);
+  font-size:.88rem;
+  font-weight:700;
+  letter-spacing:-.005em;
+  line-height:1.3;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.svc p{
+  font-size:.76rem;
+  line-height:1.55;
+  color:var(--muted);
+  flex:1;
+}
+.svc-arrow{
+  color:var(--ink);
+  margin-top:18px;
+  transition:transform .25s var(--ease),color .2s var(--ease);
+  align-self:flex-start;
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+.projects{padding:72px 0 68px}
+@media (min-width:1000px){.projects{padding:88px 0 84px}}
+
+.proj-grid{
+  display:grid;
+  gap:26px;
+  grid-template-columns:1fr;
+}
+@media (min-width:720px){.proj-grid{grid-template-columns:repeat(3,1fr)}}
+
+.proj{
+  display:flex;flex-direction:column;
+  cursor:pointer;
+}
+.proj-media{
+  position:relative;
+  aspect-ratio:16/11;
+  overflow:hidden;
+  background:var(--cream);
+  margin-bottom:16px;
+}
+.proj-media img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .6s var(--ease);
+}
+.proj:hover .proj-media img{transform:scale(1.04)}
+.proj-tag{
+  position:absolute;
+  bottom:0;left:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:var(--ff-sans);
+  font-size:.56rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:7px 12px;
+  z-index:2;
+}
+.proj-body{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+.proj-body h3{
+  font-family:var(--ff-sans);
+  font-size:.9rem;
+  font-weight:600;
+  letter-spacing:-.005em;
+  color:var(--ink);
+  margin-bottom:5px;
+}
+.proj-body p{
+  font-size:.78rem;
+  color:var(--muted);
+  line-height:1.5;
+}
+.proj-arrow{
+  color:var(--ink);
+  flex:none;
+  margin-top:5px;
+  transition:transform .25s var(--ease),color .2s var(--ease);
+}
+.proj:hover .proj-arrow{transform:translateX(4px);color:var(--gold)}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process{
+  background:linear-gradient(180deg,#FFFFFF 0%, #FBFAF7 100%);
+  padding:72px 0 68px;
+  border-top:1px solid var(--line-2);
+}
+@media (min-width:1000px){.process{padding:88px 0 84px}}
+
+.process-head{margin-bottom:44px}
+.process-head .eyebrow{display:block;margin-bottom:14px}
+.process-head h2{
+  font-size:clamp(1.65rem,1.1rem + 1.4vw,2.3rem);
+  font-weight:400;
+  letter-spacing:-.015em;
+  line-height:1.08;
+  color:var(--navy-deep);
+}
+
+.process-grid{
+  display:grid;
+  gap:36px 32px;
+  grid-template-columns:1fr;
+}
+@media (min-width:600px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.process-grid{grid-template-columns:repeat(4,1fr)}}
+
+.proc-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:16px;
+}
+.proc-num{
+  font-family:var(--ff-serif);
+  font-size:2.1rem;
+  font-weight:400;
+  color:#B5AEA3;
+  line-height:1;
+  letter-spacing:-.02em;
+}
+.proc-ic{
+  color:var(--navy);
+  flex:none;
+}
+.proc-step h3{
+  font-family:var(--ff-sans);
+  font-size:.92rem;
+  font-weight:600;
+  letter-spacing:-.005em;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+.proc-step p{
+  font-size:.78rem;
+  line-height:1.6;
+  color:var(--muted);
+  max-width:28ch;
+}
+
+/* ============================================================
+   FOUNDER
+   ============================================================ */
+.founder{
+  background:var(--cream);
+  padding:72px 0 84px;
+}
+@media (min-width:1000px){.founder{padding:88px 0 100px}}
+
+.founder-grid{
+  display:grid;
+  gap:40px 36px;
+  grid-template-columns:1fr;
+}
+@media (min-width:700px){
+  .founder-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+  .founder-grid{
+    grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,1.1fr);
+    gap:44px;
+    align-items:start;
+  }
+}
+
+.founder-photo{
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:var(--cream-2);
+}
+.founder-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+
+.founder-bio .eyebrow{display:block;margin-bottom:16px}
+.founder-bio h2{
+  font-size:clamp(1.9rem,1.4rem + 1.4vw,2.6rem);
+  font-weight:400;
+  letter-spacing:-.02em;
+  color:var(--navy-deep);
+  margin-bottom:6px;
+}
+.founder-bio .role{
+  font-size:.76rem;
+  color:var(--muted);
+  font-weight:500;
+  letter-spacing:.02em;
+  margin-bottom:20px;
+}
+.founder-bio p{
+  font-size:.84rem;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-bottom:22px;
+}
+.founder-sig{
+  font-family:var(--ff-script);
+  font-size:2.2rem;
+  font-weight:600;
+  color:var(--navy);
+  line-height:1;
+  transform:rotate(-4deg);
+  display:inline-block;
+  padding:4px 6px;
+}
+
+.founder-points{
+  display:flex;flex-direction:column;
+  gap:22px;
+  padding-top:6px;
+}
+.founder-points li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:.8rem;
+  line-height:1.5;
+  color:var(--ink-soft);
+}
+.founder-points .fp-ic{
+  flex:none;
+  width:30px;height:30px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  display:grid;place-items:center;
+  color:var(--navy);
+  background:#fff;
+}
+
+.testimonial{
+  padding-top:6px;
+  border-left:1px solid var(--line);
+  padding-left:32px;
+}
+@media (max-width:999px){
+  .testimonial{
+    border-left:0;padding-left:0;
+    border-top:1px solid var(--line);padding-top:32px;
+    grid-column:1 / -1;
+  }
+}
+.testimonial .eyebrow{display:block;margin-bottom:18px}
+.testimonial .quote-mark{
+  color:var(--ink);
+  font-family:var(--ff-serif);
+  font-size:2.6rem;
+  line-height:.6;
+  margin-bottom:18px;
+  display:block;
+  opacity:.35;
+}
+.testimonial p{
+  font-size:.84rem;
+  line-height:1.7;
+  color:var(--ink-soft);
+  margin-bottom:24px;
+}
+.testimonial .who{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  flex-wrap:wrap;
+}
+.testimonial .who-info{
+  display:flex;align-items:center;gap:12px;
+}
+.testimonial .who-avatar{
+  width:42px;height:42px;border-radius:50%;overflow:hidden;
+  background:var(--cream-2);flex:none;
+}
+.testimonial .who-avatar img{width:100%;height:100%;object-fit:cover}
+.testimonial .who b{
+  display:block;
+  font-family:var(--ff-sans);
+  font-size:.82rem;font-weight:700;color:var(--ink);
+}
+.testimonial .who span{
+  font-size:.72rem;color:var(--muted);
+}
+.testimonial .stars{
+  display:flex;gap:2px;color:var(--ink);
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{
+  background:var(--navy-deep);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.cta-band::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(900px 480px at 88% 30%, rgba(184,147,111,.14), transparent 62%),
+    radial-gradient(700px 400px at -10% 100%, rgba(46,69,87,.6), transparent 60%);
+}
+
+.cta-in{
+  position:relative;z-index:2;
+  padding:66px 0 40px;
+}
+@media (min-width:900px){.cta-in{padding:76px 0 44px}}
+
+.cta-top{
+  display:grid;
+  gap:28px;
+  align-items:center;
+  margin-bottom:46px;
+}
+@media (min-width:900px){
+  .cta-top{grid-template-columns:1fr auto;gap:56px}
+}
+.cta-band .eyebrow{display:block;margin-bottom:16px;color:var(--gold-soft)}
+.cta-band h2{
+  font-family:var(--ff-serif);
+  font-size:clamp(2rem,1.4rem + 2vw,3rem);
+  font-weight:400;
+  letter-spacing:-.02em;
+  color:#fff;
+  line-height:1.05;
+  margin-bottom:14px;
+}
+.cta-band p{
+  font-size:.9rem;
+  color:rgba(255,255,255,.62);
+  max-width:52ch;
+  line-height:1.6;
+}
+
+.cta-features{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 34px;
+  padding-top:26px;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:.74rem;
+  color:rgba(255,255,255,.7);
+}
+.cta-features li{
+  display:inline-flex;align-items:center;gap:9px;
+}
+.cta-features svg{color:var(--gold-soft);flex:none}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.ftr{
+  background:var(--cream);
+  padding:26px 0;
+  border-top:1px solid var(--line);
+}
+.ftr-in{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:22px;
+  align-items:center;
+  text-align:center;
+}
+@media (min-width:900px){
+  .ftr-in{
+    grid-template-columns:1fr auto 1fr;
+    gap:32px;
+    text-align:left;
+  }
+}
+.ftr-in .logo{justify-self:center}
+@media (min-width:900px){.ftr-in .logo{justify-self:start}}
+
+.ftr-nav{
+  display:flex;flex-wrap:wrap;
+  gap:8px 30px;
+  justify-content:center;
+}
+.ftr-nav a{
+  font-size:.78rem;font-weight:500;color:var(--ink);
+  transition:color .2s;
+}
+.ftr-nav a:hover{color:var(--gold)}
+
+.ftr-right{
+  display:flex;align-items:center;gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+@media (min-width:900px){.ftr-right{justify-self:end}}
+
+.ftr-social{display:flex;gap:6px}
+.ftr-social a{
+  width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center;
+  color:var(--ink);
+  transition:all .2s var(--ease);
+}
+.ftr-social a:hover{color:var(--gold)}
+
+.ftr-tag{
+  font-size:.74rem;
+  color:var(--muted);
+  padding-left:18px;
+  border-left:1px solid var(--line);
+}
+@media (max-width:899px){
+  .ftr-tag{padding-left:0;border-left:0;width:100%;text-align:center;margin-top:6px}
+}
+
+/* ============================================================
+   MISC
+   ============================================================ */
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--navy);color:#fff;padding:14px 22px;
+}
+.skip:focus{left:0}
+section[id]{scroll-margin-top:88px}
+
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ==================== HEADER ==================== -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="Arc & Estates, home">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M5 35L20 5l15 30" stroke="#1B2D3D" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.5 26h17" stroke="#1B2D3D" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M24 20h9" stroke="#B8936F" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-txt">
+        <b>ARC &amp; ESTATES</b>
+        <span>Architecture · Planning · Property</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="#top">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hdr-right">
+      <a href="#contact" class="btn btn-navy hdr-cta">Book Consultation
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span class="burger-lines"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MOBILE DRAWER ==================== -->
+<div class="drawer" id="drawer">
+  <nav aria-label="Mobile">
+    <a class="dlink" href="#top">Home <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#services">Services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#projects">Projects <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#about">About <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#contact">Contact <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </nav>
+  <div class="drawer-foot">
+    <a href="#contact" class="btn btn-navy btn-block" style="min-height:50px">Book Consultation</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <span class="eyebrow">Architecture and property consultancy</span>
+    <h1>Unlock the Full Potential of <em>Your Property</em></h1>
+    <p class="hero-lead">Architecture, planning and property consultancy for HMOs, conversions, extensions and development projects.</p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-navy">Discuss Your Project
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#projects" class="btn btn-outline">View Projects
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+      </a>
+    </div>
+
+    <ul class="hero-trust">
+      <li>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+        <span>Strategic advice from concept to completion</span>
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>Planning &amp; compliance experts</span>
+      </li>
+      <li>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M7 20V9l5-3 5 3v11"/><path d="M10 13h4"/></svg>
+        <span>Real value. Real results.</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80"
+      alt=""
+      loading="eager" fetchpriority="high">
+    <span class="hero-tag tl">Better<br>Spaces<br>Brighter<br>Futures</span>
+    <span class="hero-script"><em>More</em><em>than space.</em><em>Opportunity.</em></span>
+    <span class="hero-tag br">Transforming<br>Properties.<br>Enriching Lives.</span>
+  </div>
+</section>
+
+<!-- ==================== WHY ==================== -->
+<section class="why" id="about">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-intro rv">
+        <span class="eyebrow">Why Arc &amp; Estates</span>
+        <h2>Investor-Minded Design. Real-World Results.</h2>
+        <p>We combine architectural expertise with commercial insight to help homeowners, investors and developers unlock hidden value through thoughtful, practical and compliant design.</p>
+        <a href="#services" class="link-arrow">Our Approach
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="why-features">
+        <div class="wf rv">
+          <svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M3 21h18"/><path d="M9 21v-7h6v7"/></svg>
+          <h3>Maximise<br>Space &amp; Value</h3>
+          <p>Smarter design for greater returns.</p>
+        </div>
+        <div class="wf rv">
+          <svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V10l7-6 7 6v11"/><path d="M10 21v-6h4v6"/></svg>
+          <h3>Planning &amp;<br>Compliance Expertise</h3>
+          <p>Navigate complexity with confidence.</p>
+        </div>
+        <div class="wf rv">
+          <svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+          <h3>Commercial<br>Thinking</h3>
+          <p>Solutions that make financial sense.</p>
+        </div>
+        <div class="wf rv">
+          <svg class="wf-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-11 11H3v-7L14 3z"/><path d="M12 5l7 7"/><path d="M3 21h6"/></svg>
+          <h3>End-to-End<br>Support</h3>
+          <p>A trusted partner from idea to completion.</p>
+        </div>
+      </div>
+
+      <div class="why-img rv">
+        <img src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=600&q=80" alt="Olive tree in a bright interior" loading="lazy">
+        <span>Spaces that work harder.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="services-head rv">
+      <div>
+        <span class="eyebrow">Our Services</span>
+        <h2>Tailored Expertise for Every Opportunity.</h2>
+      </div>
+      <a href="#contact" class="link-arrow">View all services
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <div class="svc-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M3 21h18"/><path d="M9 21v-7h6v7"/></svg>
+        </div>
+        <h3>HMOs</h3>
+        <p>Maximise yield with well-designed, compliant HMO solutions.</p>
+        <svg class="svc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M4 9h16M4 15h16M10 3v18"/></svg>
+        </div>
+        <h3>Property<br>Conversions</h3>
+        <p>Unlock value through smart reconfiguration and design.</p>
+        <svg class="svc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h6M8 17h4"/></svg>
+        </div>
+        <h3>Change of Use</h3>
+        <p>Navigate complex change of use applications with confidence.</p>
+        <svg class="svc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20V11l9-7 9 7v9"/><path d="M3 20h18"/><path d="M12 4v7"/></svg>
+        </div>
+        <h3>Extensions</h3>
+        <p>Create more space and value with considered extensions.</p>
+        <svg class="svc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V11l8-7 8 7v9"/><path d="M4 20h16"/><path d="M4 14h16"/><path d="M12 4v7"/></svg>
+        </div>
+        <h3>Loft Conversions</h3>
+        <p>Transform unused space into high-value living areas.</p>
+        <svg class="svc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </article>
+
+      <article class="svc rv">
+        <div class="svc-ic">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+        </div>
+        <h3>Planning &amp;<br>Building Regulations</h3>
+        <p>Full support from feasibility to approval and beyond.</p>
+        <svg class="svc-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROJECTS ==================== -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="services-head rv">
+      <div>
+        <span class="eyebrow">Featured Projects</span>
+        <h2>Real Projects. Real Value.</h2>
+      </div>
+      <a href="#contact" class="link-arrow">View all projects
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="proj-grid">
+      <article class="proj rv">
+        <div class="proj-media">
+          <img src="https://www.arcandestates.com/wp-content/uploads/2025/03/pexels-brettjordan-28885519-scaled.jpg" alt="Brick terraced house converted to a modern HMO" loading="lazy">
+          <span class="proj-tag">HMO</span>
+        </div>
+        <div class="proj-body">
+          <div>
+            <h3>4-Bed HMO, Manchester</h3>
+            <p>Increased rental yield by 62%</p>
+          </div>
+          <svg class="proj-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-media">
+          <img src="https://www.arcandestates.com/wp-content/uploads/2025/03/istockphoto-1201121718-612x612-1.jpg" alt="Rear extension with glass doors opening to a garden" loading="lazy">
+          <span class="proj-tag">Extension</span>
+        </div>
+        <div class="proj-body">
+          <div>
+            <h3>Rear Extension, Surrey</h3>
+            <p>Added 45% more living space and significant value</p>
+          </div>
+          <svg class="proj-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </article>
+
+      <article class="proj rv">
+        <div class="proj-media">
+          <img src="https://www.arcandestates.com/wp-content/uploads/2025/03/portfolio3.jpg" alt="Loft conversion bedroom with skylights and neutral palette" loading="lazy">
+          <span class="proj-tag">Loft Conversion</span>
+        </div>
+        <div class="proj-body">
+          <div>
+            <h3>Loft Conversion, London</h3>
+            <p>Created a stunning new bedroom and en-suite</p>
+          </div>
+          <svg class="proj-arrow" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section class="process">
+  <div class="wrap">
+    <div class="process-head rv">
+      <span class="eyebrow">Our Process</span>
+      <h2>A Clear Path From Idea to Completion.</h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="proc-step rv">
+        <div class="proc-head">
+          <span class="proc-num">01</span>
+          <svg class="proc-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        </div>
+        <h3>Assess</h3>
+        <p>Understand your goals, property and potential.</p>
+      </div>
+
+      <div class="proc-step rv">
+        <div class="proc-head">
+          <span class="proc-num">02</span>
+          <svg class="proc-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l7 7-11 11H3v-7L14 3z"/><path d="M12 5l7 7"/></svg>
+        </div>
+        <h3>Design</h3>
+        <p>Create practical, beautiful solutions.</p>
+      </div>
+
+      <div class="proc-step rv">
+        <div class="proc-head">
+          <span class="proc-num">03</span>
+          <svg class="proc-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6M9 17h4"/></svg>
+        </div>
+        <h3>Plan</h3>
+        <p>Manage applications and ensure compliance.</p>
+      </div>
+
+      <div class="proc-step rv">
+        <div class="proc-head">
+          <span class="proc-num">04</span>
+          <svg class="proc-ic" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+        </div>
+        <h3>Deliver</h3>
+        <p>Turn plans into reality with expert support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOUNDER + TESTIMONIAL ==================== -->
+<section class="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-photo rv">
+        <img src="https://images.unsplash.com/photo-1603346133929-24265debae88?auto=format&fit=crop&w=700&q=80" alt="Jennifer, Founder of Arc & Estates" loading="lazy">
+      </div>
+
+      <div class="founder-bio rv">
+        <span class="eyebrow">Meet the Founder</span>
+        <h2>Jennifer</h2>
+        <p class="role">Founder, Arc &amp; Estates</p>
+        <p>With a background in architecture and property development, I founded Arc &amp; Estates to help clients unlock the true potential in their property — through practical, compliant design and commercially focused solutions.</p>
+        <span class="founder-sig" aria-label="Jennifer">Jennifer</span>
+      </div>
+
+      <ul class="founder-points rv">
+        <li>
+          <span class="fp-ic" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>
+          </span>
+          <span>Architecture &amp; development background</span>
+        </li>
+        <li>
+          <span class="fp-ic" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M10 20v-5h4v5"/></svg>
+          </span>
+          <span>Practical, commercial approach</span>
+        </li>
+        <li>
+          <span class="fp-ic" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          </span>
+          <span>Hands-on, personal service</span>
+        </li>
+        <li>
+          <span class="fp-ic" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </span>
+          <span>A genuine passion for creating better spaces</span>
+        </li>
+      </ul>
+
+      <div class="testimonial rv">
+        <span class="eyebrow">Client Testimonials</span>
+        <span class="quote-mark" aria-hidden="true">"</span>
+        <p>"Jennifer and the team were outstanding. They brought clarity, expertise and practical solutions to our project, helping us achieve a fantastic result. I wouldn't hesitate to recommend Arc &amp; Estates."</p>
+        <div class="who">
+          <div class="who-info">
+            <div class="who-avatar">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="James R." loading="lazy">
+            </div>
+            <div>
+              <b>James R.</b>
+              <span>Property Developer</span>
+            </div>
+          </div>
+          <div class="stars" aria-label="5 out of 5 stars">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BAND ==================== -->
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <div class="cta-in">
+      <div class="cta-top">
+        <div class="rv">
+          <span class="eyebrow">Let's unlock your property's potential</span>
+          <h2>Start Your Project Today.</h2>
+          <p>Book a consultation and take the first step towards a more valuable property.</p>
+        </div>
+        <div class="rv">
+          <a href="mailto:hello@arcandestates.com" class="btn btn-gold">Book a Consultation
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <ul class="cta-features rv">
+        <li>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          No obligation advice
+        </li>
+        <li>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          Expert, honest guidance
+        </li>
+        <li>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          Tailored to your goals
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="ftr">
+  <div class="wrap ftr-in">
+    <a href="#top" class="logo" aria-label="Arc & Estates">
+      <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path d="M5 35L20 5l15 30" stroke="#1B2D3D" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.5 26h17" stroke="#1B2D3D" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M24 20h9" stroke="#B8936F" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-txt">
+        <b>ARC &amp; ESTATES</b>
+        <span>Architecture · Planning · Property</span>
+      </span>
+    </a>
+
+    <nav class="ftr-nav" aria-label="Footer">
+      <a href="#top">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="ftr-right">
+      <div class="ftr-social">
+        <a href="#" aria-label="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.3 18.3V10H5.7v8.3h2.6zM7 8.7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm11.3 9.6v-4.6c0-2.4-1.3-3.5-3-3.5-1.4 0-2 .8-2.4 1.3v-1.1h-2.6v8.3h2.6v-4.6c0-1.2.2-2.4 1.7-2.4s1.5 1.4 1.5 2.5v4.5h2.2z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="TikTok">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3v2.6a4.9 4.9 0 0 0 3.5 1.5v2.7a7.6 7.6 0 0 1-3.5-.9v5.5a5.9 5.9 0 1 1-5.9-5.9c.2 0 .5 0 .7.1v2.7a3.2 3.2 0 1 0 2.4 3.1V3h2.8z"/></svg>
+        </a>
+      </div>
+      <span class="ftr-tag">Building better possibilities.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mobile drawer */
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  function setMenu(open){
+    drawer.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('locked', open);
+  }
+  if (burger) {
+    burger.addEventListener('click', function(){
+      setMenu(burger.getAttribute('aria-expanded') !== 'true');
+    });
+    drawer.addEventListener('click', function(e){
+      if (e.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        setMenu(false); burger.focus();
+      }
+    });
+  }
+
+  /* Reveal on scroll */
+  var rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.style.transitionDelay = Math.min(sibs, 4) * 70 + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    Array.prototype.forEach.call(rvs, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(rvs, function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>

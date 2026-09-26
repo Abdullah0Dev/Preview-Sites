@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APD - Anderson Print & Design | South London</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-red: #D32F2F;
+            --primary-red-hover: #B71C1C;
+            --dark-bg: #111111;
+            --light-bg: #F5F5F5;
+            --white: #FFFFFF;
+            --text-dark: #222222;
+            --text-gray: #666666;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           TYPOGRAPHY & UTILITIES
+           ========================================= */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 900; }
+        h2 { font-size: 2.5rem; font-weight: 800; }
+        h3 { font-size: 1.5rem; }
+        
+        .text-red { color: var(--primary-red); }
+        .text-white { color: var(--white); }
+        .text-gray { color: var(--text-gray); }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-red-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--dark-bg);
+        }
+
+        .btn-dark {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background-color: #333;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        /* =========================================
+           HEADER & NAVIGATION
+           ========================================= */
+        header {
+            background-color: var(--dark-bg);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-red);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .location-tag {
+            color: var(--white);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-tag i {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           HERO SECTION
+           ========================================= */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            padding: 8rem 0 5rem;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 2rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .trust-badge i {
+            color: var(--primary-red);
+            font-size: 1.5rem;
+        }
+
+        /* =========================================
+           SERVICES SECTION
+           ========================================= */
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .services-header h2 {
+            max-width: 500px;
+        }
+
+        .services-header p {
+            max-width: 500px;
+            color: var(--text-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-content h3 {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .arrow-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: var(--primary-red);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .arrow-btn {
+            background-color: var(--dark-bg);
+        }
+
+        /* =========================================
+           FEATURED WORK SECTION
+           ========================================= */
+        .featured-work {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .work-header h2 {
+            max-width: 400px;
+        }
+
+        .work-header p {
+            max-width: 500px;
+            color: #aaa;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .work-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* =========================================
+           WHY CHOOSE US SECTION
+           ========================================= */
+        .why-choose {
+            background-color: var(--light-bg);
+        }
+
+        .why-header {
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .why-card i {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* =========================================
+           PROCESS SECTION
+           ========================================= */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Arrows between steps */
+        .process-step:not(:last-child)::after {
+            content: '\f105';
+            font-family: 'FontAwesome';
+            position: absolute;
+            top: 15px;
+            right: -20px;
+            font-size: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        /* =========================================
+           CTA SECTION
+           ========================================= */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #2a2a2a 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary-red);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: #0a0a0a;
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--primary-red);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            color: #aaa;
+        }
+
+        .footer-contact i {
+            color: var(--primary-red);
+            width: 20px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #aaa;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #777;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-tagline {
+            font-family: var(--font-heading);
+            font-weight: 800;
+            color: var(--primary-red);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN (MOBILE & TABLET)
+           ========================================= */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.2rem; }
+            
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+            .process-step:nth-child(2)::after { display: none; }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .location-tag {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-right .btn {
+                display: none;
+            }
+
+            .nav-container {
+                position: relative;
+            }
+
+            /* Mobile Menu Dropdown */
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-bg);
+                padding: 2rem;
+                gap: 1.5rem;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .hero { padding: 5rem 0 3rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-buttons { flex-direction: column; }
+            .trust-badges { flex-direction: column; gap: 1rem; }
+
+            .services-header, .work-header { flex-direction: column; align-items: flex-start; }
+            .services-header .btn, .work-header .btn { width: 100%; text-align: center; }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-step::after { display: none !important; }
+
+            .cta-buttons { flex-direction: column; }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                APD <span>.</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#" class="active">Home</a>
+                <a href="#services">Services</a>
+                <a href="#work">Our Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-right">
+                <div class="location-tag">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>South London</strong><br>
+                        <small>Nationwide Service</small>
+                    </div>
+                </div>
+                <a href="#contact" class="btn btn-primary">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Print, Design & Branding That <span class="text-red">Moves Brands Forward.</span></h1>
+                    <p>Anderson Print & Design (APD) is a South London-based creative print and branding company helping individuals, businesses, brands and organisations bring their ideas to life.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                        <a href="#work" class="btn btn-outline"><i class="fas fa-play"></i> View Our Work</a>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <i class="fas fa-gem"></i>
+                            <span>High Quality<br>Results</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-database"></i>
+                            <span>Affordable<br>Solutions</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>South London<br>Based</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-truck"></i>
+                            <span>Nationwide<br>Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="section-padding" id="services">
+            <div class="container">
+                <div class="services-header">
+                    <div>
+                        <h2>Everything You Need to Brand, Print & Promote.</h2>
+                    </div>
+                    <div>
+                        <p>From concept and design through to print and production, APD provides professional, affordable solutions for businesses, events and individuals.</p>
+                        <a href="#" class="btn btn-dark" style="margin-top: 1rem;">View All Services <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Graphic Design">
+                        </div>
+                        <div class="service-content">
+                            <h3>Graphic Design & Branding</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Logo Design">
+                        </div>
+                        <div class="service-content">
+                            <h3>Logo Design</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1589041127168-9b1915731dc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Cards">
+                        </div>
+                        <div class="service-content">
+                            <h3>Business Cards & Flyers</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1572375992501-4b0892d50c69?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Stickers">
+                        </div>
+                        <div class="service-content">
+                            <h3>Stickers & Labels</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Banners">
+                        </div>
+                        <div class="service-content">
+                            <h3>Banners & Promotional Signage</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Shop Fascias">
+                        </div>
+                        <div class="service-content">
+                            <h3>Shop Fascias & Window Graphics</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 7 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Vehicle Graphics">
+                        </div>
+                        <div class="service-content">
+                            <h3>Vehicle Graphics</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 8 -->
+                    <div class="service-card">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Custom T-Shirts">
+                        </div>
+                        <div class="service-content">
+                            <h3>Custom T-Shirts, Hoodies & Clothing</h3>
+                            <div class="arrow-btn"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED WORK SECTION -->
+        <section class="section-padding featured-work" id="work">
+            <div class="container">
+                <div class="work-header">
+                    <div>
+                        <h2>Real Projects. <br>Real Results.</h2>
+                        <p>Take a look at some of our recent work across print, branding, signage, apparel and more.</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">View Our Work <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="work-grid">
+                    <div class="work-item">
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Storefront">
+                    </div>
+                    <div class="work-item">
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hoodie">
+                    </div>
+                    <div class="work-item">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Van">
+                    </div>
+                    <div class="work-item">
+                        <img src="https://images.unsplash.com/photo-1589041127168-9b1915731dc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Box">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY CHOOSE US SECTION -->
+        <section class="section-padding why-choose" id="about">
+            <div class="container">
+                <div class="why-header">
+                    <h2>More Than Print.<br>A Partner In Your Ideas.</h2>
+                </div>
+
+                <div class="why-grid">
+                    <div class="why-card">
+                        <i class="fas fa-gem"></i>
+                        <h3>High Quality Results</h3>
+                        <p>Professional finish that makes your brand stand out.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-database"></i>
+                        <h3>Affordable Solutions</h3>
+                        <p>Great quality at competitive prices.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>South London Based</h3>
+                        <p>Local to South London, proud to work with clients across the UK.</p>
+                    </div>
+                    <div class="why-card">
+                        <i class="fas fa-users"></i>
+                        <h3>From Concept to Completion</h3>
+                        <p>We handle the whole process — from your idea to the finished product.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION -->
+        <section class="section-padding">
+            <div class="container">
+                <h2>Simple. Smooth. Stress-Free.</h2>
+                <p class="text-gray">We make it easy to bring your ideas to life.</p>
+
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Discuss</h3>
+                        <p>Tell us your ideas and requirements.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Design</h3>
+                        <p>We create and refine your design.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Produce</h3>
+                        <p>Your project goes to print.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Deliver</h3>
+                        <p>Ready for you to make an impact!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="section-padding cta-section" id="contact">
+            <div class="container cta-content">
+                <h2>Let's Bring Your <span class="text-red">Ideas To Life.</span></h2>
+                <p>Get a quote today and see how APD can help your business, event or brand stand out.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:apdprintanddesign@gmail.com" class="btn btn-primary">Get a Quote <i class="fas fa-arrow-right"></i></a>
+                    <a href="tel:07506467397" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">APD<span>.</span></div>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> 07506 467397</p>
+                        <p><i class="fas fa-envelope"></i> apdprintanddesign@gmail.com</p>
+                        <p><i class="fab fa-instagram"></i> @andersonprintanddesign</p>
+                        <p><i class="fas fa-map-marker-alt"></i> South London | Nationwide Service</p>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#work">Our Work</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Business Cards</a></li>
+                        <li><a href="#">Vehicle Graphics</a></li>
+                        <li><a href="#">Custom Clothing</a></li>
+                        <li><a href="#">Banners & Signage</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Anderson Print & Design (APD). All rights reserved.</p>
+                <div class="footer-tagline">
+                    Designed To Impress. Built To Last.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Toggle icon between bars and close
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70, // Adjust for sticky header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Phabo | Interior Design Studio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #F7F6F3;
+            --surface-color: #FFFFFF;
+            --bg-dark: #1C1C1A;
+            --bg-darker: #141413;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6A6A68;
+            --text-white: #FFFFFF;
+            --accent-color: #9A8A7A;
+            --border-color: #E2E1DE;
+            
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Inter', sans-serif;
+            --font-script: 'Mrs Saint Delafield', cursive;
+            
+            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: clamp(3rem, 5vw, 5rem); margin-bottom: 1.5rem; }
+        h2 { font-size: clamp(2rem, 3.5vw, 3.5rem); margin-bottom: 1.5rem; }
+        h3 { font-size: 1.8rem; margin-bottom: 0.8rem; }
+        
+        .subtitle {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-light-outline {
+            background-color: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        .btn-light-outline:hover {
+            background-color: white;
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .link-arrow {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .link-arrow::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: currentColor;
+            transition: var(--transition);
+        }
+
+        .link-arrow:hover::after {
+            width: 100%;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            position: fixed;
+            background-color: rgba(28, 28, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            z-index: 1002;
+        }
+
+        .logo-script {
+            font-family: var(--font-script);
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: -5px;
+        }
+
+        .logo-sans {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-cta {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .header-cta:hover {
+            background-color: white;
+            color: var(--text-primary);
+            border-color: white;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1002;
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform-origin: left center;
+        }
+
+        /* --- HERO SECTION (REVERTED TO QUOTE STYLE) --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, rgba(28, 28, 26, 0.95) 0%, rgba(28, 28, 26, 0.7) 50%, rgba(28, 28, 26, 0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+            color: white;
+        }
+
+        .hero-content .subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .hero h1 {
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: white;
+            color: var(--text-primary);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .hero-buttons .link-arrow {
+            color: white;
+        }
+
+        .hero-quote {
+            position: absolute;
+            right: 5%;
+            bottom: 15%;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 2.5rem;
+            max-width: 320px;
+            z-index: 1;
+        }
+
+        .hero-quote p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .hero-quote span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        /* --- FEATURED PROJECTS --- */
+        .projects {
+            padding: 8rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            cursor: pointer;
+        }
+
+        .project-img-wrapper {
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            aspect-ratio: 3/4;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-info h4 {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-fast);
+        }
+
+        .project-card:hover .project-info h4 {
+            color: var(--accent-color);
+        }
+
+        .project-category {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 8rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 100%;
+            min-height: 600px;
+            background: url('https://plus.unsplash.com/premium_photo-1726797661357-f7897f35f865?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-decor {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            font-size: 3rem;
+            line-height: 1.1;
+            color: var(--text-secondary);
+            transform: rotate(-5deg);
+            white-space: nowrap;
+        }
+
+        /* --- PROCESS / FROM IDEA TO REALITY --- */
+        .process {
+            padding: 8rem 0;
+            background-color: var(--bg-color);
+        }
+
+        .process-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .process-text h2 {
+            margin-bottom: 2rem;
+        }
+
+        .process-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .process-img-wrapper {
+            padding: 1.5rem;
+            background-color: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .process-img-wrapper img {
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 8rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-color);
+            padding: 3rem 2rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+            background-color: white;
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+        }
+
+        /* --- TESTIMONIAL SECTION (3-COLUMN GRID) --- */
+        .testimonial {
+            background-color: var(--bg-dark);
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .testimonial-text {
+            padding: 8rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--bg-darker);
+        }
+
+        .testimonial-text p {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            line-height: 1.4;
+            margin-bottom: 2.5rem;
+            color: white;
+        }
+
+        .testimonial-text span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+        }
+
+        .testimonial-img {
+            background: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            min-height: 400px;
+        }
+
+        .testimonial-cta {
+            padding: 8rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--bg-dark);
+        }
+
+        .testimonial-cta p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+            max-width: 250px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 3rem 0;
+            background-color: var(--bg-darker);
+            color: white;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 3rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .footer-nav a {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+        }
+
+        .footer-nav a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icons a {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .social-icons a:hover {
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .about-img { min-height: 500px; }
+            .process-inner { grid-template-columns: 1fr; gap: 4rem; }
+            .hero-quote { display: none; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+
+            /* Testimonial Responsive */
+            .testimonial { grid-template-columns: 1fr; }
+            .testimonial-text, .testimonial-cta { padding: 5rem 3rem; }
+            .testimonial-cta p { max-width: 100%; }
+
+            /* Mobile Menu */
+            .header-cta { display: none; }
+            .menu-toggle { display: flex; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-darker);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                z-index: 1001;
+            }
+
+            .nav-links.is-open { right: 0; }
+            .nav-links a { font-size: 1.5rem; font-family: var(--font-serif); }
+            
+            .menu-toggle.is-active span:nth-child(1) { transform: rotate(45deg); top: -2px; position: relative; }
+            .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active span:nth-child(3) { transform: rotate(-45deg); top: 2px; position: relative; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { min-height: 90vh; padding-top: 100px; text-align: left; }
+            .hero::before { background: linear-gradient(to bottom, rgba(28, 28, 26, 0.95) 0%, rgba(28, 28, 26, 0.8) 100%); }
+            .services-grid { grid-template-columns: 1fr; }
+            .footer-grid { flex-direction: column; gap: 2.5rem; text-align: center; }
+            .footer-nav { flex-direction: column; gap: 1.5rem; }
+            .about-decor { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .hero-buttons .btn { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-script">House of Phabo</span>
+                <span class="logo-sans">Interiors</span>
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#contact" class="header-cta">Enquire &rarr;</a>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (REVERTED TO QUOTE STYLE) -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="subtitle">Interior Design Studio</span>
+                    <h1>Spaces<br>that feel<br>like you</h1>
+                    <p>Residential & commercial interiors, crafted with purpose, detail and individuality.</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">View Our Work &rarr;</a>
+                        <a href="#contact" class="link-arrow">Let's Talk</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-quote">
+                <p>"Where timeless design weaves unforgettable stories"</p>
+                <span>House of Phabo</span>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS -->
+        <section class="projects container" id="portfolio">
+            <div class="section-header">
+                <div>
+                    <span class="subtitle">Featured Work</span>
+                    <h2>A glimpse inside</h2>
+                </div>
+                <a href="#" class="link-arrow">View Full Portfolio &rarr;</a>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/projects/1.png" alt="Project Anaconda">
+                    </div>
+                    <div class="project-info">
+                        <h4>Project Anaconda</h4>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </div>
+                    <span class="project-category">Residential</span>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/projects/2.png" alt="Project Mount Yard">
+                    </div>
+                    <div class="project-info">
+                        <h4>Project Mount Yard</h4>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </div>
+                    <span class="project-category">Residential</span>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/projects/3.png" alt="Project Threadmill">
+                    </div>
+                    <div class="project-info">
+                        <h4>Project Threadmill</h4>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </div>
+                    <span class="project-category">Commercial</span>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="images/projects/4.png" alt="Project Mount Yard Again">
+                    </div>
+                    <div class="project-info">
+                        <h4>Project Mount Yard Again</h4>
+                        <i class="ph ph-arrow-up-right"></i>
+                    </div>
+                    <span class="project-category">Residential</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="about" id="about">
+            <div class="container about-grid">
+                <div class="about-img"></div>
+                
+                <div class="about-content">
+                    <span class="subtitle">About Me</span>
+                    <h2>Design with purpose</h2>
+                    <p>I’m Pamela, founder of House of Phabo, a Manchester-based interior design studio specialising in residential interiors. I create timeless, characterful spaces shaped around how people live, bringing together cultural heritage, personal stories and considered design to create homes that feel sophisticated, functional and uniquely yours.</p>
+                    <a href="#" class="btn btn-outline" style="align-self: flex-start; margin-top: 1rem;">Read More &rarr;</a>
+                    
+                    <div class="about-decor">
+                        <div class="script-text">Timeless<br>Refined<br>Individual</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS / FROM IDEA TO REALITY -->
+        <section class="process">
+            <div class="container process-inner">
+                <div class="process-text">
+                    <span class="subtitle">Our Process</span>
+                    <h2>From Idea<br>to Reality</h2>
+                    <p>We take your initial ideas and turn them into clear, detailed designs, making sure every part of the space is carefully thought through before the work begins.</p>
+                    <a href="#contact" class="link-arrow">Start Your Project &rarr;</a>
+                </div>
+                <div class="process-img-wrapper">
+                    <img src="images/floorplan.png" alt="Detailed interior design floor plan and layout">
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <span class="subtitle">Our Services</span>
+                        <h2>Design for Every Space</h2>
+                    </div>
+                    <a href="#" class="link-arrow">Explore Services &rarr;</a>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="ph ph-house-line"></i>
+                        <h4>Residential Design</h4>
+                        <p>Homes that reflect your lifestyle and unique story.</p>
+                        <a href="#" class="link-arrow">Learn More &rarr;</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="ph ph-buildings"></i>
+                        <h4>Commercial Spaces</h4>
+                        <p>Workspaces that inspire performance and creativity.</p>
+                        <a href="#" class="link-arrow">Learn More &rarr;</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="ph ph-armchair"></i>
+                        <h4>Styling & Curation</h4>
+                        <p>The finishing touches that elevate a space.</p>
+                        <a href="#" class="link-arrow">Learn More &rarr;</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <i class="ph ph-blueprint"></i>
+                        <h4>Bespoke Solutions</h4>
+                        <p>Tailored design for unique and specific needs.</p>
+                        <a href="#" class="link-arrow">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIAL & CTA SECTION (RESTORED 3-COLUMN GRID) -->
+        <section class="testimonial" id="contact">
+            <div class="testimonial-text fade-in">
+                <p>"Pamela has an incredible eye for detail. She transformed our space into something truly special."</p>
+                <span>Client Testimonial</span>
+            </div>
+            <div class="testimonial-img fade-in" style="transition-delay: 0.2s;"></div>
+            <div class="testimonial-cta fade-in" style="transition-delay: 0.4s;">
+                <p>Let's create something beautiful together</p>
+                <a href="#contact" class="btn btn-light-outline">Get In Touch &rarr;</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <a href="#" class="logo">
+                <span class="logo-script">House of Phabo</span>
+                <span class="logo-sans">Interiors</span>
+            </a>
+            
+            <div class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#"><i class="ph ph-pinterest-logo"></i></a>
+                <a href="#"><i class="ph ph-tiktok-logo"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT FOR MOBILE MENU & SCROLL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.body;
+            const header = document.getElementById('header');
+
+            // Toggle mobile menu
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('is-active');
+                navLinks.classList.toggle('is-open');
+                
+                if (navLinks.classList.contains('is-open')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = '';
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('is-active');
+                    navLinks.classList.remove('is-open');
+                    body.style.overflow = '';
+                });
+            });
+
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Fade-in animation observer
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

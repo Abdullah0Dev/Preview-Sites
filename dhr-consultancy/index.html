@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHR Consultancy | Practical HR Support</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --bg-cream: #F9F8F6;
+            --bg-dark: #1C2A2E;
+            --bg-card: #243438;
+            --text-dark: #111111;
+            --text-light: #FFFFFF;
+            --text-muted: #666666;
+            --text-muted-light: #A0B0B4;
+            --border-color: #E5E5E5;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- GLOBAL RESET --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITY CLASSES --- */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 4rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.75rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-dark {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .btn-dark:hover {
+            background-color: #2a3c42;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            border-color: var(--bg-dark);
+        }
+
+        .section-tag {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .section-tag.light {
+            color: var(--text-muted-light);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-serif);
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 4rem;
+            background-color: var(--bg-cream);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s ease, padding 0.3s ease;
+        }
+
+        /* Navbar shadow on scroll */
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            padding: 1rem 4rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .logo span {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.6rem;
+            letter-spacing: 4px;
+            font-weight: 500;
+            margin-top: 2px;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-muted);
+        }
+
+        /* Mobile CTA hidden by default */
+        .mobile-cta {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            z-index: 1001;
+            position: relative;
+        }
+
+        /* Mobile Menu Overlay */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            padding: 4rem 0 6rem 4rem;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 2rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero-feature i {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+        }
+
+        /* --- HERO IMAGE (UPDATED FOR RESPONSIVENESS) --- */
+        .hero-image {
+            position: relative;
+            height: 100%;
+            min-height: 600px;
+            background-image: url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px 0 0 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Push content to bottom on mobile */
+            padding: 2rem;
+        }
+
+        /* Dark gradient overlay for mobile text readability */
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(28, 42, 46, 0.95) 0%, rgba(28, 42, 46, 0) 70%);
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Quote styling - Mobile Default */
+        .hero-quote {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.4;
+            color: var(--text-light); /* White text for mobile over dark gradient */
+            margin: 0;
+        }
+
+        .hero-quote .author {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--text-muted-light);
+        }
+
+        .hero-signature {
+            position: absolute;
+            bottom: 15%;
+            right: 5%;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 3rem;
+            color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            z-index: 2;
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-align: right;
+            z-index: 2;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* --- TRUST BAR --- */
+        .trust-bar {
+            background-color: #F0EFEB;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .trust-bar p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .trust-item i {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 6rem 0;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 4rem;
+            padding: 0 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-header p {
+            color: var(--text-muted-light);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .service-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-content i {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .service-card-content h3 {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-card-content .arrow {
+            font-size: 1rem;
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about {
+            padding: 6rem 0;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 4rem;
+            padding: 0 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .about-title h2 {
+            font-size: 3rem;
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text .btn {
+            margin-top: 1rem;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .about-feature i {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            width: 24px;
+            text-align: center;
+        }
+
+        /* --- STATS SECTION --- */
+        .stats {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 4rem 0;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 0 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted-light);
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials {
+            padding: 6rem 0;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 4rem;
+            padding: 0 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header h2 {
+            font-size: 3rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card .quote-icon {
+            font-size: 2rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-family: var(--font-serif);
+        }
+
+        .testimonial-card p {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .testimonial-card .author {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* --- CONTACT / FOOTER --- */
+        .contact {
+            position: relative;
+            padding: 8rem 4rem;
+            background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(17, 26, 28, 0.85);
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact .btn-outline {
+            color: var(--text-light);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .contact .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+        }
+
+        .footer-bottom {
+            background-color: var(--bg-dark);
+            color: var(--text-muted-light);
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--text-light);
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1200px) {
+            .hero-content h1 { font-size: 3.5rem; }
+            .services-container { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-container { grid-template-columns: 1fr 1.5fr; }
+            .about-features { grid-column: span 2; flex-direction: row; flex-wrap: wrap; justify-content: space-between; }
+            .testimonials-container { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .container, .navbar, .trust-bar, .services-container, .about-container, .stats-container, .testimonials-container, .contact, .footer-bottom {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            .hero { padding: 3rem 2rem; grid-template-columns: 1fr; gap: 2rem; }
+            
+            /* Hero Image Mobile Adjustments */
+            .hero-image { 
+                min-height: 450px; 
+                border-radius: 8px; 
+                padding: 1.5rem;
+            }
+            .hero-quote {
+                font-size: 1.1rem;
+                margin-top: 0;
+            }
+            .hero-signature, .hero-badge { 
+                display: none; 
+            }
+            
+            .hero-features { flex-direction: column; gap: 1rem; }
+            .trust-items { justify-content: center; }
+            .trust-item { flex: 0 0 45%; }
+            .about-container { grid-template-columns: 1fr; }
+            .about-features { grid-column: span 1; flex-direction: column; }
+            .stats-container { justify-content: center; gap: 3rem; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            /* Navbar Mobile Adjustments */
+            .navbar { padding: 1rem 1.5rem; }
+            .navbar.scrolled { padding: 0.75rem 1.5rem; }
+
+            .desktop-cta { display: none; }
+            .menu-toggle { display: block; }
+
+            /* Slide-in Mobile Menu */
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background-color: var(--bg-cream);
+                padding: 6rem 2rem 2rem;
+                box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                z-index: 999;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .nav-links.active { right: 0; }
+
+            .nav-links a {
+                font-size: 1.1rem;
+                width: 100%;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links .mobile-cta {
+                display: inline-flex;
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+                border-bottom: none;
+                background-color: var(--bg-dark);
+                color: var(--text-light);
+                padding: 1rem;
+            }
+
+            /* Rest of mobile layout */
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-btns { flex-direction: column; }
+            .services-grid { grid-template-columns: 1fr; }
+            .trust-item { flex: 0 0 100%; }
+            .contact h2 { font-size: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2rem; }
+            .section-tag { font-size: 0.65rem; }
+            .about-title h2, .services-header h2, .testimonials-header h2 { font-size: 2rem; }
+            .stat-item h3 { font-size: 2rem; }
+            .contact h2 { font-size: 1.8rem; }
+            .contact-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <div class="logo">DHR <span>CONSULTANCY</span></div>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="btn btn-dark mobile-cta">Work With Me &rarr;</a>
+        </nav>
+
+        <a href="#contact" class="btn btn-dark desktop-cta">Work With Me &rarr;</a>
+        
+        <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="section-tag">PEOPLE &nbsp; PROCESSES &nbsp; PROGRESS</span>
+            <h1>Practical HR Support for Real Businesses.</h1>
+            <p>Helping small and growing businesses get the HR basics right — without the cost or complexity of a full-time HR hire.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-dark">Book a Free Chat &rarr;</a>
+                <a href="#services" class="btn btn-outline">View Services</a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <i class="fas fa-users"></i>
+                    <span>Practical Support</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Legally Compliant</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Built for Growing Businesses</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- UPDATED HERO IMAGE BLOCK -->
+        <div class="hero-image">
+            <!-- Dark gradient overlay for text readability -->
+            <div class="hero-image-overlay"></div>
+            
+            <div class="hero-quote">
+                “Good HR builds stronger businesses and brighter people.”
+                <span class="author">DIONE<br>Founder, DHR Consultancy</span>
+            </div>
+            <div class="hero-signature">Dione</div>
+            <div class="hero-badge">CIPD QUALIFIED<br>HR CONSULTANT</div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+        <p>TRUSTED BY BUSINESSES ACROSS A RANGE OF INDUSTRIES</p>
+        <div class="trust-items">
+            <div class="trust-item"><i class="fas fa-store"></i> RETAIL</div>
+            <div class="trust-item"><i class="fas fa-utensils"></i> HOSPITALITY</div>
+            <div class="trust-item"><i class="fas fa-lightbulb"></i> CREATIVE</div>
+            <div class="trust-item"><i class="fas fa-hard-hat"></i> CONSTRUCTION</div>
+            <div class="trust-item"><i class="fas fa-briefcase"></i> PROFESSIONAL SERVICES</div>
+            <div class="trust-item"><i class="fas fa-laptop-code"></i> TECH & STARTUPS</div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <span class="section-tag light">SERVICES</span>
+                <h2>HR support that fits your business.</h2>
+                <p>Flexible, practical and solution-focused HR support designed for small and growing businesses.</p>
+                <a href="#" class="btn btn-outline" style="color: var(--text-light); border-color: rgba(255,255,255,0.3);">Explore All Services &rarr;</a>
+            </div>
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="People & Hiring">
+                    <div class="service-card-content">
+                        <i class="fas fa-users"></i>
+                        <h3>People & Hiring</h3>
+                        <p>Recruitment support, contracts and onboarding to help you build the right team.</p>
+                        <span class="arrow">&rarr;</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Policies & Processes">
+                    <div class="service-card-content">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Policies & Processes</h3>
+                        <p>Clear, compliant policies tailored to your business.</p>
+                        <span class="arrow">&rarr;</span>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1560264350-1a8891f44df0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Employee Relations">
+                    <div class="service-card-content">
+                        <i class="fas fa-comments"></i>
+                        <h3>Employee Relations</h3>
+                        <p>Support with difficult conversations, workplace issues and conflict resolution.</p>
+                        <span class="arrow">&rarr;</span>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ongoing HR Support">
+                    <div class="service-card-content">
+                        <i class="fas fa-seedling"></i>
+                        <h3>Ongoing HR Support</h3>
+                        <p>Flexible, ongoing support as your business grows.</p>
+                        <span class="arrow">&rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-title">
+                <span class="section-tag">ABOUT DHR CONSULTANCY</span>
+                <h2>HR is people. And people are business.</h2>
+            </div>
+            <div class="about-text">
+                <p>I'm Dione, a CIPD-qualified HR professional with 18+ years' experience including hands-on work stabilising HR in businesses with no existing systems in place.</p>
+                <p>I help small and growing businesses get the HR basics right; from hiring, contracts, policies to managing staff issues without the cost or complexity of a full-time HR hire.</p>
+                <p>Many business owners handle HR themselves alongside everything else, and it's usually fine until something comes up they're not sure how to handle: a difficult conversation with an employee, a contract question, or simply knowing what they're legally required to do.</p>
+                <p>Through DHR Consultancy, I provide practical, straightforward support on a flexible, project or ongoing basis.</p>
+                <p>Get in touch to talk through what's going on in your business.</p>
+                <a href="#" class="btn btn-outline">My Story &rarr;</a>
+            </div>
+            <div class="about-features">
+                <div class="about-feature">
+                    <i class="fas fa-heart"></i>
+                    <span>Straightforward advice</span>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-users"></i>
+                    <span>A practical, hands-on approach</span>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Focused on real business needs</span>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Flexible support, when you need it</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>18+</h3>
+                <p>Years of Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>100+</h3>
+                <p>Businesses Supported</p>
+            </div>
+            <div class="stat-item">
+                <h3>Stronger</h3>
+                <p>Teams Built</p>
+            </div>
+            <div class="stat-item">
+                <h3>Brighter</h3>
+                <p>Workplaces</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <span class="section-tag">KIND WORDS</span>
+                <h2>Trusted by business owners like you.</h2>
+            </div>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon">“</div>
+                    <p>Dione made what felt like an overwhelming HR issue simple and manageable. Her advice was clear, practical and gave me real confidence.</p>
+                    <span class="author">SMALL BUSINESS OWNER</span>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon">“</div>
+                    <p>Professional, knowledgeable and so easy to work with. Exactly what we needed as a growing business.</p>
+                    <span class="author">FOUNDER, CREATIVE AGENCY</span>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="quote-icon">“</div>
+                    <p>Dione's support has been invaluable. She helped us put systems in place that actually work for our business.</p>
+                    <span class="author">MANAGING DIRECTOR, HOSPITALITY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <span class="section-tag light">LET'S TALK</span>
+            <h2>Get in touch to talk through what's going on in your business.</h2>
+            <div class="contact-btns">
+                <a href="#" class="btn btn-dark">Book a Free Chat &rarr;</a>
+                <a href="#" class="btn btn-outline">Or send a message</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2024 DHR Consultancy. All rights reserved.</p>
+        <div>
+            <a href="#" style="margin-right: 1.5rem;">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- MOBILE MENU SCRIPT -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const icon = menuToggle.querySelector('i');
+
+        // 1. Sticky Navbar Shadow on Scroll
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.body.style.overflow = ''; // Restore background scrolling
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+
+        // 3. Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,2915 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CeeCee Melange | Luxury Event Styling, Bespoke Stationery & Gifting</title>
+<meta name="description" content="CeeCee Melange creates luxury event styling, bespoke stationery, personalised gifts, elegant tablescapes, room set-ups and curated collections of drinkware, keychains, stationery and keepsakes. Halal-friendly, elegant, and made with love.">
+<meta name="theme-color" content="#FBF7F3">
+<meta property="og:title" content="CeeCee Melange | Luxury Event Styling & Gifting">
+<meta property="og:description" content="Bespoke stationery, luxury favours, personalised gifts, tablescapes and decor. Curated collections of drinkware, keychains, stationery and keepsakes.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS — SOFT, FEMININE, ELEGANT
+   ============================================================ */
+:root{
+  /* Blush & rose */
+  --blush:#F7E9E5;
+  --blush-2:#F2DDD7;
+  --rose:#C98B8B;
+  --rose-deep:#B76E79;
+  --rose-soft:rgba(183,110,121,.10);
+
+  /* Neutrals */
+  --ivory:#FDFBF8;
+  --cream:#FBF7F3;
+  --linen:#F5EFE8;
+  --paper:#FFFFFF;
+
+  /* Gold & warm accents */
+  --gold:#C9A96E;
+  --gold-2:#DCC49A;
+  --gold-3:#A8884E;
+  --gold-soft:rgba(201,169,110,.12);
+
+  /* Deep text */
+  --ink:#3A2E2E;
+  --mauve:#5C4A4A;
+  --muted:#8A7A7A;
+  --muted-2:#A89898;
+
+  /* Sage accent */
+  --sage:#A8B5A0;
+  --sage-soft:rgba(168,181,160,.15);
+
+  /* Hairlines */
+  --line:#EDE4DC;
+  --line-2:#F5EEE8;
+  --line-gold:rgba(201,169,110,.28);
+
+  /* Radii — soft and organic */
+  --r-sm:6px;
+  --r-md:14px;
+  --r-lg:24px;
+  --r-arch:200px 200px 24px 24px;
+
+  /* Shadows — soft, warm */
+  --shadow-xs:0 1px 2px rgba(58,46,46,.03);
+  --shadow-sm:0 2px 8px rgba(58,46,46,.04), 0 8px 24px -12px rgba(58,46,46,.08);
+  --shadow-md:0 4px 12px rgba(58,46,46,.05), 0 20px 48px -20px rgba(58,46,46,.14);
+  --shadow-lg:0 8px 24px rgba(58,46,46,.06), 0 40px 80px -32px rgba(58,46,46,.18);
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --maxw:1320px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Jost",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:15.5px;
+  line-height:1.75;
+  font-weight:400;
+  letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+ul{list-style:none;margin:0;padding:0}
+p{margin:0}
+::selection{background:var(--rose-deep);color:var(--paper)}
+
+h1,h2,h3,h4{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:500;
+  letter-spacing:-.005em;
+  line-height:1.15;
+  margin:0;
+  color:var(--ink);
+}
+h1{font-size:clamp(2.6rem,1.6rem + 3.2vw,4.6rem);font-weight:400;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,1.3rem + 2vw,3.2rem);font-weight:400;letter-spacing:-.015em}
+h3{font-size:1.35rem;font-weight:500;letter-spacing:-.005em}
+h4{font-size:1.05rem;font-weight:500}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+@media (min-width:768px){.wrap{padding-inline:40px}}
+@media (min-width:1200px){.wrap{padding-inline:56px}}
+
+.section{padding:88px 0}
+@media (min-width:900px){.section{padding:130px 0}}
+.section--tight{padding:64px 0}
+@media (min-width:900px){.section--tight{padding:88px 0}}
+
+/* Section head — centered for feminine elegance */
+.section-head{
+  text-align:center;
+  max-width:680px;
+  margin:0 auto 64px;
+}
+.section-head--left{
+  text-align:left;
+  margin:0 0 56px;
+  max-width:none;
+  display:grid;
+  gap:28px;
+}
+@media (min-width:900px){
+  .section-head--left{
+    grid-template-columns:1fr auto;
+    align-items:end;
+    gap:64px;
+  }
+}
+.section-head__eyebrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-bottom:20px;
+  font-family:"Jost",sans-serif;
+  font-size:.68rem;
+  font-weight:500;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--gold-3);
+}
+.section-head__eyebrow::before,
+.section-head__eyebrow::after{
+  content:"";
+  display:block;
+  width:24px;
+  height:1px;
+  background:var(--gold);
+  opacity:.6;
+}
+.section-head--left .section-head__eyebrow{
+  justify-content:flex-start;
+}
+.section-head--left .section-head__eyebrow::after{display:none}
+.section-head h2{margin-bottom:16px}
+.section-head h2 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--rose-deep);
+}
+.section-head__lead{
+  color:var(--muted);
+  font-size:.96rem;
+  line-height:1.8;
+  max-width:56ch;
+  margin:0 auto;
+}
+.section-head--left .section-head__lead{margin:0;text-align:right}
+@media (max-width:899px){
+  .section-head--left .section-head__lead{text-align:left}
+}
+
+/* Underline link */
+.link-arrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Jost",sans-serif;
+  font-size:.8rem;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--ink);
+  position:relative;
+  padding-bottom:6px;
+  transition:color .3s var(--ease);
+}
+.link-arrow::after{
+  content:"";
+  position:absolute;
+  left:0;bottom:0;
+  width:100%;height:1px;
+  background:var(--line);
+  transition:background-color .3s var(--ease);
+}
+.link-arrow svg{transition:transform .3s var(--ease)}
+.link-arrow:hover{color:var(--rose-deep)}
+.link-arrow:hover::after{background:var(--rose)}
+.link-arrow:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 30px;
+  border-radius:var(--r-sm);
+  border:1px solid transparent;
+  font-family:"Jost",sans-serif;
+  font-weight:500;
+  font-size:.82rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  line-height:1;
+  cursor:pointer;
+  white-space:nowrap;
+  position:relative;
+  overflow:hidden;
+  transition:background-color .35s var(--ease),
+             border-color .35s var(--ease),
+             color .35s var(--ease),
+             transform .2s var(--ease),
+             box-shadow .35s var(--ease);
+}
+.btn svg{flex:none;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn:active{transform:scale(.985)}
+
+.btn-rose{
+  background:var(--rose-deep);
+  color:var(--paper);
+}
+.btn-rose:hover{background:var(--mauve);box-shadow:0 14px 36px -14px rgba(183,110,121,.5)}
+
+.btn-gold{
+  background:var(--gold);
+  color:var(--paper);
+}
+.btn-gold:hover{background:var(--gold-3);box-shadow:0 14px 36px -14px rgba(201,169,110,.5)}
+
+.btn-outline{
+  background:transparent;
+  border-color:var(--line);
+  color:var(--ink);
+}
+.btn-outline:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+
+.btn-ghost-light{
+  background:transparent;
+  border-color:rgba(255,255,255,.3);
+  color:#fff;
+}
+.btn-ghost-light:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+.btn-block{width:100%}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.hdr{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(253,251,248,.92);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid var(--line-2);
+}
+.hdr-in{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+  height:88px;
+}
+
+.logo{display:flex;align-items:center;gap:14px;flex:none}
+.logo-mark{width:46px;height:46px;flex:none}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt b{
+  font-family:"Cormorant Garamond",serif;
+  font-weight:600;
+  font-size:1.3rem;
+  letter-spacing:.02em;
+  color:var(--ink);
+}
+.logo-txt b em{
+  font-style:italic;
+  color:var(--rose-deep);
+  font-weight:400;
+}
+.logo-txt span{
+  font-family:"Jost",sans-serif;
+  font-size:.52rem;
+  letter-spacing:.38em;
+  font-weight:500;
+  color:var(--gold-3);
+  margin-top:6px;
+  text-transform:uppercase;
+}
+
+.nav{display:none;gap:40px;align-items:center}
+@media (min-width:960px){.nav{display:flex}}
+.nav a{
+  font-family:"Jost",sans-serif;
+  font-size:.78rem;
+  font-weight:400;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  transition:color .3s var(--ease);
+  position:relative;
+  padding:6px 0;
+}
+.nav a::after{
+  content:"";
+  position:absolute;
+  bottom:0;left:0;
+  width:0;height:1px;
+  background:var(--rose);
+  transition:width .3s var(--ease);
+}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{width:100%}
+
+.hdr-right{display:flex;align-items:center;gap:24px}
+.hdr-cta{display:none;align-items:center;gap:28px}
+@media (min-width:1000px){.hdr-cta{display:flex}}
+
+.hdr-phone{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--ink);
+  transition:color .3s var(--ease);
+  padding:6px 0;
+}
+.hdr-phone:hover{color:var(--rose-deep)}
+.hdr-phone .ic{color:var(--gold);flex:none}
+.hdr-phone .txt{display:flex;flex-direction:column;line-height:1.2}
+.hdr-phone .txt b{
+  font-family:"Jost",sans-serif;
+  font-weight:500;
+  font-size:.8rem;
+  letter-spacing:.06em;
+  color:inherit;
+}
+.hdr-phone .txt span{font-size:.66rem;color:var(--muted-2);letter-spacing:.04em}
+
+.burger{
+  display:grid;
+  place-items:center;
+  width:46px;height:46px;
+  border:1px solid var(--line);
+  background:transparent;
+  border-radius:50%;
+  color:var(--ink);
+  padding:0;
+  transition:border-color .3s var(--ease),background-color .3s var(--ease);
+}
+.burger:hover{border-color:var(--rose);background:var(--blush)}
+@media (min-width:960px){.burger{display:none}}
+.burger-lines{
+  display:flex;flex-direction:column;justify-content:space-between;
+  width:18px;height:12px;
+}
+.burger-lines span{
+  display:block;width:100%;height:1.4px;
+  background:currentColor;
+  border-radius:2px;
+  transform-origin:center;
+  transition:transform .3s var(--ease),opacity .2s var(--ease);
+}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] .burger-lines span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+
+/* ---------- Mobile drawer ---------- */
+.drawer{
+  position:fixed;inset:0;z-index:70;
+  background:var(--cream);
+  padding:120px 32px 40px;
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .3s var(--ease),transform .35s var(--ease),visibility .3s;
+  overflow-y:auto;
+}
+.drawer.open{opacity:1;visibility:visible;transform:none}
+.drawer nav{display:flex;flex-direction:column}
+.drawer a.dlink{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.6rem;font-weight:500;color:var(--ink);
+  padding:24px 4px;
+  border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  transition:color .3s var(--ease),padding-left .35s var(--ease);
+  letter-spacing:-.005em;
+}
+.drawer a.dlink:hover{color:var(--rose-deep);padding-left:14px}
+.drawer a.dlink svg{color:var(--rose);opacity:0;transition:opacity .3s}
+.drawer a.dlink:hover svg{opacity:1}
+.drawer-foot{margin-top:48px;display:grid;gap:14px}
+body.locked{overflow:hidden}
+
+/* ============================================================
+   HERO — soft, romantic, feminine
+   ============================================================ */
+.hero{
+  background:linear-gradient(165deg, var(--ivory) 0%, var(--blush) 55%, var(--linen) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(800px 500px at 92% 15%, rgba(201,169,110,.10), transparent 62%),
+    radial-gradient(600px 400px at 5% 85%, rgba(183,110,121,.06), transparent 60%);
+}
+.hero-in{
+  position:relative;
+  z-index:2;
+  display:grid;
+  gap:0;
+  padding-top:72px;
+  padding-bottom:64px;
+}
+@media (min-width:1000px){
+  .hero-in{
+    grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+    align-items:center;
+    gap:80px;
+    padding-top:110px;
+    padding-bottom:110px;
+  }
+}
+
+.hero-copy{
+  display:flex;flex-direction:column;justify-content:center;
+  max-width:620px;
+}
+.hero-copy .eyebrow{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-family:"Jost",sans-serif;
+  font-size:.66rem;
+  font-weight:500;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-3);
+  margin-bottom:28px;
+}
+.hero-copy .eyebrow::before{
+  content:"";
+  display:block;
+  width:40px;height:1px;
+  background:var(--gold);
+  flex:none;
+}
+.hero-copy h1{margin-bottom:28px;color:var(--ink)}
+.hero-copy h1 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--rose-deep);
+}
+.hero-copy p.lead{
+  font-size:1.05rem;
+  line-height:1.85;
+  color:var(--muted);
+  max-width:50ch;
+  margin-bottom:40px;
+}
+
+.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+.hero-btns .btn{min-height:56px;padding-inline:32px}
+
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px 32px;
+  padding-top:28px;
+  border-top:1px solid var(--line);
+}
+.hero-meta__item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-family:"Jost",sans-serif;
+  font-size:.76rem;
+  letter-spacing:.06em;
+  color:var(--muted);
+}
+.hero-meta__item svg{color:var(--rose);flex:none}
+
+/* ---------- HERO IMAGE — arch with gold outline ---------- */
+.hero-art{
+  position: relative;
+  isolation: isolate;
+}
+.hero-art::before{
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 230px 230px 36px 36px;
+  border: 1px solid var(--line-gold);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-art::after{
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(201,169,110,.15);
+  z-index: 3;
+  pointer-events: none;
+}
+.hero-media{
+  position: relative;
+  min-height: 420px;
+  background: var(--blush-2);
+  border-radius: 200px 200px 20px 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  z-index: 1;
+}
+.hero-media::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 55%, rgba(58,46,46,.2) 100%);
+  pointer-events:none;
+}
+.hero-media img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+@media (min-width: 1000px){
+  .hero-media{
+    min-height: 640px;
+    border-radius: 310px 310px 24px 24px;
+  }
+  .hero-art::before{
+    inset: -30px;
+    border-radius: 340px 340px 44px 44px;
+  }
+  .hero-art::after{
+    top: -38px;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 0 8px rgba(201,169,110,.15);
+  }
+}
+
+/* Floating decorative elements */
+.hero-float{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:1;
+}
+.hero-float--1{
+  width:120px;height:120px;
+  border:1px solid var(--line-gold);
+  top:12%;left:-40px;
+  opacity:.5;
+}
+.hero-float--2{
+  width:80px;height:80px;
+  background:var(--blush);
+  bottom:18%;right:-30px;
+  opacity:.6;
+  filter:blur(2px);
+}
+@media (max-width:999px){.hero-float{display:none}}
+
+/* ============================================================
+   BRAND INTRO — soft editorial
+   ============================================================ */
+.intro{
+  background:var(--paper);
+  position:relative;
+}
+.intro-in{
+  display:grid;
+  gap:56px;
+  align-items:center;
+}
+@media (min-width:900px){
+  .intro-in{grid-template-columns:1fr 1.1fr;gap:96px}
+}
+.intro-media{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  aspect-ratio:4/5;
+  box-shadow:var(--shadow-md);
+}
+.intro-media img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .8s var(--ease);
+}
+.intro-media:hover img{transform:scale(1.04)}
+.intro-media__badge{
+  position:absolute;
+  bottom:24px;right:24px;
+  background:var(--paper);
+  border-radius:50%;
+  width:100px;height:100px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  box-shadow:var(--shadow-sm);
+  padding:12px;
+}
+.intro-media__badge span{
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  font-size:.82rem;
+  color:var(--gold-3);
+  line-height:1.3;
+}
+.intro-copy .eyebrow{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-family:"Jost",sans-serif;
+  font-size:.66rem;
+  font-weight:500;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-3);
+  margin-bottom:22px;
+}
+.intro-copy .eyebrow::before{
+  content:"";
+  width:32px;height:1px;
+  background:var(--gold);
+  flex:none;
+}
+.intro-copy h2{margin-bottom:24px}
+.intro-copy h2 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--rose-deep);
+}
+.intro-copy p{
+  color:var(--muted);
+  font-size:.98rem;
+  line-height:1.9;
+  margin-bottom:20px;
+}
+.intro-copy .signature{
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  font-size:1.3rem;
+  color:var(--rose-deep);
+  margin-top:28px;
+}
+
+/* ============================================================
+   SERVICES — elegant cards
+   ============================================================ */
+.services{
+  background:var(--cream);
+}
+.svc-grid{
+  display:grid;
+  gap:28px;
+  grid-template-columns:1fr;
+}
+@media (min-width:640px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+
+.svc{
+  background:var(--paper);
+  border-radius:var(--r-lg);
+  padding:40px 34px 36px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  border:1px solid var(--line-2);
+  transition:border-color .4s var(--ease),transform .4s var(--ease),box-shadow .4s var(--ease);
+  overflow:hidden;
+}
+.svc::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--rose));
+  transition:width .5s var(--ease);
+}
+.svc:hover{
+  border-color:var(--line-gold);
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md);
+}
+.svc:hover::before{width:100%}
+
+.svc-ic{
+  width:60px;height:60px;
+  border-radius:50%;
+  background:var(--blush);
+  color:var(--rose-deep);
+  display:grid;place-items:center;
+  margin-bottom:26px;
+  transition:background-color .4s var(--ease),color .4s var(--ease),transform .4s var(--ease);
+}
+.svc:hover .svc-ic{
+  background:var(--rose-deep);
+  color:var(--paper);
+  transform:scale(1.05);
+}
+.svc h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.5rem;
+  font-weight:600;
+  margin-bottom:12px;
+  letter-spacing:-.01em;
+}
+.svc p{
+  font-size:.9rem;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:28px;
+  flex:1;
+}
+.svc-link{
+  font-family:"Jost",sans-serif;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--ink);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:color .3s var(--ease),gap .3s var(--ease);
+}
+.svc:hover .svc-link{color:var(--rose-deep);gap:12px}
+.svc-link svg{transition:transform .3s var(--ease)}
+.svc:hover .svc-link svg{transform:translateX(2px)}
+
+/* ============================================================
+   COLLECTIONS — product grid
+   ============================================================ */
+.collections{
+  background:var(--paper);
+}
+.col-grid{
+  display:grid;
+  gap:24px;
+  grid-template-columns:1fr;
+}
+@media (min-width:600px){.col-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.col-grid{grid-template-columns:repeat(3,1fr)}}
+
+.col{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:var(--cream);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.col:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.col-media{
+  aspect-ratio:1/1;
+  overflow:hidden;
+}
+.col-media img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .8s var(--ease);
+}
+.col:hover .col-media img{transform:scale(1.06)}
+.col-body{
+  padding:28px 28px 32px;
+  background:var(--paper);
+  position:relative;
+}
+.col-body::before{
+  content:"";
+  position:absolute;
+  top:0;left:28px;right:28px;
+  height:1px;
+  background:var(--line);
+}
+.col-tag{
+  font-family:"Jost",sans-serif;
+  font-size:.62rem;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--gold-3);
+  margin-bottom:10px;
+  display:block;
+}
+.col-body h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.4rem;
+  font-weight:600;
+  margin-bottom:8px;
+  letter-spacing:-.01em;
+}
+.col-body p{
+  font-size:.86rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* ============================================================
+   PROCESS — elegant timeline
+   ============================================================ */
+.process{
+  background:var(--mauve);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.process::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(900px 600px at 85% 30%, rgba(201,169,110,.10), transparent 65%);
+}
+.process-in{
+  position:relative;
+  z-index:2;
+}
+.process .section-head h2{color:#fff}
+.process .section-head h2 em{color:var(--gold-2)}
+.process .section-head__eyebrow{color:var(--gold-2)}
+.process .section-head__eyebrow::before,
+.process .section-head__eyebrow::after{background:var(--gold-2)}
+.process .section-head__lead{color:rgba(255,255,255,.6)}
+
+.process-grid{
+  display:grid;
+  gap:0;
+  grid-template-columns:1fr;
+  counter-reset:step;
+}
+@media (min-width:720px){.process-grid{grid-template-columns:repeat(4,1fr)}}
+
+.process-item{
+  padding:40px 28px;
+  border-top:1px solid rgba(255,255,255,.12);
+  position:relative;
+  counter-increment:step;
+}
+@media (min-width:720px){
+  .process-item{border-right:1px solid rgba(255,255,255,.12)}
+  .process-item:last-child{border-right:0}
+}
+.process-item::before{
+  content:"0" counter(step);
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  font-size:.9rem;
+  color:var(--gold-2);
+  display:block;
+  margin-bottom:20px;
+}
+.process-item h4{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.3rem;
+  font-weight:600;
+  color:#fff;
+  margin-bottom:12px;
+  letter-spacing:-.01em;
+}
+.process-item p{
+  font-size:.86rem;
+  color:rgba(255,255,255,.55);
+  line-height:1.8;
+}
+
+/* ============================================================
+   GALLERY — masonry-inspired
+   ============================================================ */
+.gallery{
+  background:var(--cream);
+}
+.gal-grid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:repeat(2,1fr);
+}
+@media (min-width:720px){.gal-grid{grid-template-columns:repeat(4,1fr)}}
+
+.gal-item{
+  position:relative;
+  border-radius:var(--r-md);
+  overflow:hidden;
+  background:var(--blush);
+  aspect-ratio:1/1;
+}
+.gal-item--tall{grid-row:span 2;aspect-ratio:1/2}
+@media (max-width:719px){.gal-item--tall{grid-row:auto;aspect-ratio:1/1}}
+.gal-item img{
+  width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .8s var(--ease);
+}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 60%, rgba(58,46,46,.35) 100%);
+  opacity:0;
+  transition:opacity .4s var(--ease);
+}
+.gal-item:hover::after{opacity:1}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials{
+  background:var(--paper);
+}
+.tst-grid{
+  display:grid;
+  gap:28px;
+  grid-template-columns:1fr;
+}
+@media (min-width:720px){.tst-grid{grid-template-columns:repeat(3,1fr)}}
+
+.tst{
+  background:var(--cream);
+  border-radius:var(--r-lg);
+  padding:44px 36px 36px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.tst:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.tst::before{
+  content:"“";
+  position:absolute;
+  top:6px;left:28px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:5.5rem;
+  line-height:1;
+  color:var(--gold);
+  opacity:.18;
+  font-weight:400;
+}
+.tst .stars{
+  display:flex;
+  gap:3px;
+  color:var(--gold);
+  margin-bottom:24px;
+  position:relative;
+  z-index:1;
+}
+.tst p{
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  font-size:1.1rem;
+  line-height:1.7;
+  color:var(--ink);
+  flex:1;
+  position:relative;
+  z-index:1;
+}
+.tst .who{
+  margin-top:32px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.tst .who-avatar{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--blush);
+  display:grid;place-items:center;
+  font-family:"Cormorant Garamond",serif;
+  font-weight:600;
+  font-size:.95rem;
+  color:var(--rose-deep);
+  flex:none;
+}
+.tst .who-info b{
+  display:block;
+  font-family:"Jost",sans-serif;
+  font-weight:500;
+  font-size:.84rem;
+  color:var(--ink);
+  letter-spacing:.04em;
+  margin-bottom:2px;
+}
+.tst .who-info span{
+  font-family:"Jost",sans-serif;
+  font-size:.74rem;
+  color:var(--muted);
+  letter-spacing:.04em;
+}
+
+/* ============================================================
+   CTA BAND
+   ============================================================ */
+.cta-band{
+  background:linear-gradient(165deg, var(--mauve) 0%, var(--ink) 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.cta-band::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(900px 500px at 80% 50%, rgba(201,169,110,.16), transparent 62%);
+}
+.cta-in{
+  position:relative;
+  z-index:2;
+  display:grid;
+  gap:36px;
+  align-items:center;
+  padding:88px 0;
+}
+@media (min-width:900px){
+  .cta-in{grid-template-columns:1.2fr auto;gap:80px;padding:112px 0}
+}
+.cta-band .eyebrow{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  font-family:"Jost",sans-serif;
+  font-size:.66rem;
+  font-weight:500;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-2);
+  margin-bottom:22px;
+}
+.cta-band .eyebrow::before{
+  content:"";
+  width:40px;height:1px;
+  background:var(--gold-2);
+  flex:none;
+}
+.cta-band h2{color:#fff;margin-bottom:16px;max-width:18ch}
+.cta-band h2 em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--gold-2);
+}
+.cta-band p{
+  color:rgba(255,255,255,.6);
+  font-size:.98rem;
+  max-width:48ch;
+  line-height:1.8;
+}
+.cta-btns{display:flex;flex-wrap:wrap;gap:14px}
+.cta-btns .btn{min-height:58px;padding-inline:34px}
+
+/* ============================================================
+   ⭐ PERSONALISE SECTION — the star
+   ============================================================ */
+.personalise{
+  background:linear-gradient(180deg,var(--ivory) 0%,var(--blush) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.personalise::before{
+  content:"";position:absolute;top:10%;left:-10%;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,169,110,.08),transparent 70%);pointer-events:none;
+}
+.personalise::after{
+  content:"";position:absolute;bottom:5%;right:-10%;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(183,110,121,.06),transparent 70%);pointer-events:none;
+}
+.personalise .wrap{position:relative;z-index:2}
+
+.psnl-stage{
+  display:grid;
+  gap:40px;
+  --product-color:#C9A96E;
+  --product-color-dark:#A8884E;
+  --product-color-light:#DCC49A;
+  --product-text-color:#FDF7F1;
+}
+@media (min-width:1000px){
+  .psnl-stage{grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+}
+
+/* ---- Preview (left) ---- */
+.psnl-preview{position:relative}
+.psnl-preview__frame{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  aspect-ratio:5/4;
+  background:#F5EAE4;
+  box-shadow:var(--shadow-md);
+}
+.psnl-scene{position:relative;width:100%;height:100%}
+.psnl-svg{
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  opacity:0;transform:scale(1.02);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
+  pointer-events:none;
+}
+.psnl-svg.is-active{opacity:1;transform:scale(1);pointer-events:auto}
+
+.psnl-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line);
+  display:grid;place-items:center;
+  color:var(--ink);z-index:5;
+  transition:transform .3s var(--ease),background-color .3s,box-shadow .3s;
+  box-shadow:var(--shadow-xs);
+}
+.psnl-nav:hover{background:#fff;box-shadow:var(--shadow-sm);transform:translateY(-50%) scale(1.06)}
+.psnl-nav--prev{left:18px}
+.psnl-nav--next{right:18px}
+
+.psnl-thumbs{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:18px;
+}
+.psnl-thumb{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 8px 12px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;text-align:center;
+  transition:border-color .3s,background-color .3s,transform .3s var(--ease),box-shadow .3s;
+}
+.psnl-thumb:hover{border-color:var(--rose);transform:translateY(-2px)}
+.psnl-thumb.is-active{border-color:var(--rose-deep);box-shadow:0 0 0 3px var(--rose-soft);background:#fff}
+.psnl-thumb__art{
+  width:44px;height:44px;display:grid;place-items:center;color:var(--ink);
+  transition:color .3s;
+}
+.psnl-thumb.is-active .psnl-thumb__art{color:var(--rose-deep)}
+.psnl-thumb span{font-family:"Jost",sans-serif;font-size:.72rem;letter-spacing:.04em;color:var(--muted);font-weight:400}
+.psnl-thumb.is-active span{color:var(--ink);font-weight:500}
+
+/* ---- Panel (right) ---- */
+.psnl-panel{
+  display:flex;flex-direction:column;gap:24px;
+  background:var(--paper);
+  border-radius:20px;
+  padding:40px 36px;
+  box-shadow:var(--shadow-md);
+  border:1px solid var(--line-2);
+}
+@media (max-width:600px){.psnl-panel{padding:30px 24px}}
+
+.psnl-panel__head{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-bottom:20px;border-bottom:1px solid var(--line-2);
+}
+.psnl-panel__head h3{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.9rem;font-weight:600;letter-spacing:-.01em;
+}
+.psnl-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 14px;background:var(--blush);
+  border-radius:100px;
+  font-family:"Jost",sans-serif;font-size:.68rem;font-weight:500;
+  letter-spacing:.06em;color:var(--rose-deep);
+  white-space:nowrap;
+}
+.psnl-badge svg{color:var(--gold)}
+
+.psnl-tabs{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:4px;
+  background:var(--linen);border-radius:12px;padding:5px;
+}
+.psnl-tab{
+  padding:12px 6px;border:0;background:transparent;border-radius:8px;
+  font-family:"Jost",sans-serif;font-size:.76rem;font-weight:500;letter-spacing:.06em;
+  color:var(--muted);cursor:pointer;
+  transition:background-color .3s var(--ease),color .3s var(--ease),box-shadow .3s;
+}
+.psnl-tab:hover{color:var(--ink)}
+.psnl-tab.is-active{background:var(--rose-deep);color:#fff;box-shadow:0 4px 12px -4px rgba(183,110,121,.4)}
+
+.psnl-field{position:relative;display:flex;flex-direction:column;gap:9px}
+.psnl-field label{
+  font-family:"Jost",sans-serif;font-size:.68rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.16em;color:var(--muted);
+}
+.psnl-field input,.psnl-field select{
+  width:100%;padding:14px 16px;
+  border:1px solid var(--line);border-radius:8px;
+  background:#fff;font-family:inherit;font-size:.95rem;
+  color:var(--ink);outline:none;
+  transition:border-color .3s,box-shadow .3s;
+}
+.psnl-field input:focus,.psnl-field select:focus{
+  border-color:var(--rose-deep);
+  box-shadow:0 0 0 4px var(--rose-soft);
+}
+.psnl-field select{
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238A7A7A' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;padding-right:38px;
+}
+.psnl-count{
+  position:absolute;bottom:15px;right:16px;
+  font-family:"Jost",sans-serif;font-size:.72rem;
+  color:var(--muted-2);pointer-events:none;letter-spacing:.04em;
+}
+
+.psnl-row{display:grid;gap:20px;grid-template-columns:1fr auto;align-items:end}
+
+.psnl-preview-text{
+  font-family:"Great Vibes",cursive;
+  font-size:2.4rem;
+  color:var(--rose-deep);
+  line-height:1;
+  padding-bottom:14px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:180px;
+  text-align:right;
+  transition:font-family .3s var(--ease),color .3s;
+}
+@media (max-width:560px){
+  .psnl-preview-text{display:none}
+  .psnl-row{grid-template-columns:1fr}
+}
+
+.psnl-swatches{display:flex;gap:20px;flex-wrap:wrap;padding-top:2px}
+.psnl-swatch{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  border:0;background:transparent;cursor:pointer;padding:0;
+  font-family:inherit;
+}
+.psnl-swatch span{
+  width:34px;height:34px;border-radius:50%;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+  transition:transform .3s var(--ease),box-shadow .3s;
+  display:block;
+}
+.psnl-swatch:hover span{transform:scale(1.08)}
+.psnl-swatch.is-active span{
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.06),0 0 0 3px #fff,0 0 0 4.5px var(--rose-deep);
+  transform:scale(1.06);
+}
+.psnl-swatch em{font-style:normal;font-family:"Jost",sans-serif;font-size:.68rem;letter-spacing:.04em;color:var(--muted);transition:color .3s}
+.psnl-swatch.is-active em{color:var(--ink);font-weight:500}
+
+.psnl-qty{
+  display:inline-flex;align-items:center;
+  border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  background:#fff;
+}
+.psnl-qty button{
+  width:42px;height:46px;border:0;background:transparent;
+  color:var(--ink);font-size:1.15rem;font-weight:400;
+  display:grid;place-items:center;cursor:pointer;
+  transition:background-color .25s;
+}
+.psnl-qty button:hover{background:var(--blush)}
+.psnl-qty button:disabled{opacity:.35;cursor:not-allowed}
+.psnl-qty span{
+  width:46px;text-align:center;
+  font-family:"Jost",sans-serif;font-weight:500;font-size:.95rem;
+  border-left:1px solid var(--line);border-right:1px solid var(--line);
+  line-height:46px;
+}
+
+.psnl-stock{display:flex;gap:10px;align-items:flex-start;padding-bottom:6px}
+.psnl-stock .dot{
+  width:8px;height:8px;border-radius:50%;background:#5BAA6E;
+  margin-top:7px;flex:none;
+  box-shadow:0 0 0 3px rgba(91,170,110,.15);
+  animation:pulse 2.4s var(--ease) infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(91,170,110,.15)}50%{box-shadow:0 0 0 6px rgba(91,170,110,.08)}}
+.psnl-stock b{display:block;font-family:"Jost",sans-serif;font-size:.82rem;font-weight:500;color:var(--ink)}
+.psnl-stock span{font-family:"Jost",sans-serif;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+
+.psnl-price{
+  display:flex;align-items:baseline;gap:2px;
+  font-family:"Cormorant Garamond",serif;
+  color:var(--ink);
+  line-height:1;
+  padding-top:4px;
+}
+.psnl-price small{font-size:1.5rem;font-weight:500;color:var(--muted)}
+.psnl-price b{font-size:2.8rem;font-weight:600;letter-spacing:-.02em;transition:opacity .3s}
+.psnl-price .cents{font-size:1.5rem;font-weight:500;color:var(--muted)}
+
+.psnl-add{
+  font-size:.86rem;letter-spacing:.16em;
+  padding:20px 32px;
+  margin-top:2px;
+}
+.psnl-add svg{transition:transform .35s var(--ease)}
+.psnl-add:hover svg{transform:translateX(4px)}
+
+.psnl-features{
+  display:flex;flex-wrap:wrap;gap:18px 24px;
+  padding-top:22px;
+  border-top:1px solid var(--line-2);
+}
+.psnl-features li{
+  display:flex;align-items:center;gap:8px;
+  font-family:"Jost",sans-serif;font-size:.74rem;
+  color:var(--muted);letter-spacing:.02em;
+}
+.psnl-features svg{color:var(--gold);flex:none}
+
+/* Toast */
+.psnl-toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,120%);
+  background:var(--ink);color:#fff;
+  padding:16px 26px;border-radius:8px;
+  font-family:"Jost",sans-serif;font-size:.82rem;letter-spacing:.06em;
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:12px;
+  z-index:200;
+  transition:transform .5s var(--ease);
+  max-width:calc(100% - 48px);
+}
+.psnl-toast.show{transform:translate(-50%,0)}
+.psnl-toast svg{color:var(--gold-2);flex:none}
+@media (max-width:899px){.psnl-toast{bottom:96px}}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact{
+  background:var(--cream);
+}
+.contact-grid{
+  display:grid;
+  gap:56px;
+}
+@media (min-width:1000px){
+  .contact-grid{grid-template-columns:1fr 1.15fr;gap:88px;align-items:start}
+}
+.contact-info{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.contact-info .item{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  padding:26px 0;
+  border-bottom:1px solid var(--line);
+}
+.contact-info .item:first-child{padding-top:0}
+.contact-info .item:last-child{border-bottom:0}
+.contact-info .item .ic{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:var(--paper);
+  color:var(--rose-deep);
+  display:grid;place-items:center;
+  flex:none;
+  transition:background-color .3s var(--ease),color .3s var(--ease);
+  box-shadow:var(--shadow-xs);
+}
+.contact-info .item:hover .ic{background:var(--rose-deep);color:var(--paper)}
+.contact-info .item h4{
+  font-family:"Jost",sans-serif;
+  font-size:.68rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  color:var(--muted-2);
+  margin-bottom:6px;
+}
+.contact-info .item p{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.2rem;
+  color:var(--ink);
+  font-weight:500;
+  letter-spacing:-.005em;
+  line-height:1.35;
+}
+.contact-info .item p a{transition:color .3s}
+.contact-info .item p a:hover{color:var(--rose-deep)}
+
+.form{
+  display:grid;
+  gap:24px;
+  background:var(--paper);
+  border:1px solid var(--line-2);
+  border-radius:var(--r-lg);
+  padding:48px 42px;
+  box-shadow:var(--shadow-sm);
+}
+@media (max-width:600px){.form{padding:32px 24px}}
+
+.form-row{display:grid;gap:24px}
+@media (min-width:560px){.form-row.two{grid-template-columns:1fr 1fr}}
+
+.field{display:block}
+.field label{
+  display:block;
+  font-family:"Jost",sans-serif;
+  font-size:.68rem;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.field label .req{color:var(--rose)}
+
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  background:transparent;
+  border:0;
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  padding:8px 0 14px;
+  font-family:"Jost",sans-serif;
+  font-size:1rem;
+  color:var(--ink);
+  outline:none;
+  transition:border-color .3s var(--ease);
+}
+.field textarea{resize:vertical;min-height:110px;padding-top:8px}
+.field select{
+  appearance:none;
+  -webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C9A96E' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 2px center;
+  padding-right:32px;
+  cursor:pointer;
+}
+.field input::placeholder,
+.field textarea::placeholder{color:var(--muted-2)}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{border-bottom-color:var(--rose-deep)}
+.field.err input,
+.field.err select,
+.field.err textarea{border-bottom-color:#C43434}
+.field .msg{
+  display:none;
+  font-family:"Jost",sans-serif;
+  font-size:.72rem;
+  font-weight:400;
+  color:#C43434;
+  margin-top:8px;
+  letter-spacing:.04em;
+}
+.field.err .msg{display:block}
+
+.form-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:12px;
+}
+.form-actions .btn{min-height:58px;padding-inline:34px}
+.form-actions .btn-block-sm{flex:1 1 200px}
+
+.form-note{
+  font-family:"Jost",sans-serif;
+  font-size:.74rem;
+  color:var(--muted-2);
+  text-align:center;
+  margin-top:8px;
+  letter-spacing:.06em;
+}
+
+.success{
+  display:none;
+  text-align:center;
+  padding:48px 16px;
+}
+.success.show{display:block}
+.success .tick{
+  width:76px;height:76px;border-radius:50%;
+  background:var(--blush);
+  color:var(--rose-deep);
+  display:grid;place-items:center;
+  margin:0 auto 28px;
+}
+.success h3{font-size:1.8rem;margin-bottom:14px}
+.success p{color:var(--muted);max-width:44ch;margin:0 auto 28px;font-size:.94rem;line-height:1.8}
+.form.done .form-body{display:none}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.ftr{
+  background:var(--ink);
+  color:rgba(255,255,255,.55);
+  padding:72px 0 0;
+}
+.ftr-in{
+  display:grid;
+  gap:52px;
+  padding-bottom:52px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+@media (min-width:900px){
+  .ftr-in{grid-template-columns:1.6fr 1fr 1fr;gap:72px;align-items:start}
+}
+.ftr .logo-txt b{color:#fff}
+.ftr .logo-txt b em{color:var(--gold-2)}
+.ftr .logo-txt span{color:var(--gold-2)}
+.ftr-tagline{
+  margin-top:22px;
+  font-size:.88rem;
+  line-height:1.8;
+  max-width:36ch;
+  color:rgba(255,255,255,.5);
+}
+.ftr-col h5{
+  font-family:"Jost",sans-serif;
+  font-size:.66rem;
+  font-weight:500;
+  letter-spacing:.26em;
+  text-transform:uppercase;
+  color:var(--gold-2);
+  margin:0 0 24px;
+}
+.ftr-col ul{display:flex;flex-direction:column;gap:14px}
+.ftr-col a{
+  font-size:.88rem;
+  color:rgba(255,255,255,.6);
+  transition:color .3s var(--ease),padding-left .3s var(--ease);
+  display:inline-block;
+}
+.ftr-col a:hover{color:#fff;padding-left:6px}
+
+.ftr-social{
+  display:flex;
+  gap:12px;
+  margin-top:24px;
+}
+.ftr-social a{
+  width:40px;height:40px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);
+  display:grid;place-items:center;
+  color:rgba(255,255,255,.6);
+  transition:all .3s var(--ease);
+}
+.ftr-social a:hover{
+  border-color:var(--gold-2);
+  color:var(--gold-2);
+  transform:translateY(-2px);
+}
+
+.ftr-btm{
+  padding:28px 0 32px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 32px;
+  justify-content:space-between;
+  font-family:"Jost",sans-serif;
+  font-size:.74rem;
+  color:rgba(255,255,255,.35);
+  letter-spacing:.06em;
+}
+@media (max-width:899px){
+  .ftr{padding-bottom:84px}
+}
+
+/* ============================================================
+   STICKY MOBILE DOCK
+   ============================================================ */
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+@media (min-width:900px){.dock{display:none}}
+.dock a{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 8px;
+  font-family:"Jost",sans-serif;
+  font-weight:500;font-size:.78rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.dock .d-call{background:var(--ink);color:#fff}
+.dock .d-quote{background:var(--rose-deep);color:#fff}
+
+/* ============================================================
+   MISC
+   ============================================================ */
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:4px;border-radius:4px}
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:200;
+  background:var(--ink);color:#fff;padding:14px 22px;
+  font-family:"Jost",sans-serif;font-size:.82rem;
+  border-radius:0 0 4px 0;
+}
+.skip:focus{left:0}
+section[id]{scroll-margin-top:104px}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms!important;
+    transition-duration:.001ms!important;
+    scroll-behavior:auto!important;
+  }
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ==================== HEADER ==================== -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="CeeCee Melange, home">
+      <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" rx="4" fill="#FBF7F3"/>
+        <rect x="1" y="1" width="46" height="46" rx="4" stroke="#C9A96E" stroke-width="0.8" stroke-opacity="0.5"/>
+        <path d="M24 12c-6 0-10 4.5-10 10.5S18 34 24 34s10-4.5 10-10.5S30 12 24 12z" fill="none" stroke="#B76E79" stroke-width="1.2"/>
+        <path d="M24 16c-3.5 0-6 2.5-6 6.5s2.5 6.5 6 6.5 6-2.5 6-6.5S27.5 16 24 16z" fill="#F7E9E5"/>
+        <circle cx="24" cy="23" r="2.5" fill="#C9A96E"/>
+        <path d="M24 8v3M24 34v3M12 23h3M33 23h3" stroke="#C9A96E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+      </svg>
+      <span class="logo-txt"><b>CeeCee <em>Melange</em></b><span>Event Styling &amp; Gifting</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hdr-right">
+      <div class="hdr-cta">
+        <a class="hdr-phone" href="tel:+447700900000">
+          <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          <span class="txt"><b>+44 7700 900000</b><span>Enquiries &amp; Bookings</span></span>
+        </a>
+        <a href="#contact" class="btn btn-rose">Enquire</a>
+      </div>
+
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+        <span class="burger-lines"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MOBILE DRAWER ==================== -->
+<div class="drawer" id="drawer">
+  <nav aria-label="Mobile">
+    <a class="dlink" href="#services">Services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#collections">Collections <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#process">Process <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#gallery">Gallery <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#testimonials">Testimonials <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="dlink" href="#contact">Contact <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </nav>
+  <div class="drawer-foot">
+    <a href="tel:+447700900000" class="btn btn-rose btn-block" style="min-height:56px">Call Us</a>
+    <a href="#contact" class="btn btn-outline btn-block" style="min-height:56px">Send an Enquiry</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <span class="hero-float hero-float--1" aria-hidden="true"></span>
+  <span class="hero-float hero-float--2" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow">Luxury Event Styling &amp; Gifting</p>
+        <h1>Thoughtful Details, <em>Beautifully</em> Curated</h1>
+        <p class="lead">CeeCee Melange creates bespoke stationery, luxury favours, personalised gifts, elegant tablescapes and unforgettable room set-ups — all crafted with intention and a distinctly feminine touch.</p>
+
+        <div class="hero-btns">
+          <a href="#contact" class="btn btn-rose">
+            Start Your Enquiry
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#collections" class="btn btn-outline">Explore Collections</a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta__item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Halal-Friendly
+          </span>
+          <span class="hero-meta__item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            Bespoke &amp; Personalised
+          </span>
+          <span class="hero-meta__item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Made with Intention
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=80"
+            alt="Elegant floral arrangement and table styling details"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BRAND INTRO ==================== -->
+<section class="section intro" id="about">
+  <div class="wrap">
+    <div class="intro-in">
+      <div class="intro-media rv">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80" alt="Beautifully styled table setting with florals" loading="lazy">
+        <span class="intro-media__badge"><span>Crafted<br>with love</span></span>
+      </div>
+      <div class="intro-copy rv">
+        <p class="eyebrow">Our Story</p>
+        <h2>The Art of <em>Thoughtful</em> Gifting &amp; Styling</h2>
+        <p>CeeCee Melange was born from a love of beautiful details — the kind that make a moment feel truly special. From the first invitation to the final keepsake, we obsess over every element, ensuring it feels considered, personal and effortlessly elegant.</p>
+        <p>We specialise in creating warm, feminine and luxurious experiences for celebrations, corporate gifting and everyday moments that deserve to be remembered. Every piece is designed with intention, and every service is delivered with care.</p>
+        <p class="signature">— CeeCee Melange</p>
+        <a href="#services" class="link-arrow" style="margin-top:16px">
+          Discover Our Services
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="section-head__eyebrow">What We Offer</p>
+      <h2>Bespoke <em>Services</em> for Every Occasion</h2>
+      <p class="section-head__lead">From intimate gatherings to grand celebrations, we design and deliver services that feel personal, polished and beautifully put together.</p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc rv">
+        <span class="svc-ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 5h5l-4 3 1.5 5L12 13l-4.5 3L9 11 5 8h5z"/></svg>
+        </span>
+        <h3>Event Styling</h3>
+        <p>Complete styling for celebrations, gatherings and corporate events — from concept and colour palettes to the final finishing touches.</p>
+        <a href="#contact" class="svc-link">
+          Enquire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="svc rv">
+        <span class="svc-ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4z"/><path d="M8 20h8M12 16v4"/></svg>
+        </span>
+        <h3>Bespoke Stationery</h3>
+        <p>Custom invitations, menus, place cards, signage and paper goods — designed to match your theme and elevate every detail.</p>
+        <a href="#contact" class="svc-link">
+          Enquire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="svc rv">
+        <span class="svc-ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="1"/><path d="M4 12h16M12 8v12M8 8V5a4 4 0 0 1 8 0v3"/></svg>
+        </span>
+        <h3>Luxury Favours</h3>
+        <p>Elegant, beautifully packaged favours that guests will treasure — designed to complement your event and leave a lasting impression.</p>
+        <a href="#contact" class="svc-link">
+          Enquire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="svc rv">
+        <span class="svc-ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v8H4v-8M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </span>
+        <h3>Personalised Gifts</h3>
+        <p>Thoughtful, customised gifts for birthdays, weddings, corporate gifting and special milestones — beautifully presented and uniquely personal.</p>
+        <a href="#contact" class="svc-link">
+          Enquire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="svc rv">
+        <span class="svc-ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+        </span>
+        <h3>Room &amp; Hotel Set-Ups</h3>
+        <p>Stunning room reveals, welcome set-ups and hotel styling for guests, bridal parties and special occasions — designed to wow.</p>
+        <a href="#contact" class="svc-link">
+          Enquire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+
+      <article class="svc rv">
+        <span class="svc-ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+        </span>
+        <h3>Tablescapes &amp; Decor</h3>
+        <p>Elegant table styling, centrepieces, florals and décor hire or design — curated to create a warm, sophisticated atmosphere.</p>
+        <a href="#contact" class="svc-link">
+          Enquire
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ⭐ PERSONALISE YOUR GIFT ==================== -->
+<section class="section personalise" id="personalise">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="section-head__eyebrow">Personalised Beautifully</p>
+      <h2>Make It <em>Uniquely</em> Yours</h2>
+      <p class="section-head__lead">Add a name, choose a font and pick your favourite finish — watch it come to life in real time, then add to cart.</p>
+    </div>
+
+    <div class="psnl-stage rv" id="psnlStage">
+
+      <!-- ============ LEFT: PREVIEW ============ -->
+      <div class="psnl-preview">
+        <div class="psnl-preview__frame">
+          <button class="psnl-nav psnl-nav--prev" id="psnlPrev" aria-label="Previous product">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="psnl-nav psnl-nav--next" id="psnlNext" aria-label="Next product">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+
+          <div class="psnl-scene" id="psnlScene">
+
+            <!-- ========== PEN ========== -->
+            <svg class="psnl-svg is-active" data-product="pen" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="bgPen" cx="50%" cy="30%" r="80%">
+                  <stop offset="0%" stop-color="#FDF5F0"/>
+                  <stop offset="100%" stop-color="#EDDDD5"/>
+                </radialGradient>
+              </defs>
+              <rect width="700" height="560" fill="url(#bgPen)"/>
+              <ellipse cx="350" cy="240" rx="320" ry="200" fill="#FBF1EA" opacity=".65"/>
+              <!-- florals -->
+              <g opacity=".55">
+                <ellipse cx="72" cy="66" rx="24" ry="17" fill="#F2D5CE" transform="rotate(-20 72 66)"/>
+                <ellipse cx="108" cy="46" rx="17" ry="12" fill="#E8B9B0" transform="rotate(15 108 46)"/>
+                <ellipse cx="46" cy="102" rx="15" ry="10" fill="#F2D5CE" transform="rotate(-40 46 102)"/>
+                <ellipse cx="90" cy="92" rx="9" ry="7" fill="#D9A5A5"/>
+              </g>
+              <g opacity=".5">
+                <ellipse cx="632" cy="80" rx="20" ry="14" fill="#F2D5CE" transform="rotate(20 632 80)"/>
+                <ellipse cx="660" cy="112" rx="14" ry="10" fill="#E8B9B0"/>
+              </g>
+              <!-- card underneath -->
+              <g transform="rotate(-8 350 330)">
+                <rect x="140" y="230" width="440" height="220" rx="8" fill="#FDF7F1"/>
+                <rect x="140" y="230" width="440" height="220" rx="8" fill="none" stroke="#E8D7CC" stroke-width="1"/>
+              </g>
+              <!-- pen -->
+              <g transform="translate(360 340) rotate(-22)">
+                <rect x="-232" y="-8" width="460" height="22" rx="11" fill="#000" opacity=".08"/>
+                <path d="M 228 -10 L 260 0 L 228 10 Z" fill="var(--product-color-dark)"/>
+                <rect x="-230" y="-11" width="460" height="22" rx="11" fill="var(--product-color)"/>
+                <rect x="-220" y="-8" width="440" height="4" rx="2" fill="#fff" opacity=".35"/>
+                <rect x="-220" y="4" width="440" height="4" rx="2" fill="#000" opacity=".08"/>
+                <rect x="-176" y="-13" width="8" height="26" rx="2" fill="var(--product-color-dark)"/>
+                <rect x="176" y="-13" width="8" height="26" rx="2" fill="var(--product-color-dark)"/>
+                <rect x="-244" y="-18" width="96" height="7" rx="3.5" fill="var(--product-color-dark)"/>
+                <circle cx="-244" cy="-14" r="5" fill="var(--product-color-dark)"/>
+                <text x="-10" y="7" text-anchor="middle" class="psnl-svg-text" fill="var(--product-text-color)" font-size="24" font-family="'Great Vibes', cursive" opacity=".95">Olivia</text>
+              </g>
+            </svg>
+
+            <!-- ========== NOTEBOOK ========== -->
+            <svg class="psnl-svg" data-product="notebook" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="bgNb" cx="50%" cy="30%" r="80%">
+                  <stop offset="0%" stop-color="#FDF5F0"/>
+                  <stop offset="100%" stop-color="#EDDDD5"/>
+                </radialGradient>
+              </defs>
+              <rect width="700" height="560" fill="url(#bgNb)"/>
+              <ellipse cx="350" cy="240" rx="320" ry="200" fill="#FBF1EA" opacity=".65"/>
+              <g opacity=".55">
+                <ellipse cx="80" cy="70" rx="22" ry="16" fill="#F2D5CE" transform="rotate(-20 80 70)"/>
+                <ellipse cx="116" cy="50" rx="15" ry="11" fill="#E8B9B0"/>
+                <ellipse cx="52" cy="106" rx="13" ry="9" fill="#F2D5CE" transform="rotate(-40 52 106)"/>
+              </g>
+              <g opacity=".5">
+                <ellipse cx="640" cy="86" rx="18" ry="13" fill="#F2D5CE"/>
+                <ellipse cx="666" cy="118" rx="12" ry="9" fill="#E8B9B0"/>
+              </g>
+              <!-- card -->
+              <g transform="rotate(-4 350 320)">
+                <rect x="120" y="170" width="470" height="290" rx="8" fill="#FDF7F1"/>
+                <rect x="120" y="170" width="470" height="290" rx="8" fill="none" stroke="#E8D7CC" stroke-width="1"/>
+              </g>
+              <!-- notebook -->
+              <g transform="rotate(5 350 320)">
+                <rect x="184" y="146" width="336" height="406" rx="6" fill="#000" opacity=".1" transform="translate(6 8)"/>
+                <rect x="182" y="140" width="340" height="404" rx="6" fill="var(--product-color)"/>
+                <rect x="182" y="140" width="14" height="404" rx="6" fill="var(--product-color-dark)"/>
+                <rect x="204" y="150" width="300" height="3" fill="#fff" opacity=".3"/>
+                <rect x="498" y="140" width="5" height="404" fill="var(--product-color-dark)"/>
+                <text x="358" y="330" text-anchor="middle" class="psnl-svg-text" fill="var(--product-text-color)" font-size="52" font-family="'Great Vibes', cursive" opacity=".95">Olivia</text>
+                <path d="M 358 366 Q 348 356 358 350 Q 368 356 358 366 Z" fill="var(--product-text-color)" opacity=".85"/>
+              </g>
+            </svg>
+
+            <!-- ========== GIFT BOX ========== -->
+            <svg class="psnl-svg" data-product="giftbox" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="bgGb" cx="50%" cy="30%" r="80%">
+                  <stop offset="0%" stop-color="#FDF5F0"/>
+                  <stop offset="100%" stop-color="#EDDDD5"/>
+                </radialGradient>
+              </defs>
+              <rect width="700" height="560" fill="url(#bgGb)"/>
+              <ellipse cx="350" cy="260" rx="320" ry="200" fill="#FBF1EA" opacity=".65"/>
+              <g opacity=".55">
+                <ellipse cx="76" cy="66" rx="22" ry="16" fill="#F2D5CE"/>
+                <ellipse cx="112" cy="46" rx="15" ry="11" fill="#E8B9B0"/>
+              </g>
+              <g opacity=".5">
+                <ellipse cx="636" cy="82" rx="18" ry="13" fill="#F2D5CE"/>
+                <ellipse cx="662" cy="114" rx="12" ry="9" fill="#E8B9B0"/>
+              </g>
+              <!-- card -->
+              <rect x="120" y="220" width="470" height="290" rx="10" fill="#FDF7F1" transform="rotate(-3 355 365)"/>
+              <!-- box shadow -->
+              <ellipse cx="355" cy="470" rx="200" ry="20" fill="#000" opacity=".07"/>
+              <!-- box base -->
+              <rect x="185" y="300" width="340" height="170" rx="4" fill="var(--product-color-dark)"/>
+              <rect x="195" y="310" width="320" height="3" fill="#fff" opacity=".15"/>
+              <!-- box lid -->
+              <rect x="165" y="236" width="380" height="74" rx="4" fill="var(--product-color)"/>
+              <rect x="175" y="242" width="360" height="4" fill="#fff" opacity=".38"/>
+              <rect x="175" y="302" width="360" height="4" fill="#000" opacity=".12"/>
+              <!-- name on lid -->
+              <text x="355" y="288" text-anchor="middle" class="psnl-svg-text" fill="var(--product-text-color)" font-size="34" font-family="'Great Vibes', cursive" opacity=".95">Olivia</text>
+              <!-- bow -->
+              <g transform="translate(505 236)">
+                <ellipse cx="-9" cy="-4" rx="11" ry="8" fill="var(--product-text-color)"/>
+                <ellipse cx="9" cy="-4" rx="11" ry="8" fill="var(--product-text-color)"/>
+                <circle cx="0" cy="0" r="4" fill="var(--product-text-color)"/>
+              </g>
+            </svg>
+
+            <!-- ========== KEYCHAIN ========== -->
+            <svg class="psnl-svg" data-product="keychain" viewBox="0 0 700 560" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="bgKc" cx="50%" cy="30%" r="80%">
+                  <stop offset="0%" stop-color="#FDF5F0"/>
+                  <stop offset="100%" stop-color="#EDDDD5"/>
+                </radialGradient>
+              </defs>
+              <rect width="700" height="560" fill="url(#bgKc)"/>
+              <ellipse cx="350" cy="300" rx="320" ry="200" fill="#FBF1EA" opacity=".65"/>
+              <g opacity=".55">
+                <ellipse cx="72" cy="70" rx="22" ry="16" fill="#F2D5CE"/>
+                <ellipse cx="108" cy="50" rx="15" ry="11" fill="#E8B9B0"/>
+              </g>
+              <g opacity=".5">
+                <ellipse cx="632" cy="86" rx="18" ry="13" fill="#F2D5CE"/>
+              </g>
+              <!-- card -->
+              <rect x="140" y="220" width="420" height="290" rx="10" fill="#FDF7F1" transform="rotate(2 350 365)"/>
+              <!-- key ring -->
+              <circle cx="350" cy="164" r="34" fill="none" stroke="var(--product-color)" stroke-width="7"/>
+              <circle cx="350" cy="164" r="34" fill="none" stroke="var(--product-color-dark)" stroke-width="2" opacity=".4"/>
+              <!-- link -->
+              <rect x="343" y="184" width="14" height="32" rx="7" fill="var(--product-color)"/>
+              <!-- disc shadow -->
+              <circle cx="358" cy="350" r="122" fill="#000" opacity=".08"/>
+              <!-- disc -->
+              <circle cx="350" cy="340" r="120" fill="var(--product-color)"/>
+              <circle cx="350" cy="340" r="120" fill="none" stroke="var(--product-color-dark)" stroke-width="3"/>
+              <circle cx="350" cy="340" r="108" fill="none" stroke="var(--product-color-dark)" stroke-width="1" opacity=".5"/>
+              <circle cx="350" cy="340" r="98" fill="none" stroke="var(--product-text-color)" stroke-width="1" opacity=".55"/>
+              <text x="350" y="354" text-anchor="middle" class="psnl-svg-text" fill="var(--product-text-color)" font-size="46" font-family="'Great Vibes', cursive" opacity=".95">Olivia</text>
+            </svg>
+
+          </div>
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="psnl-thumbs" id="psnlThumbs">
+          <button class="psnl-thumb is-active" data-product="pen" aria-label="View Pen">
+            <span class="psnl-thumb__art">
+              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 32l4-1 22-22-3-3L5 28z"/><path d="M28 6l3 3"/></svg>
+            </span>
+            <span>Pen</span>
+          </button>
+          <button class="psnl-thumb" data-product="notebook" aria-label="View Notebook">
+            <span class="psnl-thumb__art">
+              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="24" height="30" rx="2"/><path d="M14 6v30M20 14h7M20 20h7"/></svg>
+            </span>
+            <span>Notebook</span>
+          </button>
+          <button class="psnl-thumb" data-product="giftbox" aria-label="View Gift Box">
+            <span class="psnl-thumb__art">
+              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="28" height="20" rx="1"/><rect x="4" y="9" width="32" height="7" rx="1"/><path d="M20 9v25M20 9c-2-5-8-6-8-2s6 2 8 2zM20 9c2-5 8-6 8-2s-6 2-8 2z"/></svg>
+            </span>
+            <span>Gift Box</span>
+          </button>
+          <button class="psnl-thumb" data-product="keychain" aria-label="View Keychain">
+            <span class="psnl-thumb__art">
+              <svg width="36" height="36" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="11" r="5"/><path d="M17 15l6 6"/><circle cx="26" cy="26" r="8"/><path d="M26 22v8M22 26h8" opacity=".5"/></svg>
+            </span>
+            <span>Keychain</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ RIGHT: PANEL ============ -->
+      <div class="psnl-panel">
+        <header class="psnl-panel__head">
+          <h3>Personalise Your Gift</h3>
+          <span class="psnl-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.6 4.4L18 8l-4.4 1.6L12 14l-1.6-4.4L6 8l4.4-1.6z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8z"/></svg>
+            Preview updates live in real time
+          </span>
+        </header>
+
+        <!-- Tabs -->
+        <div class="psnl-tabs" role="tablist" id="psnlTabs">
+          <button class="psnl-tab is-active" role="tab" data-product="pen">Pen</button>
+          <button class="psnl-tab" role="tab" data-product="notebook">Notebook</button>
+          <button class="psnl-tab" role="tab" data-product="giftbox">Gift Box</button>
+          <button class="psnl-tab" role="tab" data-product="keychain">Keychain</button>
+        </div>
+
+        <!-- Name input -->
+        <div class="psnl-field">
+          <label for="psnlName">Enter name or message</label>
+          <input id="psnlName" type="text" maxlength="30" value="Olivia" placeholder="e.g. Olivia" autocomplete="off">
+          <span class="psnl-count"><span id="psnlCount">6</span>/30</span>
+        </div>
+
+        <!-- Font + live preview -->
+        <div class="psnl-row">
+          <div class="psnl-field">
+            <label for="psnlFont">Choose font</label>
+            <select id="psnlFont">
+              <option value="'Great Vibes', cursive">Lucida Calligraphy</option>
+              <option value="'Dancing Script', cursive">Handwritten Script</option>
+              <option value="'Cormorant Garamond', serif">Elegant Serif</option>
+              <option value="'Jost', sans-serif">Modern Sans</option>
+            </select>
+          </div>
+          <div class="psnl-preview-text" id="psnlPreviewText">Olivia</div>
+        </div>
+
+        <!-- Color swatches -->
+        <div class="psnl-field">
+          <label>Choose colour</label>
+          <div class="psnl-swatches" id="psnlColors">
+            <button class="psnl-swatch is-active" data-color="gold" aria-label="Gold">
+              <span style="background:linear-gradient(135deg,#DCC49A,#C9A96E)"></span>
+              <em>Gold</em>
+            </button>
+            <button class="psnl-swatch" data-color="rose" aria-label="Rose Gold">
+              <span style="background:linear-gradient(135deg,#E2BCBC,#C99898)"></span>
+              <em>Rose Gold</em>
+            </button>
+            <button class="psnl-swatch" data-color="silver" aria-label="Silver">
+              <span style="background:linear-gradient(135deg,#E4E4E4,#B8B8B8)"></span>
+              <em>Silver</em>
+            </button>
+            <button class="psnl-swatch" data-color="black" aria-label="Black">
+              <span style="background:linear-gradient(135deg,#4A4A4A,#1E1E1E)"></span>
+              <em>Black</em>
+            </button>
+          </div>
+        </div>
+
+        <!-- Qty + stock -->
+        <div class="psnl-row">
+          <div class="psnl-field">
+            <label>Quantity</label>
+            <div class="psnl-qty">
+              <button type="button" id="psnlMinus" aria-label="Decrease quantity">−</button>
+              <span id="psnlQty">1</span>
+              <button type="button" id="psnlPlus" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div class="psnl-stock">
+            <span class="dot" aria-hidden="true"></span>
+            <div>
+              <b>In stock</b>
+              <span>Dispatched in 1–2 working days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="psnl-price">
+          <small>£</small><b id="psnlPriceInt">24</b><span class="cents">.00</span>
+        </div>
+
+        <!-- Add to cart -->
+        <button class="btn btn-rose btn-block psnl-add" id="psnlAdd">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+          Add to Cart
+        </button>
+
+        <!-- Trust features -->
+        <ul class="psnl-features">
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="15" height="10" rx="1"/><path d="M16 10h4l3 3v3h-7"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/></svg>
+            Free UK delivery over £50
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8c-2-5-8-5-8-1s6 1 8 1zM12 8c2-5 8-5 8-1s-6 1-8 1z"/></svg>
+            Beautifully packaged, gift-ready
+          </li>
+          <li>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.3l7.8-7.8 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            A more meaningful tomorrow
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== COLLECTIONS ==================== -->
+<section class="section collections" id="collections">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="section-head__eyebrow">Shop the Collections</p>
+      <h2>Curated <em>Collections</em> of Beautiful Things</h2>
+      <p class="section-head__lead">Our own thoughtfully designed range of drinkware, stationery, gifts and keepsakes — perfect for gifting or treating yourself.</p>
+    </div>
+
+    <div class="col-grid">
+      <article class="col rv">
+        <div class="col-media">
+          <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=900&q=80" alt="Elegant glassware and drinkware" loading="lazy">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Collection</span>
+          <h3>Drinkware</h3>
+          <p>Beautifully crafted cups, glasses and tumblers for your favourite beverages — designed to be used and adored.</p>
+        </div>
+      </article>
+
+      <article class="col rv">
+        <div class="col-media">
+          <img src="https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=900&q=80" alt="Minimal keychain on a soft background" loading="lazy">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Collection</span>
+          <h3>Keychains</h3>
+          <p>Charming, personalised keychains that make thoughtful little gifts and elegant party favours.</p>
+        </div>
+      </article>
+
+      <article class="col rv">
+        <div class="col-media">
+          <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=900&q=80" alt="Beautiful stationery and notebooks" loading="lazy">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Collection</span>
+          <h3>Stationery</h3>
+          <p>Notebooks, notepads, pens and paper goods designed to bring beauty to your everyday desk.</p>
+        </div>
+      </article>
+
+      <article class="col rv">
+        <div class="col-media">
+          <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80" alt="Beautifully wrapped gift boxes" loading="lazy">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Collection</span>
+          <h3>Gifts</h3>
+          <p>Curated gift sets for every occasion — birthdays, weddings, new homes and corporate gifting.</p>
+        </div>
+      </article>
+
+      <article class="col rv">
+        <div class="col-media">
+          <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Keepsake box with delicate details" loading="lazy">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Collection</span>
+          <h3>Keepsakes</h3>
+          <p>Beautiful memory boxes, trinket dishes and small treasures to hold your most precious moments.</p>
+        </div>
+      </article>
+
+      <article class="col rv">
+        <div class="col-media">
+          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=900&q=80" alt="Gift wrapping and packaging details" loading="lazy">
+        </div>
+        <div class="col-body">
+          <span class="col-tag">Bespoke</span>
+          <h3>Custom Orders</h3>
+          <p>Looking for something specific? We create fully bespoke pieces tailored to your vision and occasion.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PROCESS ==================== -->
+<section class="section process" id="process">
+  <div class="wrap">
+    <div class="process-in">
+      <div class="section-head rv">
+        <p class="section-head__eyebrow">How It Works</p>
+        <h2>A Seamless <em>Process</em>, From Start to Finish</h2>
+        <p class="section-head__lead">We keep things simple, personal and stress-free — so you can enjoy the journey as much as the result.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-item rv">
+          <h4>Enquire</h4>
+          <p>Share your vision, occasion and any inspiration you have. We'll get back to you with ideas and a tailored quote.</p>
+        </div>
+        <div class="process-item rv">
+          <h4>Design</h4>
+          <p>We refine the details together — colours, materials, wording, packaging — until everything feels just right.</p>
+        </div>
+        <div class="process-item rv">
+          <h4>Create</h4>
+          <p>Every element is thoughtfully crafted and beautifully assembled, with careful attention to every finishing touch.</p>
+        </div>
+        <div class="process-item rv">
+          <h4>Deliver</h4>
+          <p>We deliver, set up and style on the day, so everything is ready and looking perfect when you arrive.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="section-head__eyebrow">Gallery</p>
+      <h2>Moments We've <em>Styled</em></h2>
+      <p class="section-head__lead">A glimpse into the details, textures and celebrations we've had the joy of bringing to life.</p>
+    </div>
+
+    <div class="gal-grid">
+      <a href="#contact" class="gal-item gal-item--tall rv">
+        <img src="https://instagram.fcai21-3.fna.fbcdn.net/v/t51.82787-15/730893339_17949857586195477_255018084938727269_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&_nc_map=urlgen_bucketless&ig_cache_key=MzkyOTcxMzE5MjUwOTUzMDI1Nw%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzA3NS5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=8nbAuAzbBsUQ7kNvwEHX6hp&_nc_oc=AdpCF86mk3Q6MJiJagiFoUAlssTH4OCLlurRVPvziJjcam202x0-C1s3br7s6x4DCOs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcai21-3.fna&_nc_gid=V9Vwk85-FhxfGv3jHqSS5g&_nc_ss=7a22e&oh=00_AQLvt_rCySDhLOcE0Hx7bB9JP_io2xfjbCLDNoLdUMwxnA&oe=6AB4014A" alt="a recent work" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item rv">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Beautiful floral centrepiece" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item rv">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=800&q=80" alt="Gift wrapping details" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item rv">
+        <img src="https://instagram.fcai21-4.fna.fbcdn.net/v/t51.82787-15/788438708_17959987164195477_2302081370407509896_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ig_cache_key=Mzk3NDQzNjU1OTA2OTAxMDUzOQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTM5Ny5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=T1xclayzSgkQ7kNvwEPTPSo&_nc_oc=AdquLuU1GUalcQHNlf_UWt4i0S9ZfdGszdzgdwAJn3q-GapKmdzgPZIJV0eYU1pdb0k&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcai21-4.fna&_nc_gid=kOHg5uCdMPwKE5dnpNZkMQ&_nc_ss=7a22e&oh=00_AQJHeirLSza9btlL37qmBt6VAlwl_lOxQQdzJP3ulqAU9A&oe=6AB3F80C" alt="Stationery flat lay" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item rv">
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80" alt="Delicate floral details" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item gal-item--tall rv">
+        <img src="https://instagram.fcai21-4.fna.fbcdn.net/v/t51.82787-15/772686374_17957518239195477_2390907572366613271_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&_nc_map=urlgen_bucketless&ig_cache_key=Mzk2MzQ5NjEyNjgyODEwMzE0NQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0ueHBpZHMuMzAyNC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=4kXu40wvqhgQ7kNvwFC4lxB&_nc_oc=Adreold5pL2b8K_8tzXEmmk_Z7702Qu0M_1k1WorCIf9Ap-1SmThMI01vS01Os97arY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcai21-4.fna&_nc_gid=bIsZXQE5oG6Zxp-TQ7L7Dg&_nc_ss=7a22e&oh=00_AQI_oBv2AQ8_IwFi0TNwiAnZNLyIW6X9OrrQOv8KV1k7nQ&oe=6AB4085A" alt="Luxury gift boxes" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item rv">
+        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" alt="Keepsake details" loading="lazy">
+      </a>
+      <a href="#contact" class="gal-item rv">
+        <img src="https://instagram.fcai21-2.fna.fbcdn.net/v/t51.82787-15/780157981_17959406541195477_7322198283017639285_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&_nc_map=urlgen_bucketless&ig_cache_key=Mzk3MTY3MDE4NjU0MDA0MjU3MA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA3MS5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=6K73aWRufTYQ7kNvwE6Jz_z&_nc_oc=AdpUxucOdDV8W6o8MfaRuyLslu25VLxaQ9X7hGgpW7lUx6WEBE45TtGVT_WhTP12_Po&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fcai21-2.fna&_nc_gid=V9Vwk85-FhxfGv3jHqSS5g&_nc_ss=7a22e&oh=00_AQJwLqO9dCeUZ4p7L2NkzdLxdYGdLGmJX2QP6jjQwb85Cg&oe=6AB4107B" alt="Elegant drinkware" loading="lazy">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="section testimonials" id="testimonials">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="section-head__eyebrow">Kind Words</p>
+      <h2>Loved by Our <em>Clients</em></h2>
+      <p class="section-head__lead">We're grateful for every celebration we've been part of — here's what some of our clients have said.</p>
+    </div>
+
+    <div class="tst-grid">
+      <article class="tst rv">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+        </div>
+        <p>"CeeCee Melange styled our engagement celebration and every detail was stunning. The tablescapes, the favours, the stationery — everything felt so personal and elegant."</p>
+        <div class="who">
+          <span class="who-avatar">A</span>
+          <div class="who-info">
+            <b>Amina</b>
+            <span>Engagement Celebration</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tst rv">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+        </div>
+        <p>"I ordered personalised gifts for my team and they were absolutely beautiful. The packaging alone made everyone smile. Will definitely be ordering again."</p>
+        <div class="who">
+          <span class="who-avatar">S</span>
+          <div class="who-info">
+            <b>Sara</b>
+            <span>Corporate Gifting</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="tst rv">
+        <div class="stars" aria-label="5 out of 5 stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6.6 7 .9-5 4.9 1.3 7L12 18l-6.3 3.4L7 14.4 2 9.5l7-.9z"/></svg>
+        </div>
+        <p>"The room set-up for my sister's bridal shower was beyond what we imagined. Thoughtful, feminine and so beautifully done. Thank you CeeCee!"</p>
+        <div class="who">
+          <span class="who-avatar">N</span>
+          <div class="who-info">
+            <b>Nadia</b>
+            <span>Bridal Shower</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BAND ==================== -->
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-in">
+      <div class="rv">
+        <p class="eyebrow">Let's Create Something Beautiful</p>
+        <h2>Ready to Start <em>Planning</em>?</h2>
+        <p>Tell us about your occasion and we'll help you bring it to life — with thoughtful details, elegant styling and beautiful gifts.</p>
+      </div>
+      <div class="cta-btns rv">
+        <a href="#contact" class="btn btn-gold">Send an Enquiry</a>
+        <a href="tel:+447700900000" class="btn btn-ghost-light">Call Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="section contact" id="contact">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="section-head__eyebrow">Get in Touch</p>
+      <h2>Let's Talk About Your <em>Vision</em></h2>
+      <p class="section-head__lead">Share a few details and we'll get back to you with ideas, availability and a tailored quote. We can't wait to hear from you.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info rv">
+        <div class="item">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+          </span>
+          <div>
+            <h4>Phone &amp; WhatsApp</h4>
+            <p><a href="tel:+447700900000">+44 7700 900000</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          </span>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:hello@ceeceemelange.com">hello@ceeceemelange.com</a></p>
+          </div>
+        </div>
+        <div class="item">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <div>
+            <h4>Based In</h4>
+            <p>United Kingdom</p>
+          </div>
+        </div>
+        <div class="item">
+          <span class="ic" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <div>
+            <h4>Response Time</h4>
+            <p>Within 24 hours</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="form rv" id="quoteForm" novalidate>
+        <div class="form-body">
+          <div class="form-row two">
+            <div class="field" id="f-name">
+              <label for="name">Your Name <span class="req">*</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name">
+              <span class="msg">Please enter your name</span>
+            </div>
+            <div class="field" id="f-email">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              <span class="msg">Please enter a valid email</span>
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field" id="f-phone">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="07000 000000">
+              <span class="msg">Please enter a valid phone number</span>
+            </div>
+            <div class="field" id="f-service">
+              <label for="service">What Can We Help With?</label>
+              <select id="service" name="service">
+                <option>Event Styling</option>
+                <option>Bespoke Stationery</option>
+                <option>Luxury Favours</option>
+                <option>Personalised Gifts</option>
+                <option>Room &amp; Hotel Set-Ups</option>
+                <option>Tablescapes &amp; Decor</option>
+                <option>Product Enquiry</option>
+                <option>Something Else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="f-date">
+            <label for="date">Event or Delivery Date (if known)</label>
+            <input id="date" name="date" type="text" placeholder="e.g. 15 September 2026">
+          </div>
+
+          <div class="field" id="f-message">
+            <label for="message">Tell Us About Your Vision <span class="req">*</span></label>
+            <textarea id="message" name="message" rows="5" placeholder="Share your occasion, colour palette, quantity, any inspiration — the more detail, the better."></textarea>
+            <span class="msg">Please tell us a little about what you're looking for</span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-rose btn-block-sm" id="submitBtn">Send Enquiry</button>
+            <a href="tel:+447700900000" class="btn btn-outline btn-block-sm">Call Instead</a>
+          </div>
+          <p class="form-note">We typically reply within 24 hours, Monday to Saturday.</p>
+        </div>
+
+        <div class="success" id="success" role="status" aria-live="polite">
+          <span class="tick" aria-hidden="true">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          </span>
+          <h3>Thank You</h3>
+          <p>Your enquiry is on its way. We'll be in touch very soon — in the meantime, feel free to reach us on WhatsApp or by phone if it's urgent.</p>
+          <a href="tel:+447700900000" class="btn btn-rose">Call Us</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <div>
+        <a href="#top" class="logo" aria-label="CeeCee Melange">
+          <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="46" height="46" rx="4" fill="#3A2E2E"/>
+            <rect x="1" y="1" width="46" height="46" rx="4" stroke="#C9A96E" stroke-width="0.8" stroke-opacity="0.4"/>
+            <path d="M24 12c-6 0-10 4.5-10 10.5S18 34 24 34s10-4.5 10-10.5S30 12 24 12z" fill="none" stroke="#DCC49A" stroke-width="1.2"/>
+            <path d="M24 16c-3.5 0-6 2.5-6 6.5s2.5 6.5 6 6.5 6-2.5 6-6.5S27.5 16 24 16z" fill="#5C4A4A"/>
+            <circle cx="24" cy="23" r="2.5" fill="#C9A96E"/>
+            <path d="M24 8v3M24 34v3M12 23h3M33 23h3" stroke="#C9A96E" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+          <span class="logo-txt"><b>CeeCee <em>Melange</em></b><span>Event Styling &amp; Gifting</span></span>
+        </a>
+        <p class="ftr-tagline">Thoughtful details, beautifully curated. Bespoke stationery, luxury favours, personalised gifts and elegant event styling — made with love.</p>
+        <div class="ftr-social">
+          <a href="https://www.instagram.com/ceecee_melange/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="mailto:hello@ceeceemelange.com" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="ftr-col">
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="ftr-col">
+        <h5>Get in Touch</h5>
+        <ul>
+          <li><a href="tel:+447700900000">+44 7700 900000</a></li>
+          <li><a href="mailto:hello@ceeceemelange.com">hello@ceeceemelange.com</a></li>
+          <li><a href="https://www.instagram.com/ceecee_melange/" target="_blank" rel="noopener">@ceecee_melange</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ftr-btm">
+      <span>&copy; <span id="yr">2026</span> CeeCee Melange. All rights reserved.</span>
+      <span>Made with love &amp; intention</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile actions -->
+<div class="dock">
+  <a class="d-call" href="tel:+447700900000">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+    Call
+  </a>
+  <a class="d-quote" href="#contact">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    Enquire
+  </a>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* year */
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  /* mobile drawer */
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  function setMenu(open){
+    drawer.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('locked', open);
+  }
+  burger.addEventListener('click', function(){
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  drawer.addEventListener('click', function(e){
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && drawer.classList.contains('open')) { setMenu(false); burger.focus(); }
+  });
+
+  /* reveal on scroll */
+  var rvs = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        var el = en.target;
+        var sibs = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+        el.style.transitionDelay = Math.min(sibs, 5) * 90 + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+      });
+    }, {rootMargin:'0px 0px -6% 0px', threshold:0.06});
+    Array.prototype.forEach.call(rvs, function(el){ io.observe(el); });
+  } else {
+    Array.prototype.forEach.call(rvs, function(el){ el.classList.add('in'); });
+  }
+
+  /* ============================================================
+     ⭐ PERSONALISE — full interactivity
+     ============================================================ */
+  var stage = document.getElementById('psnlStage');
+  if (!stage) return;
+
+  var PRODUCTS = {
+    pen:      { price: 24, label: 'Pen' },
+    notebook: { price: 28, label: 'Notebook' },
+    giftbox:  { price: 35, label: 'Gift Box' },
+    keychain: { price: 18, label: 'Keychain' }
+  };
+
+  var COLORS = {
+    gold:   { color:'#C9A96E', dark:'#A8884E', light:'#DCC49A', text:'#FDF7F1' },
+    rose:   { color:'#C99898', dark:'#A67878', light:'#E2BCBC', text:'#FDF7F1' },
+    silver: { color:'#B8B8B8', dark:'#8E8E8E', light:'#E4E4E4', text:'#4A4A4A' },
+    black:  { color:'#2A2A2A', dark:'#111111', light:'#4A4A4A', text:'#FDF7F1' }
+  };
+
+  var state = {
+    product: 'pen',
+    color: 'gold',
+    font: "'Great Vibes', cursive",
+    name: 'Olivia',
+    qty: 1
+  };
+
+  var order = ['pen', 'notebook', 'giftbox', 'keychain'];
+
+  var els = {
+    svgs: document.querySelectorAll('.psnl-svg'),
+    tabs: document.querySelectorAll('.psnl-tab'),
+    thumbs: document.querySelectorAll('.psnl-thumb'),
+    swatches: document.querySelectorAll('.psnl-swatch'),
+    nameInput: document.getElementById('psnlName'),
+    nameCount: document.getElementById('psnlCount'),
+    fontSel: document.getElementById('psnlFont'),
+    previewText: document.getElementById('psnlPreviewText'),
+    qty: document.getElementById('psnlQty'),
+    minus: document.getElementById('psnlMinus'),
+    plus: document.getElementById('psnlPlus'),
+    priceInt: document.getElementById('psnlPriceInt'),
+    prev: document.getElementById('psnlPrev'),
+    next: document.getElementById('psnlNext'),
+    addBtn: document.getElementById('psnlAdd'),
+    toast: document.getElementById('psnlToast'),
+    toastText: document.getElementById('psnlToastText')
+  };
+
+  function getPrice(){
+    return PRODUCTS[state.product].price * state.qty;
+  }
+
+  function applyColor(){
+    var c = COLORS[state.color];
+    stage.style.setProperty('--product-color', c.color);
+    stage.style.setProperty('--product-color-dark', c.dark);
+    stage.style.setProperty('--product-color-light', c.light);
+    stage.style.setProperty('--product-text-color', c.text);
+  }
+
+  function applyName(){
+    var val = state.name.trim() || 'Your Name';
+    // Update all SVG text elements
+    Array.prototype.forEach.call(document.querySelectorAll('.psnl-svg-text'), function(t){
+      t.textContent = val;
+    });
+    // Update the panel preview text
+    if (els.previewText) els.previewText.textContent = val;
+  }
+
+  function applyFont(){
+    Array.prototype.forEach.call(document.querySelectorAll('.psnl-svg-text'), function(t){
+      t.setAttribute('font-family', state.font);
+    });
+    if (els.previewText) els.previewText.style.fontFamily = state.font;
+  }
+
+  function applyProduct(){
+    // Tabs
+    Array.prototype.forEach.call(els.tabs, function(t){
+      t.classList.toggle('is-active', t.getAttribute('data-product') === state.product);
+    });
+    // Thumbs
+    Array.prototype.forEach.call(els.thumbs, function(t){
+      t.classList.toggle('is-active', t.getAttribute('data-product') === state.product);
+    });
+    // SVGs
+    Array.prototype.forEach.call(els.svgs, function(svg){
+      svg.classList.toggle('is-active', svg.getAttribute('data-product') === state.product);
+    });
+  }
+
+  function applyPrice(){
+    var p = getPrice();
+    // Animate the price change with a subtle opacity pulse
+    els.priceInt.style.opacity = '0';
+    setTimeout(function(){
+      els.priceInt.textContent = String(p);
+      els.priceInt.style.opacity = '1';
+    }, reduce ? 0 : 140);
+  }
+
+  function applyQty(){
+    els.qty.textContent = String(state.qty);
+    els.minus.disabled = state.qty <= 1;
+    applyPrice();
+  }
+
+  /* ---- Event: tabs ---- */
+  Array.prototype.forEach.call(els.tabs, function(tab){
+    tab.addEventListener('click', function(){
+      state.product = tab.getAttribute('data-product');
+      applyProduct();
+      applyPrice();
+    });
+  });
+
+  /* ---- Event: thumbnails ---- */
+  Array.prototype.forEach.call(els.thumbs, function(thumb){
+    thumb.addEventListener('click', function(){
+      state.product = thumb.getAttribute('data-product');
+      applyProduct();
+      applyPrice();
+    });
+  });
+
+  /* ---- Event: prev / next arrows ---- */
+  function step(dir){
+    var idx = order.indexOf(state.product);
+    idx = (idx + dir + order.length) % order.length;
+    state.product = order[idx];
+    applyProduct();
+    applyPrice();
+  }
+  els.prev.addEventListener('click', function(){ step(-1); });
+  els.next.addEventListener('click', function(){ step(1); });
+
+  /* ---- Event: color swatches ---- */
+  Array.prototype.forEach.call(els.swatches, function(sw){
+    sw.addEventListener('click', function(){
+      state.color = sw.getAttribute('data-color');
+      Array.prototype.forEach.call(els.swatches, function(s){
+        s.classList.toggle('is-active', s === sw);
+      });
+      applyColor();
+    });
+  });
+
+  /* ---- Event: name input ---- */
+  els.nameInput.addEventListener('input', function(){
+    var v = els.nameInput.value;
+    // Enforce max length (browser does this but double check)
+    if (v.length > 30) { v = v.slice(0, 30); els.nameInput.value = v; }
+    state.name = v;
+    els.nameCount.textContent = String(v.length);
+    applyName();
+  });
+
+  /* ---- Event: font selector ---- */
+  els.fontSel.addEventListener('change', function(){
+    state.font = els.fontSel.value;
+    applyFont();
+  });
+
+  /* ---- Event: qty ---- */
+  els.minus.addEventListener('click', function(){
+    if (state.qty > 1){ state.qty--; applyQty(); }
+  });
+  els.plus.addEventListener('click', function(){
+    if (state.qty < 20){ state.qty++; applyQty(); }
+  });
+
+  /* ---- Event: add to cart (demo) ---- */
+  var toastTimer;
+  els.addBtn.addEventListener('click', function(){
+    var product = PRODUCTS[state.product].label;
+    var name = state.name.trim() || 'Your Name';
+    els.toastText.textContent = product + ' for "' + name + '" added to cart · £' + getPrice() + '.00';
+    els.toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ els.toast.classList.remove('show'); }, 3200);
+
+    // Subtle button feedback
+    els.addBtn.style.transform = 'scale(.98)';
+    setTimeout(function(){ els.addBtn.style.transform = ''; }, 160);
+  });
+
+  /* ---- Init ---- */
+  applyColor();
+  applyProduct();
+  applyName();
+  applyFont();
+  applyQty();
+
+  /* ============================================================
+     Contact form
+     ============================================================ */
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+  var name = document.getElementById('name');
+  var email = document.getElementById('email');
+  var phone = document.getElementById('phone');
+  var service = document.getElementById('service');
+  var date = document.getElementById('date');
+  var message = document.getElementById('message');
+
+  function setErr(id, bad){
+    var f = document.getElementById(id);
+    if (f) f.classList.toggle('err', !!bad);
+    return !bad;
+  }
+  function validPhone(v){
+    if (v === '') return true;
+    var d = v.replace(/[^\d]/g,'');
+    return d.length >= 9 && d.length <= 15;
+  }
+  function validEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+  function validate(){
+    var ok = true;
+    ok = setErr('f-name',    name.value.trim() === '') && ok;
+    ok = setErr('f-email',   !validEmail(email.value.trim())) && ok;
+    ok = setErr('f-phone',   !validPhone(phone.value.trim())) && ok;
+    ok = setErr('f-message', message.value.trim() === '') && ok;
+    return ok;
+  }
+  [name, email, phone, message].forEach(function(el){
+    el.addEventListener('input', function(){
+      var f = el.closest('.field');
+      if (f && f.classList.contains('err')) validate();
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (!validate()){
+      var first = form.querySelector('.field.err input, .field.err textarea');
+      if (first) first.focus();
+      return;
+    }
+    var subject = 'Enquiry: ' + service.value + ' \u2014 ' + name.value.trim();
+    var lines = ['Hi CeeCee Melange, I\u2019d love to enquire about your services.',''];
+    lines.push('Name: ' + name.value.trim());
+    lines.push('Email: ' + email.value.trim());
+    if (phone.value.trim()) lines.push('Phone: ' + phone.value.trim());
+    lines.push('Service: ' + service.value);
+    if (date.value.trim()) lines.push('Date: ' + date.value.trim());
+    lines.push('');
+    lines.push(message.value.trim());
+
+    window.location.href = 'mailto:hello@ceeceemelange.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(lines.join('\n'));
+    form.classList.add('done');
+    document.getElementById('success').classList.add('show');
+  });
+})();
+</script>
+
+</body>
+</html>

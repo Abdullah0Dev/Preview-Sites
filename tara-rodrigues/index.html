@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara Rodrigues Interiors</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* CSS VARIABLES & RESET */
+        :root {
+            --bg-color: #F7F6F3;
+            --surface-color: #FFFFFF;
+            --text-primary: #2C352A;
+            --text-secondary: #5C665A;
+            --accent-green: #485744;
+            --accent-green-light: #6B7C66;
+            --border-color: #E2E1DE;
+            
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+            
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); margin-bottom: 1.5rem; }
+        h2 { font-size: clamp(2rem, 3vw, 3rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        
+        .subtitle {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-primary);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-primary);
+            color: white;
+        }
+
+        /* --- REVISED HEADER STYLES --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 1002; /* Keeps logo above mobile menu */
+        }
+
+        .logo span {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green-light);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .mobile-cta {
+            display: none; /* Hidden on desktop */
+        }
+
+        /* Hamburger Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1002; /* Keeps button above mobile menu */
+            padding: 0;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: all 0.3s ease;
+            transform-origin: left center;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, rgba(247, 246, 243, 0.95) 0%, rgba(247, 246, 243, 0.7) 50%, rgba(247, 246, 243, 0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-quote {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 2rem;
+            max-width: 300px;
+            z-index: 1;
+        }
+
+        .hero-quote p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.125rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero-quote span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* FEATURED PROJECTS */
+        .projects {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+
+        .section-header a {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            cursor: pointer;
+        }
+
+        .project-card img {
+            height: 300px;
+            width: 100%;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover img {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .project-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-info h4 {
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-category {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: stretch;
+        }
+
+               /* ABOUT IMAGE -> ABSTRACT REPLACEMENT */
+        .about-img {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .abstract-placeholder {
+            /* Soft, warm radial gradient matching your brand colors */
+            background: radial-gradient(circle at center, #FFFFFF 0%, #F0EDE6 100%);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .abstract-content {
+            max-width: 320px;
+        }
+
+        .abstract-content .subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+        }
+
+        .abstract-content h3 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .abstract-content p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .abstract-line {
+            width: 40px;
+            height: 1px;
+            background-color: var(--accent-green);
+            margin: 0 auto;
+        }
+
+        /* Adjust abstract block for mobile */
+        @media (max-width: 992px) {
+            .about-img {
+                min-height: 400px;
+            }
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 2rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-quote-box {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .about-quote-box h3 {
+            font-style: italic;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-quote-box span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            margin-top: 2rem;
+            color: var(--text-primary);
+        }
+        /* AWARD BADGE */
+        .award-badge {
+            display: flex;
+            align-items: center;
+            background-color: #F9F8F6; /* Matches the cream background in the image */
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            gap: 1.5rem;
+        }
+
+        .award-icon {
+            color: #C5A46D; /* Gold/Bronze */
+            font-size: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-right: 1.5rem;
+            border-right: 1px solid #E0D5C1; /* Thin divider line */
+            line-height: 1;
+        }
+
+        .award-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .award-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #C5A46D;
+            font-weight: 600;
+        }
+
+        .award-text h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .award-sub {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #C5A46D;
+            font-weight: 500;
+        }
+
+        /* Updated Signature to match the image */
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            margin-top: 2rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .signature::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+        /* SERVICES */
+        .services {
+            padding: 5rem 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--surface-color);
+            padding: 2rem 1.5rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            min-height: 60px;
+        }
+
+        .service-card a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+               /* PRESS / LOGOS */
+        .press {
+            padding: 4rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .press-logos {
+            display: flex;
+            justify-content: center; /* Centered layout looks cleaner for logo strips */
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem; /* Consistent spacing */
+        }
+
+        .press-logos img {
+            height: 40px; /* Professional height for logos */
+            width: auto;
+            max-width: 150px; /* Prevents overflow on mobile */
+            object-fit: contain;
+            filter: grayscale(1);
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .press-logos img:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        /* Ensure the text stays sharp and readable */
+        .press-logos .subtitle {
+            margin: 0;
+            color: var(--text-secondary);
+            opacity: 1; 
+        }
+
+        .press-logos .subtitle.text-right {
+            text-align: right;
+            line-height: 1.2;
+        }
+
+        /* TESTIMONIAL */
+        .testimonial {
+            padding: 5rem 0;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial i {
+            font-size: 2rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial p {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial span {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* PROCESS */
+        .process {
+            padding: 5rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            position: relative;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 1.5rem;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+
+        .process-num {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+            background-color: var(--surface-color);
+            display: inline-block;
+            padding-right: 1rem;
+        }
+
+        .process-step h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 2rem;
+        }
+
+        .cta-section .btn {
+            background-color: white;
+            color: var(--accent-green);
+            border: none;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section .btn:hover {
+            background-color: var(--bg-color);
+        }
+
+        .cta-locations {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.8;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 0;
+            background-color: var(--surface-color);
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 1.25rem;
+        }
+
+        .footer-tagline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .about-content { padding-right: 0; }
+            .about-img img { height: 500px; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-quote { display: none; }
+
+            /* MOBILE HEADER & MENU OVERLAY */
+            .desktop-cta {
+                display: none; /* Hide desktop CTA on tablet/mobile */
+            }
+            
+            .menu-toggle {
+                display: flex; /* Show hamburger */
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Start off-screen */
+                width: 100%;
+                height: 100vh;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+                z-index: 1001;
+                padding: 2rem;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            /* When menu is open */
+            .nav-links.is-open {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.25rem;
+                font-family: var(--font-serif);
+            }
+
+            .nav-links .mobile-cta {
+                display: inline-flex;
+                margin-top: 1rem;
+                font-family: var(--font-sans);
+                font-size: 0.875rem;
+            }
+
+            /* Hamburger Animation to 'X' */
+            .menu-toggle.is-active span:nth-child(1) {
+                transform: rotate(45deg);
+                top: -2px;
+                position: relative;
+            }
+            
+            .menu-toggle.is-active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.is-active span:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 2px;
+                position: relative;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero { min-height: 80vh; padding-top: 100px; }
+            .hero::before { background: linear-gradient(to bottom, rgba(247, 246, 243, 0.95) 0%, rgba(247, 246, 243, 0.8) 100%); }
+            
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .press-logos { justify-content: center; }
+            
+            .footer-grid { flex-direction: column; gap: 2rem; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 576px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .hero-buttons .btn { width: 100%; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                Tara Rodrigues
+                <span>Interiors</span>
+            </a>
+            
+            <!-- Navigation Links (Desktop & Mobile Overlay) -->
+            <nav class="nav-links" id="nav-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#services">Services</a>
+                <!-- Mobile Only CTA Button -->
+                <a href="#contact" class="btn btn-primary mobile-cta">Book a Consultation &rarr;</a>
+            </nav>
+
+            <!-- Header Actions (Desktop CTA + Mobile Toggle) -->
+            <div class="header-actions">
+                <a href="#contact" class="btn btn-primary desktop-cta">Book a Consultation &rarr;</a>
+                
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="subtitle">Interior Design Studio &middot; London & Beyond</span>
+                <h1>Nature-Led Interiors, Designed to Elevate Everyday Living.</h1>
+                <p>Biophilic and culturally inspired interiors for residential, commercial and hospitality spaces.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book a Design Consultation &rarr;</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-quote">
+            <p>"Interiors should serve and support those who use it."</p>
+            <span>Tara Rodrigues</span>
+        </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="projects container" id="projects">
+        <div class="section-header">
+            <span class="subtitle">Featured Projects</span>
+            <a href="#">View All Projects &rarr;</a>
+        </div>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="images/proj/1.png" alt="Hampstead Family Home">
+                <div class="project-info">
+                    <h4>Luxury Minimalist Design</h4>
+                    <i class="ph ph-arrow-right"></i>
+                </div>
+                <span class="project-category">Residential</span>
+            </div>
+            
+            <div class="project-card">
+                <img src="images/proj/2.png" alt="Student Lounge Renovation">
+                <div class="project-info">
+                    <h4>Student Lounge Renovation — South Essex College Team
+</h4>
+                    <i class="ph ph-arrow-right"></i>
+                </div>
+                <span class="project-category">Commercial</span>
+            </div>
+            
+            <div class="project-card">
+                <img src="images/proj/3.png" alt="West London House Living Room
+">
+                <div class="project-info">
+                    <h4>West London House Living Room
+</h4>
+                    <i class="ph ph-arrow-right"></i>
+                </div>
+                <span class="project-category">Residential</span>
+            </div>
+            
+            <div class="project-card">
+                <img src="images/proj/4.png" alt="Leeds City Centre Apartment">
+                <div class="project-info">
+                    <h4>Leeds City Centre Apartment</h4>
+                    <i class="ph ph-arrow-right"></i>
+                </div>
+                <span class="project-category">Commercial</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+      <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-img">
+                <img src="https://plus.unsplash.com/premium_photo-1670360414483-64e6d9ba9038?q=80&w=800&auto=format&fit=crop" alt="Tara Rodrigues">
+            </div>
+            
+            <div class="about-content">
+                <span class="subtitle">About Tara</span>
+                <h2>Designing Spaces for a More Considered Life.</h2>
+                <br>
+                <p>I'm an interior designer offering full design services for residential and commercial projects. I do everything from design concept to installation, working collaboratively with trades to deliver high end finishes. I save clients the time required and stress inevitably involved with renovation or new build projects.</p>
+                <p>I design with a collaborative approach as I believe interiors should serve and support those who use it. Rather than being trend-led, I am a nature-led designer.</p>
+                <p>I offer stand alone packages for clients who only need home staging, design consultation or technical drawings for layout planning.</p>
+                
+                <!-- AWARD BADGE -->
+                <div class="award-badge">
+                    <div class="award-icon">
+                        <i class="ph ph-trophy"></i>
+                    </div>
+                    <div class="award-text">
+                        <span class="award-label">Award</span>
+                        <h4>Winner of The Big Interior Design Challenge 2023</h4>
+                        <span class="award-sub">As seen on ITV</span>
+                    </div>
+                </div>
+
+                <p>I operate across biophilic, culturally inspired studios, drawing influence from nature, global design traditions and local context to create timeless, meaningful spaces.</p>
+                <p>I work on projects in London and nationwide and Chicago. I want to do more international projects.</p>
+                
+                <div class="signature">Tara</div>
+            </div>
+            
+            <div class="about-quote-box">
+                <h3>"Thoughtful interiors for happier, healthier lives."</h3>
+                <span>London<br>Nationwide<br>Chicago<br>& Beyond</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services container" id="services">
+        <div class="section-header">
+            <span class="subtitle">Our Services</span>
+            <span class="subtitle" style="margin:0;">Tailored Solutions for Beautiful Spaces</span>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="ph ph-house-line"></i>
+                <h4>Residential Interiors</h4>
+                <p>Bespoke, liveable spaces for modern life.</p>
+                <a href="#">Learn More &rarr;</a>
+            </div>
+            
+            <div class="service-card">
+                <i class="ph ph-buildings"></i>
+                <h4>Commercial Spaces</h4>
+                <p>Functional, inspiring environments for business and people.</p>
+                <a href="#">Learn More &rarr;</a>
+            </div>
+            
+            <div class="service-card">
+                <i class="ph ph-fork-knife"></i>
+                <h4>Hospitality Design</h4>
+                <p>Memorable spaces that create meaningful experiences.</p>
+                <a href="#">Learn More &rarr;</a>
+            </div>
+            
+            <div class="service-card">
+                <i class="ph ph-armchair"></i>
+                <h4>Home Staging</h4>
+                <p>Elevate your space and maximise its potential.</p>
+                <a href="#">Learn More &rarr;</a>
+            </div>
+            
+            <div class="service-card">
+                <i class="ph ph-chat-circle-dots"></i>
+                <h4>Design Consultation</h4>
+                <p>Expert guidance for your project.</p>
+                <a href="#">Learn More &rarr;</a>
+            </div>
+            
+            <div class="service-card">
+                <i class="ph ph-blueprint"></i>
+                <h4>Technical Drawings</h4>
+                <p>Detailed plans for confident execution.</p>
+                <a href="#">Learn More &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESS / LOGOS -->
+    <section class="press">
+        <div class="container">
+            <div class="press-logos">
+                <span class="subtitle">As seen in / Recognized by</span>
+                
+                <!-- Using your transparent images 1-5 -->
+                <img src="images/1.png" alt="Press Logo 1">
+                <img src="images/2.png" alt="Press Logo 2">
+                <img src="images/3.png" alt="Press Logo 3">
+                <img src="images/4.png" alt="Press Logo 4">
+                <img src="images/5.png" alt="Press Logo 5">
+                
+                <span class="subtitle text-right">Good design<br>creates a brighter<br>tomorrow</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial container">
+        <span class="subtitle">Kind Words</span>
+        <i class="ph ph-quotes"></i>
+        <p>"Tara did an excellent job in my children's room! Choosing soft colors and elegant furniture leaving the environment very cosy! Her expertise on colour was really insightful. My kids sleep so much better at night now! Thank you."</p>
+        <span>&mdash; Anishu, Residential Client</span>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Our Process</span>
+                <span class="subtitle" style="margin:0;">A Collaborative Journey to Exceptional Spaces</span>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-num">01</div>
+                    <h4>Discover</h4>
+                    <p>We start with a conversation to understand your vision, needs and lifestyle.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-num">02</div>
+                    <h4>Concept</h4>
+                    <p>We explore ideas, moodboards and initial layouts to bring your vision to life.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-num">03</div>
+                    <h4>Design Development</h4>
+                    <p>We refine the design, select materials and collaborate with trusted trades.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-num">04</div>
+                    <h4>Installation</h4>
+                    <p>We oversee the process through to completion, ensuring a seamless experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <span class="subtitle" style="color: rgba(255,255,255,0.7);">Let's Create Something Extraordinary</span>
+            <h2>Book a Design Consultation Today.</h2>
+            <a href="#" class="btn">Book a Consultation &rarr;</a>
+            <div class="cta-locations">
+                London | Nationwide | Chicago | International
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <a href="#" class="logo">
+                Tara Rodrigues
+                <span>Interiors</span>
+            </a>
+            
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#services">Services</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#"><i class="ph ph-pinterest-logo"></i></a>
+                <a href="#"><i class="ph ph-youtube-logo"></i></a>
+                <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT FOR MOBILE MENU -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const body = document.body;
+
+            // Toggle mobile menu
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('is-active');
+                navLinks.classList.toggle('is-open');
+                
+                // Prevent background scrolling when menu is open
+                if (navLinks.classList.contains('is-open')) {
+                    body.style.overflow = 'hidden';
+                } else {
+                    body.style.overflow = '';
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const links = document.querySelectorAll('.nav-links a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('is-active');
+                    navLinks.classList.remove('is-open');
+                    body.style.overflow = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

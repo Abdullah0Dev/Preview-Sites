@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEWH - The Enterprise Within Her</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #b45a42;
+            --primary-hover: #964733;
+            --text-dark: #2a2724;
+            --text-muted: #615c56;
+            --bg-main: #fdfbf7;
+            --bg-section: #f8f1e9;
+            --bg-card: #ffffff;
+            --border-color: #e8e0d5;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Manrope', sans-serif;
+            --font-handwritten: 'Caveat', cursive;
+            --transition: all 0.3s ease;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+            /* Offset for the sticky header */
+            scroll-padding-top: 100px; 
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            color: var(--text-dark);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Typography Utilities */
+        .subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .text-primary {
+            color: var(--primary-color);
+        }
+
+        .handwritten {
+            font-family: var(--font-handwritten);
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.1;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-main);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .feature-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 12px;
+            width: 100%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .hero-image .handwritten {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            transform: rotate(10deg);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-section);
+            padding: 80px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: 8px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .stat-item {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .stat-number {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .about-quote {
+            margin-top: 32px;
+            position: relative;
+        }
+
+        .about-quote .handwritten {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transform: rotate(-5deg);
+            display: inline-block;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--bg-main);
+        }
+
+        .hiw-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .hiw-title h2 {
+            font-size: 2.5rem;
+            margin-top: 8px;
+        }
+
+        .hiw-title p {
+            color: var(--text-muted);
+            margin-top: 12px;
+            max-width: 400px;
+        }
+
+        .hiw-image img {
+            max-width: 250px;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .step-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .step-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        /* Arrow between steps */
+        .step-arrow {
+            position: absolute;
+            top: 32px;
+            right: -20px;
+            color: var(--border-color);
+            font-size: 1.5rem;
+        }
+
+        .step-item:last-child .step-arrow {
+            display: none;
+        }
+
+        /* Features & Testimonials Section */
+        .features-testimonials {
+            padding: 0 0 80px;
+        }
+
+        .ft-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .ft-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ft-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ft-card-header i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .ft-card-header h4 {
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .ft-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .ft-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ft-link:hover {
+            gap: 12px;
+        }
+
+        /* Testimonial Specific Card */
+        .testimonial-card {
+            background-color: var(--bg-section);
+            border: none;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 0.95rem !important;
+            color: var(--text-dark) !important;
+            margin-bottom: 24px !important;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .testimonial-avatars {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-avatars img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+        }
+
+        .testimonial-stars {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .testimonial-footer {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Resources Section (Added for completeness) */
+        .resources {
+            padding: 80px 0;
+            background-color: var(--bg-section);
+        }
+
+        .resources-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .resources-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .resource-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .resource-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .resource-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .resource-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section (Added for completeness) */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--bg-main);
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .contact-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            background-color: var(--bg-main);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(180, 90, 66, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .about-grid { grid-template-columns: 1fr 1fr; }
+            .about-stats { grid-column: span 2; flex-direction: row; justify-content: space-between; }
+            .ft-grid { grid-template-columns: repeat(2, 1fr); }
+            .resources-grid { grid-template-columns: repeat(2, 1fr); }
+            .step-arrow { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { flex-wrap: wrap; }
+            nav { display: none; width: 100%; margin-top: 20px; }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; gap: 16px; text-align: center; }
+            .mobile-menu-btn { display: block; }
+            .header-cta { display: none; } /* Hide CTA on mobile header, or move inside nav */
+            
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-content p { margin: 0 auto 32px; }
+            .hero-buttons { justify-content: center; }
+            .hero-features { justify-content: center; }
+            .hero-image .handwritten { display: none; }
+            
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-stats { flex-direction: column; text-align: center; }
+            .about-image img { max-width: 300px; margin: 0 auto; }
+            
+            .hiw-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+            .hiw-image { display: none; }
+            .steps-grid { grid-template-columns: 1fr; gap: 48px; }
+            
+            .ft-grid { grid-template-columns: 1fr; }
+            .resources-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .hero-features { flex-direction: column; align-items: center; gap: 16px; }
+            .contact-form { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#home" class="logo">
+                <span class="logo-text">TEWH</span>
+                <span class="logo-sub">The Enterprise Within Her</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#coaching">Coaching</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact" class="btn btn-primary header-cta">Book a clarity call <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="subtitle">Business Coaching for Women</span>
+                    <h1>Helping women turn ideas into <span class="text-primary">real businesses.</span></h1>
+                    <p>Practical guidance, accountability and community for women – especially mums – who are ready to turn their ideas into businesses that work for them.</p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Book a clarity call <i class="fas fa-arrow-right"></i></a>
+                        <a href="#community" class="btn btn-outline">Join the community</a>
+                    </div>
+
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Supportive<br>Community</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>Practical<br>Guidance</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star"></i>
+                            <span>Real<br>Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <!-- Updated Image URL from user -->
+                    <img src="https://images.unsplash.com/photo-1493612276216-ee3925520721?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Woman smiling holding a mug">
+                    <div class="handwritten">More women.<br>Brighter businesses. ♡</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container about-grid">
+                <div class="about-image">
+                    <!-- Updated Image URL from user -->
+                    <img src="me.png" alt="Tobi - Founder">
+                </div>
+                
+                <div class="about-content">
+                    <span class="subtitle" style="text-transform: none; font-family: var(--font-handwritten); font-size: 1.5rem; letter-spacing: 0;">About Tobi</span>
+                    <h2>Founder of The Enterprise Within Her</h2>
+                    <p>I'm the Founder of The Enterprise Within Her (TEWH), a platform supporting women, particularly mums, to turn their business ideas into something real. Through practical guidance, accountability and community, I help women move from idea to activation with the clarity and confidence to build businesses that work for them.</p>
+                    <a href="#contact" class="btn btn-outline">Read my story <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Women Supported</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">REAL</div>
+                        <div class="stat-label">Ideas Turned Into Businesses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">A GROWING</div>
+                        <div class="stat-label">Community of Ambitious Women</div>
+                    </div>
+                    
+                    <div class="about-quote">
+                        <div class="handwritten">"You already have what it takes.<br>Let's bring it to life." ♡</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works / Coaching Section -->
+        <section class="how-it-works" id="coaching">
+            <div class="container">
+                <div class="hiw-header">
+                    <div class="hiw-title">
+                        <span class="subtitle">A simple, supportive path</span>
+                        <h2>How It Works</h2>
+                        <p>From idea to action, with the support you need at every stage.</p>
+                        <div class="handwritten" style="margin-top: 16px; color: var(--primary-color);">Clarity today.<br>A brighter tomorrow. ♡</div>
+                    </div>
+                    <div class="hiw-image">
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Stack of books">
+                    </div>
+                </div>
+
+                <div class="steps-grid">
+                    <!-- Step 1 -->
+                    <div class="step-item">
+                        <div class="step-icon"><i class="far fa-lightbulb"></i></div>
+                        <h3>1. Get Clarity</h3>
+                        <p>Define your idea, your goals and what success looks like for you.</p>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step-item">
+                        <div class="step-icon"><i class="fas fa-users"></i></div>
+                        <h3>2. Get Support</h3>
+                        <p>Through coaching, accountability and a like-minded community of women.</p>
+                        <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step-item">
+                        <div class="step-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>3. Take Action</h3>
+                        <p>Turn your idea into a real business with confidence and momentum.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community & Testimonials Section -->
+        <section class="features-testimonials" id="community">
+            <div class="container ft-grid">
+                
+                <!-- Card 1 -->
+                <div class="ft-card">
+                    <div class="ft-card-header">
+                        <i class="far fa-comments"></i>
+                        <h4>Coaching</h4>
+                    </div>
+                    <p>1:1 and group coaching to help you gain clarity, build a plan and take consistent action.</p>
+                    <a href="#coaching" class="ft-link">Find out more <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ft-card">
+                    <div class="ft-card-header">
+                        <i class="fas fa-users"></i>
+                        <h4>Community</h4>
+                    </div>
+                    <p>A supportive space to connect, share, learn and grow with other ambitious women.</p>
+                    <a href="#contact" class="ft-link">Join the community <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ft-card">
+                    <div class="ft-card-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Accountability</h4>
+                    </div>
+                    <p>Stay on track with structured support, check-ins and practical tools.</p>
+                    <a href="#contact" class="ft-link">Get started <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Testimonial Card -->
+                <div class="ft-card testimonial-card">
+                    <p class="testimonial-text">TEWH gave me the clarity, confidence and support I needed to finally launch my business. I feel like a different person!</p>
+                    <div class="testimonial-author">— Sarah, Mum & Business Owner</div>
+                    
+                    <div class="testimonial-avatars">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Woman 1">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Woman 2">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Woman 3">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Woman 4">
+                    </div>
+                    
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-footer">Real Women. Real Progress.</div>
+                </div>
+
+            </div>
+        </section>
+ 
+
+        <!-- Contact Section (Added to match Navbar) -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="contact-header">
+                    <span class="subtitle">Get in Touch</span>
+                    <h2>Book a Clarity Call</h2>
+                    <p>Ready to turn your idea into a real business? Let's chat.</p>
+                </div>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! This is a demo form.');">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Jane Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="jane@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell me about your idea</label>
+                        <textarea id="message" placeholder="I have an idea for..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TEWH - The Enterprise Within Her. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple JS for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                
+                // Toggle icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
