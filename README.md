@@ -369,11 +369,11 @@ I'm always interested in building something useful, polished, and a little bit a
 
 ## 📬 Get in Touch
 
-📧 **[abdullah@dudepro.com](mailto:abdullah@dudepro.com)**
+📧 **[abdullahdev001@gmail.com](mailto:abdullahdev001@gmail.com)**
 
-▶️ **[YouTube](https://youtube.com/@dudepro)**
+▶️ **[YouTube](https://youtube.com/@Dev-Minds)**
 
-💬 **[WhatsApp](https://wa.me/+4423423423)**
+💬 **[WhatsApp](https://wa.me/+447856239875)**
 
 <br />
 
