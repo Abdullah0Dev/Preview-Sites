@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Dreams LUXE</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-pink: #D15B6B; 
+            --hover-pink: #B04A58;   
+            --light-pink-bg: #FDF8F8; 
+            --dark-text: #3D2F2F;
+            --light-text: #7A6A6A;
+            --white: #FFFFFF;
+            --border-color: #EAE0E0;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-script: 'Great Vibes', cursive;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 30px rgba(209, 91, 107, 0.2);
+        }
+
+        /* --- RESET & GLOBAL --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-text);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .section-label {
+            text-align: center;
+            color: var(--primary-pink);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .script-text {
+            font-family: var(--font-script);
+            color: var(--primary-pink);
+            font-size: 1.2em;
+            font-weight: normal;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--hover-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(209, 91, 107, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--primary-pink);
+            color: var(--primary-pink);
+            background-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-pink);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--primary-pink);
+        }
+
+        .btn-white:hover {
+            background-color: var(--light-pink-bg);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 90px;
+            background-color: #FDF8F8;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            height: 76px;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 1005;
+        }
+
+        .logo-script {
+            font-family: var(--font-script);
+            font-size: 2.2rem;
+            color: var(--primary-pink);
+            line-height: 1;
+        }
+
+        .logo-sans {
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--dark-text);
+            line-height: 1;
+            margin-top: 4px;
+        }
+
+        /* Desktop Nav */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--dark-text);
+            text-decoration: none;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-pink);
+        }
+
+        .nav-link.active {
+            color: var(--primary-pink);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 3.5px;
+            background-color: var(--primary-pink);
+            border-radius: 4px;
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        /* Header CTA */
+        .header-cta {
+            padding: 12px 28px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(209, 91, 107, 0.2);
+        }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1005;
+        }
+
+        .mobile-toggle .line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--dark-text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active .line-1 {
+            transform: rotate(45deg) translate(6px, 6px);
+            background-color: var(--primary-pink);
+        }
+        .mobile-toggle.active .line-2 {
+            opacity: 0;
+        }
+        .mobile-toggle.active .line-3 {
+            transform: rotate(-45deg) translate(6px, -6px);
+            background-color: var(--primary-pink);
+        }
+
+        /* --- MOBILE DRAWER & OVERLAY --- */
+        .mobile-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1002;
+            width: 85vw;
+            max-width: 320px;
+            background: var(--white);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .mobile-drawer.active {
+            transform: translateX(0);
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .drawer-close {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--dark-text);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .drawer-close:hover {
+            background: var(--light-pink-bg);
+        }
+
+        .drawer-nav {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 0.75rem;
+        }
+
+        .drawer-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .mobile-drawer.active .drawer-link {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s, color 0.2s;
+        }
+        
+        /* Staggered animation delays */
+        .mobile-drawer.active .drawer-link:nth-child(1) { transition-delay: 0.05s; }
+        .mobile-drawer.active .drawer-link:nth-child(2) { transition-delay: 0.1s; }
+        .mobile-drawer.active .drawer-link:nth-child(3) { transition-delay: 0.15s; }
+        .mobile-drawer.active .drawer-link:nth-child(4) { transition-delay: 0.2s; }
+        .mobile-drawer.active .drawer-link:nth-child(5) { transition-delay: 0.25s; }
+        .mobile-drawer.active .drawer-link:nth-child(6) { transition-delay: 0.3s; }
+
+        .drawer-link:hover, .drawer-link.active {
+            background: var(--light-pink-bg);
+            color: var(--primary-pink);
+        }
+
+        .drawer-link.active::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary-pink);
+            border-radius: 50%;
+        }
+
+        .drawer-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--light-pink-bg);
+        }
+
+        .drawer-cta {
+            width: 100%;
+            padding: 16px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Spacer to prevent content jump under fixed navbar */
+        .header-spacer {
+            height: 90px;
+        }
+
+        /* --- HERO SECTION (REDESIGNED TO MATCH MOCKUP EXACTLY) --- */
+        .hero {
+            position: relative;
+            background-color: var(--light-pink-bg);
+            min-height: 680px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 62%; /* Exactly matching the 60% width requirement */
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* The gradient overlay that blends the pink background into the image */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, 
+                var(--light-pink-bg) 0%, 
+                rgba(253, 248, 248, 0.95) 10%, 
+                rgba(253, 248, 248, 0.6) 40%, 
+                transparent 100%);
+            z-index: 2;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .hero-text h4 {
+            color: var(--primary-pink);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .hero-text h1 .script-text {
+            display: block;
+            font-family: var(--font-script);
+            color: var(--primary-pink);
+            font-size: 4.5rem;
+            font-weight: normal;
+            line-height: 1;
+            margin-top: 5px;
+            margin-left: -5px; /* Slight adjustment to match the mockup flow */
+        }
+
+        .hero-text p {
+            color: var(--light-text);
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-icons {
+            display: flex;
+            gap: 2.2rem;
+            flex-wrap: nowrap; 
+        }
+
+        .hero-icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.75rem;
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero-icon-item:hover {
+            color: var(--primary-pink);
+            transform: translateY(-3px);
+        }
+
+        .hero-icon-item i {
+            font-size: 1.5rem;
+            color: var(--primary-pink);
+            /* Removed the background circle to match the clean line-art style of the mockup */
+        }
+
+        /* Play Button positioned over the image */
+        .play-btn-wrapper {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .play-text {
+            color: var(--white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+
+        .play-btn i {
+            color: var(--primary-pink);
+            font-size: 1.2rem;
+            margin-left: 4px;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: var(--primary-pink);
+        }
+
+        .play-btn:hover i {
+            color: var(--white);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-pink);
+        }
+
+        .service-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-info {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+        }
+
+        .service-info h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+        }
+
+        .arrow-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--primary-pink);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .arrow-btn {
+            background: var(--hover-pink);
+            transform: rotate(-45deg);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            padding: 5rem 0;
+            background: var(--light-pink-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 450px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h4 {
+            color: var(--primary-pink);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about-text h2 {
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-box {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--light-pink-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-pink);
+            font-size: 1.1rem;
+        }
+
+        .feature-text h5 {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .feature-text p {
+            font-size: 0.75rem;
+            margin-bottom: 0;
+            color: var(--light-text);
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials-section {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-pink-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+            background: var(--white);
+        }
+
+        .stars {
+            color: #F1C40F;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .client-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--primary-pink);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-details h5 {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .client-details span {
+            font-size: 0.7rem;
+            color: var(--primary-pink);
+            font-weight: 500;
+        }
+
+        /* --- CTA BANNER --- */
+        .cta-section {
+            background: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            position: relative;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(61, 47, 47, 0.85);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            color: var(--white);
+        }
+
+        .cta-content h2 {
+            color: var(--white);
+            font-size: 2.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--light-pink-bg);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            display: block;
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dark-text);
+            font-family: var(--font-body);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .footer-desc {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            max-width: 280px;
+            line-height: 1.6;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-col a {
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-pink);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .contact-info i {
+            color: var(--primary-pink);
+            width: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-pink);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-pink);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: var(--light-text);
+        }
+
+        .footer-bottom .heart {
+            color: var(--primary-pink);
+            margin-left: 5px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+            .hero-text h1 .script-text {
+                font-size: 3.8rem;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav, .header-cta {
+                display: none;
+            }
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            /* Stack Hero on Tablet/Mobile */
+            .hero {
+                flex-direction: column;
+                min-height: auto;
+                padding: 0;
+            }
+            
+            .hero-bg {
+                position: relative;
+                width: 100%;
+                height: 450px;
+                order: 2;
+            }
+            
+            .hero-overlay {
+                background: linear-gradient(to top, var(--light-pink-bg) 0%, transparent 50%);
+            }
+            
+            .hero-container {
+                order: 1;
+                padding: 4rem 5%;
+                justify-content: center;
+                background-color: var(--light-pink-bg);
+            }
+            
+            .hero-text {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-icons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .play-btn-wrapper {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .about-img {
+                min-height: 350px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            .hero-text h1 .script-text {
+                font-size: 3rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .about-text h2 {
+                font-size: 2rem;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .hero-icons {
+                gap: 1rem;
+            }
+            .hero-icon-item {
+                font-size: 0.6rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-features {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <span class="logo-script">Sweet Dreams</span>
+                <span class="logo-sans">LUXE</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                    <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                    <li><a href="#services" class="nav-link" data-section="services">Our Services</a></li>
+                    <li><a href="#reviews" class="nav-link" data-section="reviews">Reviews</a></li>
+                    <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Desktop CTA Button -->
+            <a href="#contact" class="btn btn-primary header-cta">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                <span class="line line-1"></span>
+                <span class="line line-2"></span>
+                <span class="line line-3"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay & Drawer -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <div class="logo">
+                <span class="logo-script">Sweet Dreams</span>
+                <span class="logo-sans">LUXE</span>
+            </div>
+            <button class="drawer-close" id="drawer-close" aria-label="Close Menu">
+                <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
+                    <path d="M3 3L15 15M15 3L3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <ul>
+                <li><a href="#" class="drawer-link active" data-section="home">Home</a></li>
+                <li><a href="#about" class="drawer-link" data-section="about">About</a></li>
+                <li><a href="#services" class="drawer-link" data-section="services">Our Services</a></li>
+                <li><a href="#gallery" class="drawer-link" data-section="gallery">Gallery</a></li>
+                <li><a href="#reviews" class="drawer-link" data-section="reviews">Reviews</a></li>
+                <li><a href="#contact" class="drawer-link" data-section="contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="drawer-footer">
+            <a href="#contact" class="btn btn-primary drawer-cta">
+                Get a Quote
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Spacer to prevent content jump under fixed navbar -->
+    <div class="header-spacer"></div>
+
+    <!-- HERO SECTION (EXACT MATCH TO PROVIDED DESIGN) -->
+    <section class="hero" id="home">
+        <!-- The image is background and takes 60% of the width on the right -->
+        <div class="hero-bg">
+            <img src="hero-img.png" alt="Sweet Dreams Cart Setup">
+            <div class="hero-overlay"></div>
+            
+            <!-- Play Button Overlay -->
+            <div class="play-btn-wrapper">
+                <div class="play-text">Watch Our Setups</div>
+                <div class="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- The text is contained on the left side -->
+        <div class="hero-container">
+            <div class="hero-text">
+                <h4>Sweet Treats. Unforgettable Moments.</h4>
+                <h1>Make Every Celebration <br><span class="script-text">Extra Sweet</span></h1>
+                <p>Fun food experiences and stylish event décor for birthdays, weddings, corporate events, children's parties and more. Delicious treats, beautiful displays and unforgettable memories.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get a Quote &rarr;</a>
+                    <a href="#services" class="btn btn-outline">View Our Services</a>
+                </div>
+
+                <div class="hero-icons">
+                    <div class="hero-icon-item">
+                        <i class="fas fa-birthday-cake"></i>
+                        <span>Birthdays</span>
+                    </div>
+                    <div class="hero-icon-item">
+                        <i class="fas fa-ring"></i>
+                        <span>Weddings</span>
+                    </div>
+                    <div class="hero-icon-item">
+                        <i class="fas fa-building"></i>
+                        <span>Corporate Events</span>
+                    </div>
+                    <div class="hero-icon-item">
+                        <i class="fas fa-child"></i>
+                        <span>Children's Parties</span>
+                    </div>
+                    <div class="hero-icon-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Special Occasions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <h4 class="section-label">Our Services</h4>
+            <h2 class="section-title">Sweet Experiences for Every Occasion</h2>
+            <p class="section-subtitle">From classic favourites to show-stopping displays, we create the perfect setup to make your event unforgettable.</p>
+
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Soft Serve Ice Cream">
+                    </div>
+                    <div class="service-info">
+                        <h4>Soft Serve Ice Cream</h4>
+                        <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1562376552-0d160a2f238d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Waffles & Pancakes">
+                    </div>
+                    <div class="service-info">
+                        <h4>Waffles & Pancakes</h4>
+                        <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Donuts & Popcorn">
+                    </div>
+                    <div class="service-info">
+                        <h4>Donuts & Popcorn</h4>
+                        <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1582201942988-13e60e4556ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Candyfloss & Slushies">
+                    </div>
+                    <div class="service-info">
+                        <h4>Candyfloss & Slushies</h4>
+                        <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1548907040-4baa42d10919?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Chocolate Fountains">
+                    </div>
+                    <div class="service-info">
+                        <h4>Chocolate Fountains</h4>
+                        <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sweet Carts & Décor">
+                    </div>
+                    <div class="service-info">
+                        <h4>Sweet Carts & Décor</h4>
+                        <a href="#" class="arrow-btn"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+        <div class="container about-content">
+            <div class="about-img">
+                <img src="about.png" alt="About Sweet Dreams LUXE" onerror="this.src='https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+            </div>
+            
+            <div class="about-text">
+                <h4>About Us</h4>
+                <h2>Creating Sweeter <br>Moments Together</h2>
+                <p>Sweet Dreams Luxe is a fun food machine and event décor company dedicated to making every celebration look amazing, taste delicious and feel unforgettable.</p>
+                <p>We bring the WOW factor to birthdays, weddings, corporate events, children's parties, celebrations and more with our exciting range of fun food experiences and stylish setups.</p>
+                
+                <a href="#" class="btn btn-primary" style="margin-top: 0.5rem;">Get to Know Us &rarr;</a>
+
+                <div class="about-features">
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="far fa-heart"></i></div>
+                        <div class="feature-text">
+                            <h5>100+</h5>
+                            <p>Events Served</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="far fa-star"></i></div>
+                        <div class="feature-text">
+                            <h5>5 ★</h5>
+                            <p>Customer Rating</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
+                        <div class="feature-text">
+                            <h5>Happy Clients</h5>
+                            <p>Across London & Beyond</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section" id="reviews">
+        <div class="container">
+            <h4 class="section-label">What Our Clients Say</h4>
+            <h2 class="section-title">Sweet Words from Happy Clients</h2>
+            <p class="section-subtitle">Don't just take our word for it – hear from some of our wonderful clients.</p>
+
+            <div class="testimonials-grid">
+                <!-- Review 1 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Absolutely amazing service! The setup looked beautiful and everything tasted incredible. Would 100% recommend!"</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Ayesha K.">
+                        </div>
+                        <div class="client-details">
+                            <h5>Ayesha K.</h5>
+                            <span>Birthday Party</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"The chocolate fountain and sweet cart was a huge hit at our wedding. So professional and made the day even more special!"</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Daniel & Priya">
+                        </div>
+                        <div class="client-details">
+                            <h5>Daniel & Priya</h5>
+                            <span>Wedding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Brilliant for our corporate event. Great communication, on time and the setup looked fantastic. Our guests loved it!"</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="James T.">
+                        </div>
+                        <div class="client-details">
+                            <h5>James T.</h5>
+                            <span>Corporate Event</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"The kids had the best time! The candyfloss and waffles were delicious and the setup was so stylish."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Natalie S.">
+                        </div>
+                        <div class="client-details">
+                            <h5>Natalie S.</h5>
+                            <span>Children's Party</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="contact">
+        <div class="container cta-content">
+            <h2>Let's Create Something Sweet</h2>
+            <p>Get in touch today to discuss your event and receive a personalised quote.</p>
+            <a href="#" class="btn btn-white">Get a Quote &rarr;</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    Sweet Dreams
+                    <span>LUXE</span>
+                </div>
+                <p class="footer-desc">Making every celebration extra sweet with fun food experiences and stylish event décor.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#">Ice Cream</a></li>
+                    <li><a href="#">Waffles & Pancakes</a></li>
+                    <li><a href="#">Donuts & Popcorn</a></li>
+                    <li><a href="#">Candyfloss & Slushies</a></li>
+                    <li><a href="#">Chocolate Fountains</a></li>
+                    <li><a href="#">Sweet Carts & Décor</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+44 7305 766194</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@sweetdreamsluxe.co.uk</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>London, UK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2024 Sweet Dreams Luxe. All rights reserved.</p>
+            <p>Making Every Celebration Extra Sweet <i class="fas fa-heart heart"></i></p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.getElementById('main-header');
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileOverlay = document.getElementById('mobile-overlay');
+            const mobileDrawer = document.getElementById('mobile-drawer');
+            const drawerClose = document.getElementById('drawer-close');
+            const drawerLinks = document.querySelectorAll('.drawer-link');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // 1. Scroll Effect: Toggle header styling based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // 2. Mobile Drawer Logic: Open/Close animations and body scroll lock
+            function openMobileMenu() {
+                mobileToggle.classList.add('active');
+                mobileOverlay.classList.add('active');
+                mobileDrawer.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Lock body scroll
+            }
+
+            function closeMobileMenu() {
+                mobileToggle.classList.remove('active');
+                mobileOverlay.classList.remove('active');
+                mobileDrawer.classList.remove('active');
+                document.body.style.overflow = ''; // Unlock body scroll
+            }
+
+            mobileToggle.addEventListener('click', () => {
+                if (mobileDrawer.classList.contains('active')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+
+            mobileOverlay.addEventListener('click', closeMobileMenu);
+            drawerClose.addEventListener('click', closeMobileMenu);
+            
+            // Close mobile menu when a link is clicked
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            // 3. Scroll Spy: Active Section Tracking
+            const sections = document.querySelectorAll('section[id]');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', 
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        updateActiveLink(sectionId);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            function updateActiveLink(sectionId) {
+                // Update desktop links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+                // Update mobile links
+                drawerLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.section === sectionId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Handle initial hash on page load
+            if (window.location.hash) {
+                const initialSection = window.location.hash.replace('#', '');
+                updateActiveLink(initialSection);
+            }
+        });
+    </script>
+
+</body>
+</html>
